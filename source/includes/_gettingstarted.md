@@ -15,7 +15,7 @@ The following values are required in the Header for every request...
 | Authorization | Every request requires a Bearer token `Bearer {access_token}` | Yes |
 | nx-practice-id | The unique identifier for a practice | Yes |
 
-## Authentication Test ##
+## Authentication Test2 ##
 
 Nextech's implementation of the FHIR® standard is protected by the [OAuth 2.0 standard](https://oauth.net/2/) for authenticating requests.  All API requests are authenticated by passing a Bearer token in the Authorization Header.
 
