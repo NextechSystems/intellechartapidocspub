@@ -1,6 +1,6 @@
 ## Synopsis
 
-This repository contains all content used to generate the official Nextech API documentation at https://nextechsystems.github.io/selectapidocspub
+This repository contains all content used to generate the official Nextech API documentation at https://nextechsystems.github.io/intellechartapidocspub
 
 ## Modifying the Documentation
 
@@ -34,9 +34,9 @@ For assistance or additional instructions please visit the official Slate readme
 
 ### Publishing
 
-You can publish the contents of this repository to https://nextechsystems.github.io/selectapidocspub by doing the following:
+You can publish the contents of this repository to https://nextechsystems.github.io/intellechartapidocspub by doing the following:
 
-1. Cloning https://github.com/NextechSystems/selectapidocspub to a Mac OS machine
+1. Cloning https://github.com/NextechSystems/intellechartapidocspub to a Mac OS machine
 2. Open a new Terminal or Command Shell window 
 3. Browse into the path of your cloned repository on your local machine
 4. Type in `./deploy.sh`
