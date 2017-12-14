@@ -9,9 +9,7 @@ includes:
   - introduction
   - gettingstarted
   - patient
-  - appointment
-  - location
-  - practitioner
+  - encounter
 
 search: false
 ---

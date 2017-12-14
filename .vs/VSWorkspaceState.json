@@ -1,9 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\build",
+    "\\build\\javascripts",
     "\\source",
-    "\\source\\includes"
+    "\\source\\includes",
+    "\\source\\javascripts"
   ],
-  "SelectedNode": "\\source\\includes",
+  "SelectedNode": "\\source\\index.html.md",
   "PreviewInSolutionExplorer": false
 }
