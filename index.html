@@ -221,19 +221,7 @@
                     <a href="#authentication-test2" class="toc-h2 toc-link" data-title="Getting Started">Authentication Test2</a>
                   </li>
                   <li>
-                    <a href="#searching" class="toc-h2 toc-link" data-title="Getting Started">Searching</a>
-                  </li>
-                  <li>
-                    <a href="#writing" class="toc-h2 toc-link" data-title="Getting Started">Writing</a>
-                  </li>
-                  <li>
-                    <a href="#pagination" class="toc-h2 toc-link" data-title="Getting Started">Pagination</a>
-                  </li>
-                  <li>
                     <a href="#response-codes" class="toc-h2 toc-link" data-title="Getting Started">Response Codes</a>
-                  </li>
-                  <li>
-                    <a href="#using-postman" class="toc-h2 toc-link" data-title="Getting Started">Using Postman</a>
                   </li>
               </ul>
           </li>
@@ -263,27 +251,24 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>The Nextech Select APIs provide secure access to patient data through a RESTful implementation based on the STU 3 (3.0.1) version of the <a href="https://www.hl7.org/fhir/index.html">FHIR® standard</a>. All API requests are performed over HTTPS and are protected by the <a href="https://oauth.net/2/">OAuth 2.0 standard</a>.</p>
+<p>All API requests are performed over HTTPS and are protected by the <a href="https://oauth.net/2/">OAuth 2.0 standard</a>.</p>
 
 <p>Available API functionality:  </p>
 
 <ul>
-<li>Patient demographics<br></li>
-<li>Patient clinical information<br></li>
-<li>Appointment information<br></li>
-<li>Confirm appointments<br></li>
-<li>Create non-clinical patient notes</li>
-<li>Attach patient documents</li>
+<li>Patient summary search</li>
+<li>Patient encounter search</li>
+<li>Encounter CCDAs</li>
 </ul>
 
-<p>Before you can start using our APIs, you must go through our registration process.  If you&#39;re interested in API access for your practice, please contact us <a href="http://landing.nextech.com/developers-portal-registration-form">here</a>.  Otherwise, if you&#39;ve been provided with credentials to authenticate, then continue to the <a href="/#getting-started">Getting Started</a> section for more information.</p>
+<p>Before you can start using our APIs, you must go through our registration process.  If you&#39;e interested in API access for your practice, please contact us <a href="http://landing.nextech.com/developers-portal-registration-form">here</a>.  Otherwise, if you&#39;ve been provided with credentials to authenticate, then continue to the <a href="/#getting-started">Getting Started</a> section for more information.</p>
 <h1 id='getting-started'>Getting Started</h1>
 <p>All API requests are performed over HTTPS. Although the <a href="https://www.hl7.org/fhir/index.html">FHIR® standard</a> supports both JSON and XML, this API currently only supports JSON.  Therefore any type explicitly defined in the request&#39;s <code>Accept</code> header will be ignored.</p>
 
 <p>Before you can access the Nextech API you must have the proper credentials to authenticate. These credentials will be provided to you by your Nextech representative.  </p>
 
 <p><strong>API Endpoint</strong><br>
-<code>https://select.nextech-api.com/api</code></p>
+<code>https://saas.nextech-api.com/ehr/api</code></p>
 
 <p>The following values are required in the Header for every request...</p>
 
@@ -300,20 +285,38 @@
 <td>Yes</td>
 </tr>
 <tr>
-<td>nx-practice-id</td>
+<td>x-nextech-practice-id</td>
 <td>The unique identifier for a practice</td>
 <td>Yes</td>
 </tr>
 </tbody></table>
 <h2 id='authentication-test2'>Authentication Test2</h2>
-<p>Nextech&#39;s implementation of the FHIR® standard is protected by the <a href="https://oauth.net/2/">OAuth 2.0 standard</a> for authenticating requests.  All API requests are authenticated by passing a Bearer token in the Authorization Header.</p>
+<p>Nextech&#39;s EHR API is protected by the <a href="https://oauth.net/2/">OAuth 2.0 standard</a> for authenticating requests.  All API requests are authenticated by passing a Bearer token in the Authorization Header.</p>
 
 <p><code>Authorization: Bearer {access_token}</code></p>
+<h3 id='request-authorization-code'>Request Authorization Code</h3>
+<p>The SAAS API authenticates requests through a user credentials grant. You must request an authorization code through an interactive login page, then use that code to request an access token.</p>
+
+<p><code>GET https://login.microsoftonline.com/nextechapibeta.onmicrosoft.com/oauth2/authorize</code>
+| Parameter | Description |
+| --------- | ----------- |
+| client_id | Application ID |
+| response_type | <code>code</code> |
+| redirect_url | URL that will be called with the authorization code |
+| resource | The app to consume the token |</p>
 <h3 id='request-access-token'>Request Access Token</h3>
 <p>Access tokens are used to make API requests on behalf of a user. These tokens are short-lived (1 hour by default) but should be kept confidential in transit and in storage. A <code>access_token</code> and <code>refresh_token</code> pair is issued when requesting an access token.</p>
 
 <p><strong>HTTP Request</strong><br>
-<code>POST https://login.microsoftonline.com/nextech-api.com/oauth2/token</code></p>
+<code>POST https://login.microsoftonline.com/nextechapibeta.onmicrosoft.com/oauth2/token</code></p>
+
+<p>https://login.microsoftonline.com/mdidev.onmicrosoft.com/oauth2/token
+Form (x-www-form-urlencoded):
+   grant_type: authorization_code
+   client_id: c6eef4c1-62a2-4f3f-88a6-8679639da10a
+   redirect_uri: http://localhost:8000/callback/
+   code: <authorization code>
+   resource: https://mdidev.onmicrosoft.com/dbb380e9-5cce-42cb-87be-8920d2f0541a</p>
 
 <table><thead>
 <tr>
@@ -323,23 +326,19 @@
 </thead><tbody>
 <tr>
 <td>grant_type</td>
-<td>Use <code>password</code> (Resource owner credentials grant)</td>
+<td><code>authorization_code</code></td>
 </tr>
 <tr>
 <td>client_id</td>
 <td>Application ID</td>
 </tr>
 <tr>
-<td>client_secret</td>
-<td>Application secret</td>
+<td>redirect_uri</td>
+<td>URL that will be called with the access token</td>
 </tr>
 <tr>
-<td>username</td>
-<td>Resource owner username</td>
-</tr>
-<tr>
-<td>password</td>
-<td>Resource owner password</td>
+<td>code</td>
+<td>Authorization code</td>
 </tr>
 <tr>
 <td>resource</td>
@@ -356,255 +355,10 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>token_type</td>
-<td>Always <code>Bearer</code></td>
-</tr>
-<tr>
-<td>scope</td>
-<td>Always <code>user_impersonation</code></td>
-</tr>
-<tr>
-<td>expires_in</td>
-<td>The lifetime of the access token, in seconds. Default 3600</td>
-</tr>
-<tr>
-<td>access_token</td>
-<td>The bearer token used in the <code>Authorization</code> header for subsquent requests</td>
-</tr>
-<tr>
-<td>refresh_token</td>
-<td>A long-lived token (14 days) used to renew expired access tokens without providing user credentials</td>
+<td>code</td>
+<td>Access token</td>
 </tr>
 </tbody></table>
-<h3 id='refresh-access-token'>Refresh Access Token</h3>
-<p>Refresh tokens are used to renew an expired access token without providing user credentials. A <code>access_token</code> and <code>refresh_token</code> pair is issued when requesting an access token using the resource owner credentials grant. A new pair is also generated when using the <code>refresh_token</code> grant type. </p>
-
-<p><strong>HTTP Request</strong><br>
-<code>POST https://login.microsoftonline.com/nextech-api.com/oauth2/token</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>grant_type</td>
-<td>Always <code>refresh_token</code></td>
-</tr>
-<tr>
-<td>client_id</td>
-<td>Application ID</td>
-</tr>
-<tr>
-<td>client_secret</td>
-<td>Application secret</td>
-</tr>
-<tr>
-<td>refresh_token</td>
-<td>A valid refresh token</td>
-</tr>
-</tbody></table>
-
-<p><strong>Response Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>token_type</td>
-<td>Always <code>Bearer</code></td>
-</tr>
-<tr>
-<td>scope</td>
-<td>Always <code>user_impersonation</code></td>
-</tr>
-<tr>
-<td>expires_in</td>
-<td>The lifetime of the access token, in seconds. Default 3600</td>
-</tr>
-<tr>
-<td>access_token</td>
-<td>The bearer token used in the <code>Authorization</code> header for subsquent requests</td>
-</tr>
-<tr>
-<td>refresh_token</td>
-<td>A long-lived token (14 days) used to renew expired access tokens without providing user credentials</td>
-</tr>
-</tbody></table>
-<h2 id='searching'>Searching</h2>
-<p>Searches may be performed via HTTPS calls to the API where supported. </p>
-
-<p>A search is executed by performing a <code>GET</code> operation in the RESTful framework<br>
-<code>GET https://select.nextech-api.com/api/[type]?[field1][:modifier1]=[value1]&amp;[field2][:modifier2]=[value2]...</code><br>
-where [type] refers to a resource such as Patient or Appointment followed by one or more query filters and optional modifiers.</p>
-
-<ul>
-<li>Matching is always case-insensitive and always ignores whitespace before and after the data.</li>
-<li>The default search attempts to match with just the start of the data.</li>
-</ul>
-<h3 id='multiple-values-on-one-field'>Multiple Values on One Field</h3>
-<p>To search for a field that meets at least one of several values, each value should be specified and separated by a comma.</p>
-
-<p><strong>Example: Get patients who live in several nearby cities</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Patient?address-postalcode=33609,33625,33647
-</pre>
-&nbsp;</p>
-<h3 id='multiple-fields'>Multiple Fields</h3>
-<p>To search for multiple fields that all must meet certain criteria, each field should be specified and separated by an ampersand.</p>
-
-<p><strong>Example: Get booked appointments for one day</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Appointment?date=2015-03-04&amp;status=booked
-</pre>
-&nbsp;</p>
-<h3 id='modifiers'>Modifiers</h3>
-<p>A modifier defines how a search match should be performed for a field. A modifier must appear after the field name with a preceeding colon followed by the modifier name.</p>
-
-<table><thead>
-<tr>
-<th>Modifier</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>exact</td>
-<td>The value must match the data exactly</td>
-</tr>
-<tr>
-<td>contains</td>
-<td>The data must contain the value</td>
-</tr>
-</tbody></table>
-
-<p><strong>Example: Get all patients whose last name is Smith</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Patient?family:exact=Smith
-</pre>
-&nbsp;</p>
-
-<p><strong>Example: Get all patients whose last name contains the text &quot;mit&quot;</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Patient?family:contains=mit
-</pre>
-&nbsp;</p>
-<h3 id='operators'>Operators</h3>
-<p>Numeric and date values can be combined with operators to search on ranges of values. The following operators are supported:</p>
-
-<table><thead>
-<tr>
-<th>Operator</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>gt</td>
-<td>Greater Than</td>
-</tr>
-<tr>
-<td>ge</td>
-<td>Greater Than or Equal to</td>
-</tr>
-<tr>
-<td>lt</td>
-<td>Less Than</td>
-</tr>
-<tr>
-<td>le</td>
-<td>Less Than or Equal to</td>
-</tr>
-<tr>
-<td>eq</td>
-<td>Equals</td>
-</tr>
-<tr>
-<td>ne</td>
-<td>Not Equal to</td>
-</tr>
-</tbody></table>
-
-<p><strong>Example: Get the patients with chart numbers between and including 100 and 200</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Patient?identifier=ge100&amp;identifier=le200
-</pre>
-&nbsp;</p>
-
-<p><strong>Example: Get appointments for the month of March 2017</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Appointment?date=ge2017-03-01&amp;date=lt2017-04-01
-</pre>
-&nbsp;</p>
-<h3 id='search-parameter-types'>Search Parameter Types</h3><h4 id='string'>String</h4>
-<p>When matching a simple text string with data, the match is always case-insensitive and always ignores whitespace before and after the data. The default search attempts to match just the start of the data, and you may use a modifier to force an exact match or a match where the data contains the string.</p>
-
-<p><strong>Example: Get all patients whose last name begins with Smith</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Patient?family=Smith
-</pre>
-&nbsp;</p>
-<h4 id='number'>Number</h4>
-<p>By default, exact matches are performed in numeric searches. You may use operators to specify a numeric range.</p>
-
-<p><strong>Example: Get the patient with chart number 3442</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Patient?identifier=3442
-</pre>
-&nbsp;</p>
-<h4 id='date'>Date</h4>
-<p>By default, exact matches are performed in date searches. You may use operators to specify a date range.</p>
-
-<p><strong>Example: Get appointments for the month of October 2016</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Appointment?date=ge2016-10-01&amp;date=lt2017-11-01
-</pre>
-&nbsp;</p>
-<h4 id='human-name'>Human Name</h4>
-<p>Some resources have abstract fields which contain a first name, last name, prefix and suffix. When searching on names, each of those fields are searched individually. The way those fields are matched are consistent with how String searches work, and modifiers may be used to change how the matching works.</p>
-
-<p><strong>Example: Get the patients whose first name, last name, prefix or suffix begins with Doe</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Patient?name=doe
-</pre>
-&nbsp;</p>
-<h4 id='address'>Address</h4>
-<p>Some resources have abstract fields which contain an Address 1, Address 2, City, State and Postal Code field. When searching on address, each of these fields are searched individually. The way those fields are matched are consistent with how String searches work, and modifiers may be used to change how the matching works.</p>
-
-<p><strong>Example: Get the patients whose Address 1, Address 2, City, State or Zip code begins with 1500</strong>
-<pre class="center-column">
-GET https://select.nextech-api.com/api/Patient?address=1500
-</pre>
-&nbsp;</p>
-<h2 id='writing'>Writing</h2>
-<p>Data writes may be performed via HTTPS calls to the API where supported. </p>
-
-<p>A write is executed by performing a <code>PUT</code> operation in the RESTful framework
-<code>PUT https://select.nextech-api.com/api/{resource}/{identifier}</code>
-where <code>{resource}</code> refers to a resource such as Patient or Appointment, <code>{identifier}</code> is the unique identifier of the resource and the body of the request describes a resource and which fields to add or change. This example request path and body would confirm an appointment with the ID 3384:</p>
-
-<p><strong>Example</strong>
-<pre class="center-column">
-<code>PUT https://select.nextech-api.com/api/Appointment/3384</code>
-</pre>
-<pre class="center-column">
-<code>{ 
-    &quot;status&quot;: &quot;booked&quot; 
-}</code>
-</pre>
-&nbsp;</p>
-<h2 id='pagination'>Pagination</h2>
-<p>When a search results in multiple matches, the first ten matches ordered by entered date are returned by default. Included in the result are links to the first set of matches, the following set of matches, the previous set of matches and the last set of matches.</p>
-
-<p>You may overide the number of matches returned, up to fifty, by including <code>_count={number}</code> in your search. </p>
-
-<p><code>GET http://select.nextech-api.com/api/Appointment?_count=25</code></p>
-
-<aside class="notice">
-Search results are limited to 50 matches per page.
-</aside>
 <h2 id='response-codes'>Response Codes</h2>
 <p>The Nextech Select APIs use the standard HTTP response codes to indicate success or failure of an API request.</p>
 
@@ -633,52 +387,6 @@ Search results are limited to 50 matches per page.
 <tr>
 <td>500</td>
 <td>Internal Server Error - We had a problem with our server</td>
-</tr>
-</tbody></table>
-<h2 id='using-postman'>Using Postman</h2>
-<p>To help you get started, here&#39;s a collection of sample API requests in Postman. You can find more information on making API requests using Postman <a href="https://www.getpostman.com/docs/postman/sending_api_requests/requests">here</a>.</p>
-
-<p><a href="https://app.getpostman.com/run-collection/899edff2cda90cba5159"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
-
-<aside class="notice">
-You must have been provided API credentials and Practice ID(s) to use these examples.
-</aside>
-<h3 id='authorization'>Authorization</h3>
-<p>Postman makes it easy to acquire OAuth 2.0 access tokens. Use the information listed below for obtaining a token via the <code>authorization_code</code> grant type. When requesting a new token, you will be redirected to the <em>Auth URL</em> listed below where you can enter your user credentials to authenticate. </p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Auth URL</td>
-<td><code>https://login.microsoftonline.com/nextech-api.com/oauth2/authorize?resource=https%3A%2F%2Fselect.nextech-api.com%2Fapi</code></td>
-</tr>
-<tr>
-<td>Access Token URL</td>
-<td><code>https://login.microsoftonline.com/nextech-api.com/oauth2/token</code></td>
-</tr>
-<tr>
-<td>Callback URL</td>
-<td><code>https://www.getpostman.com/oauth2/callback</code></td>
-</tr>
-<tr>
-<td>Client ID</td>
-<td>Your application ID</td>
-</tr>
-<tr>
-<td>Client Secret</td>
-<td>Your application secret</td>
-</tr>
-<tr>
-<td>Grant Type</td>
-<td><code>Authorization Code</code></td>
-</tr>
-<tr>
-<td>Client Authentication</td>
-<td><code>Send client credentials in body</code></td>
 </tr>
 </tbody></table>
 <h1 id='patient'>Patient</h1><h2 id='patient-2'>Patient</h2><h3 id='overview'>Overview</h3>
@@ -759,7 +467,7 @@ You must have been provided API credentials and Practice ID(s) to use these exam
 <h3 id='em-search-em'><em>Search</em></h3>
 <p>Searches for all appointments matching the given search criteria. See <a href="https://www.hl7.org/fhir/search.html">https://www.hl7.org/fhir/search.html</a> for instructions on formatting search criteria.</p>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET GET /api/search?{parameters}</code></p>
+<p><code>GET /search?{parameters}</code></p>
 <h4 id='parameters'>Parameters</h4>
 <table><thead>
 <tr>
@@ -780,13 +488,13 @@ You must have been provided API credentials and Practice ID(s) to use these exam
 </tbody></table>
 <h4 id='example-get-a-patient-with-a-specific-chart-number'>Example: Get a patient with a specific chart number</h4>
 <pre class="center-column">
-GET https://mdi.nextech-api.com/api/search?term=ABC12345
+GET https://saas.nextech-api.com/ehr/api/search?term=ABC12345
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-patients-with-a-specific-name'>Example: Get all patients with a specific name</h4>
 <pre class="center-column">
-GET https://mdi.nextech-api.com/api/search?term=william
+GET https://saas.nextech-api.com/ehr/api/search?term=william
 </pre>
 
 <p>&nbsp;</p>
@@ -940,19 +648,19 @@ GET https://mdi.nextech-api.com/api/search?term=william
 </tbody></table>
 <h4 id='example-get-the-ccds-for-all-of-a-patient-39-s-encounters'>Example: Get the CCDs for all of a patient&#39;s encounters</h4>
 <pre class="center-column">
-GET https://mdi.nextech-api.com/api/1000/encounters/search
+GET https://saas.nextech-api.com/ehr/api/1000/encounters/search
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-the-ccds-for-a-patient-39-s-encounters-within-a-date-range'>Example: Get the CCDs for a patient&#39;s encounters within a date range</h4>
 <pre class="center-column">
-GET https://mdi.nextech-api.com/api/1000/encounters?start=2-2-2000&end=5-5-2010
+GET https://saas.nextech-api.com/ehr/api/1000/encounters?start=2-2-2000&end=5-5-2010
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-one-section-of-the-ccds-for-a-patient-39-s-encounters-with-a-date-range'>Example: Get one section of the CCDs for a patient&#39;s encounters with a date range</h4>
 <pre class="center-column">
-GET https://mdi.nextech-api.com/api/1000/encounter?start=2-2-2000&end=5-5-2010&section=history
+GET https://saas.nextech-api.com/ehr/api/1000/encounter?start=2-2-2000&end=5-5-2010&amp;section=history
 </pre>
 
 <p>&nbsp;</p>
