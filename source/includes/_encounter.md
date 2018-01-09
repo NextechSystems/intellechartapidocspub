@@ -59,21 +59,21 @@ Searches for all of a one patient's encounters within a date range.
 #### Example: Get the CCDs for all of a patient's encounters
 
 <pre class="center-column">
-GET https://mdi.nextech-api.com/api/1000/encounters/search
+GET https://saas.nextech-api.com/ehr/api/1000/encounters/search
 </pre>
 &nbsp;
 
 #### Example: Get the CCDs for a patient's encounters within a date range
 
 <pre class="center-column">
-GET https://mdi.nextech-api.com/api/1000/encounters?start=2-2-2000&end=5-5-2010
+GET https://saas.nextech-api.com/ehr/api/1000/encounters?start=2-2-2000&end=5-5-2010
 </pre>
 &nbsp;
 
 #### Example: Get one section of the CCDs for a patient's encounters with a date range
 
 <pre class="center-column">
-GET https://mdi.nextech-api.com/api/1000/encounter?start=2-2-2000&end=5-5-2010&section=history
+GET https://saas.nextech-api.com/ehr/api/1000/encounter?start=2-2-2000&end=5-5-2010&amp;section=history
 </pre>
 &nbsp;
 

@@ -38,7 +38,7 @@ Basic information about a patient.
 Searches for all appointments matching the given search criteria. See [https://www.hl7.org/fhir/search.html](https://www.hl7.org/fhir/search.html) for instructions on formatting search criteria.
 
 #### HTTP Request 
-`GET GET /api/search?{parameters}`
+`GET /search?{parameters}`
 
 #### Parameters
 | Name | Located in | Description | Required | Initial Version |
@@ -48,13 +48,13 @@ Searches for all appointments matching the given search criteria. See [https://w
 #### Example: Get a patient with a specific chart number
 
 <pre class="center-column">
-GET https://mdi.nextech-api.com/api/search?term=ABC12345
+GET https://saas.nextech-api.com/ehr/api/search?term=ABC12345
 </pre>
 &nbsp;
 
 #### Example: Get all patients with a specific name
 
 <pre class="center-column">
-GET https://mdi.nextech-api.com/api/search?term=william
+GET https://saas.nextech-api.com/ehr/api/search?term=william
 </pre>
 &nbsp;
