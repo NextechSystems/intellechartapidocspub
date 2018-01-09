@@ -62,7 +62,7 @@ Form (x-www-form-urlencoded):
 
 ## Response Codes ##
 
-The Nextech Select APIs use the standard HTTP response codes to indicate success or failure of an API request.
+The Nextech SAAS APIs use the standard HTTP response codes to indicate success or failure of an API request.
 
 | Code | Description |
 | ---- | ----------- |
