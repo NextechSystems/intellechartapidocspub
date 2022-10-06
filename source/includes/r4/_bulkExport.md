@@ -1,6 +1,6 @@
 # Bulk Export
 
-## Bulk FHIR Export [(Documentation)](http://hl7.org/fhir/uv/bulkdata/STU1.0.1/export/index.html)
+## Bulk FHIR Export [(Documentation)](http://hl7.org/fhir/r4/uv/bulkdata/STU1.0.1/export/index.html)
 
 ### Overview
 
@@ -14,7 +14,7 @@ Allows for the generation of bulk data in one of three different formats: all pa
 
 #### HTTP Request
 
-`GET /r4/Patient/$export?{parameters}`
+`GET Patient/$export?{parameters}`
 
 #### HTTP Headers
 
@@ -27,19 +27,19 @@ Allows for the generation of bulk data in one of three different formats: all pa
 
 | Name           | Located in | Description                                                                                                                                                                                                                                                         | Required | Initial Version |
 | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _16.9_          |
+| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _16.9_          |
 | \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                        | No       | _16.9_          |
 | \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                     | No       | _16.9_          |
 
 #### HTTP Response
 
-A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://select.nextech-api.com/api/r4/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
+A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://qa.intellechartbeta.net/icp-fhir-api/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
 A failed kick-off request will return a response with either a `4XX` or `5XX` range status code, along with a JSON response body containing a FHIR `OperationOutCome` resource describing the error that occurred.
 
 #### Example: Start an export of all patients
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Patient/$export
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/$export
 </pre>
 
 &nbsp;
@@ -48,7 +48,7 @@ GET https://select.nextech-api.com/api/r4/Patient/$export
 
 #### HTTP Request
 
-`GET /r4/Group/{GroupID}/$export?{parameters}`
+`GET Group/{GroupID}/$export?{parameters}`
 
 #### HTTP Headers
 
@@ -62,19 +62,19 @@ GET https://select.nextech-api.com/api/r4/Patient/$export
 | Name           | Located in | Description                                                                                                                                                                                                                                                         | Required | Initial Version |
 | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
 | GroupID        | path       | ID of the group of patients to export                                                                                                                                                                                                                               | Yes      | _16.9_          |
-| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _16.9_          |
+| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _16.9_          |
 | \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                        | No       | _16.9_          |
 | \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                     | No       | _16.9_          |
 
 #### HTTP Response
 
-A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://select.nextech-api.com/api/r4/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
+A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://qa.intellechartbeta.net/icp-fhir-api/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
 A failed kick-off request will return a response with either a `4XX` or `5XX` range status code, along with a JSON response body containing a FHIR `OperationOutCome` resource describing the error that occurred.
 
 #### Example: Start an export of all patients within the group with an ID of "1"
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Group/1/$export
+GET https://qa.intellechartbeta.net/icp-fhir-api/Group/1/$export
 </pre>
 
 &nbsp;
@@ -83,7 +83,7 @@ GET https://select.nextech-api.com/api/r4/Group/1/$export
 
 #### HTTP Request
 
-`GET /r4/$export?{parameters}`
+`GET $export?{parameters}`
 
 #### HTTP Headers
 
@@ -96,19 +96,19 @@ GET https://select.nextech-api.com/api/r4/Group/1/$export
 
 | Name           | Located in | Description                                                                                                                                                                                                                                                         | Required | Initial Version |
 | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _16.9_          |
+| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _16.9_          |
 | \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                        | No       | _16.9_          |
 | \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                     | No       | _16.9_          |
 
 #### HTTP Response
 
-A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://select.nextech-api.com/api/r4/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
+A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://qa.intellechartbeta.net/icp-fhir-api/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
 A failed kick-off request will return a response with either a `4XX` or `5XX` range status code, along with a JSON response body containing a FHIR `OperationOutCome` resource describing the error that occurred.
 
 #### Example: Start an export of all allowed FHIR resources
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/r4/$export
+GET https://qa.intellechartbeta.net/icp-fhir-api/$export
 </pre>
 
 &nbsp;
@@ -117,7 +117,7 @@ GET https://select.nextech-api.com/api/r4/$export
 
 #### HTTP Request
 
-`GET /r4/Export/{ExportJobID}`
+`GET Export/{ExportJobID}`
 
 #### Parameters
 
@@ -189,7 +189,7 @@ Content-Type: application/json
 
 {
  "transactionTime": "2021-01-01T00:00:00Z",
- "request" : "https://select.nextech-api.com/api/r4/Patient/$export?_type=Patient,Observation",
+ "request" : "https://qa.intellechartbeta.net/icp-fhir-api/Patient/$export?_type=Patient,Observation",
  "requiresAccessToken" : false,
  "output" : [{
   "type" : "Patient",
@@ -213,7 +213,7 @@ Content-Type: application/json
 #### Example: Poll the status of an export job with an ID of "61b05fbe-6b5f-4b68-aec4-c03d09f51e82"
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
+GET https://qa.intellechartbeta.net/icp-fhir-api/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
 </pre>
 
 &nbsp;
@@ -222,7 +222,7 @@ GET https://select.nextech-api.com/api/r4/Export/61b05fbe-6b5f-4b68-aec4-c03d09f
 
 #### HTTP Request
 
-`DELETE /r4/Export/{ExportJobID}`
+`DELETE Export/{ExportJobID}`
 
 #### Parameters
 
@@ -233,7 +233,7 @@ GET https://select.nextech-api.com/api/r4/Export/61b05fbe-6b5f-4b68-aec4-c03d09f
 #### Example: Cancel an export job with an ID of "61b05fbe-6b5f-4b68-aec4-c03d09f51e82"
 
 <pre class="center-column">
-DELETE https://select.nextech-api.com/api/r4/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
+DELETE https://qa.intellechartbeta.net/icp-fhir-api/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
 </pre>
 
 &nbsp;

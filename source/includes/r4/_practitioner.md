@@ -8,13 +8,13 @@ A [Practitioner](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-co
 
 | Name       | Description                                                                      | Type                                                                    | Initial Version |
 | ---------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------- |
-| identifier | The unique value assigned to each Practitioner which discerns it from all others | [Identifier](https://www.hl7.org/fhir/R4/datatypes.html#Identifier)     | _12.8_          |
-| active     | Whether this practitioner's record is in active use.                             | [boolean](https://www.hl7.org/fhir/R4/datatypes.html#boolean)           | _12.8_          |
-| name       | The name(s) associated with the practitioner                                     | [HumanName](https://www.hl7.org/fhir/R4/datatypes.html#HumanName)       | _12.8_          |
-| telecom    | Contact detail(s) for the practitioner (that apply to all roles)                 | [ContactPoint](https://www.hl7.org/fhir/R4/datatypes.html#ContactPoint) | _12.8_          |
-| address    | Address(es) of the practitioner that are not role specific                       | [Address](https://www.hl7.org/fhir/R4/datatypes.html#Address)           | _12.8_          |
-| gender     | Gender of the practitioner                                                       | [Code](https://www.hl7.org/fhir/R4/valueset-administrative-gender.html) | _12.8_          |
-| birthDate  | The date of birth of the practitioner                                            | [date](https://www.hl7.org/fhir/R4/datatypes.html#date)                 | _12.8_          |
+| identifier | The unique value assigned to each Practitioner which discerns it from all others | [Identifier](https://www.hl7.org/fhirdatatypes.html#Identifier)     | _12.8_          |
+| active     | Whether this practitioner's record is in active use.                             | [boolean](https://www.hl7.org/fhirdatatypes.html#boolean)           | _12.8_          |
+| name       | The name(s) associated with the practitioner                                     | [HumanName](https://www.hl7.org/fhirdatatypes.html#HumanName)       | _12.8_          |
+| telecom    | Contact detail(s) for the practitioner (that apply to all roles)                 | [ContactPoint](https://www.hl7.org/fhirdatatypes.html#ContactPoint) | _12.8_          |
+| address    | Address(es) of the practitioner that are not role specific                       | [Address](https://www.hl7.org/fhirdatatypes.html#Address)           | _12.8_          |
+| gender     | Gender of the practitioner                                                       | [Code](https://www.hl7.org/fhirvalueset-administrative-gender.html) | _12.8_          |
+| birthDate  | The date of birth of the practitioner                                            | [date](https://www.hl7.org/fhirdatatypes.html#date)                 | _12.8_          |
 
 ### Example
 
@@ -28,7 +28,7 @@ A [Practitioner](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-co
             "value": "9219"
         },
         {
-            "system": "http://hl7.org/fhir/sid/us-npi",
+            "system": "http://hl7.org/fhir/r4/sid/us-npi",
             "value": "1245319599"
         }
     ],
@@ -79,7 +79,7 @@ Returns a single Practitioner result based on the Practitioner ID.
 
 #### HTTP Request
 
-`GET /r4/Practitioner/{practitionerID}`
+`GET /Practitioner/{practitionerID}`
 
 #### Parameters
 
@@ -90,7 +90,7 @@ Returns a single Practitioner result based on the Practitioner ID.
 #### Example: Get a specific Practitioner based on identifier
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Practitioner/12
+GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner/12
 </pre>
 
 &nbsp;
@@ -101,37 +101,21 @@ Searches for all based on the given search criteria.
 
 #### HTTP Request
 
-`GET /r4/Practitioner?{parameters}`
+- `GET /Practitioner?{parameters}`
+- `POST /Practitioner/_search?{parameters}`
+  - _application/x-www-form-urlencoded body:_ `{parameters}`
 
 #### Parameters
 
 | Name               | Located in   | Description                                                                      | Required | Initial Version |
 | ------------------ | ------------ | -------------------------------------------------------------------------------- | -------- | --------------- |
 | identifier         | query or uri | The unique value assigned to each Practitioner which discerns it from all others | No       | _12.8_          |
-| active             | query        | Searches for Practitioners whose record is in active use.                        | No       | _12.8_          |
 | name               | query        | The name of the Practitioner                                                     | No       | _12.8_          |
-| family             | query        | The family (last) name of the practitioner                                       | No       | _12.8_          |
-| given              | query        | The given (first) name of the practitioner                                       | No       | _12.8_          |
-| address            | query        | A (part of the) address of the Practitioner                                      | No       | _12.8_          |
-| address-city       | query        | A city specified in an address                                                   | No       | _12.8_          |
-| address-state      | query        | A state specified in an address                                                  | No       | _12.8_          |
-| address-postalcode | query        | A postal code specified in an address                                            | No       | _12.8_          |
-| phone              | query        | Searches for Practitioners based on phone numbers                                | No       | _12.8_          |
-| email              | query        | Searches for Practitioner based on email address                                 | No       | _12.8_          |
-| gender             | query        | Searches for Practitioner based on gender                                        | No       | _12.8_          |
 
 #### Example: Get all Practitioners
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Practitioner
-</pre>
-
-&nbsp;
-
-#### Example: Get all active Practitioners
-
-<pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Practitioner?active=true
+GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner
 </pre>
 
 &nbsp;
@@ -139,7 +123,7 @@ GET https://select.nextech-api.com/api/r4/Practitioner?active=true
 #### Example: Get a specific Practitioner based on identifier
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Practitioner?identifier=12
+GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner?identifier=12
 </pre>
 
 &nbsp;
@@ -147,23 +131,7 @@ GET https://select.nextech-api.com/api/r4/Practitioner?identifier=12
 #### Example: Get a specific Practitioner based on National Provider Identifier (NPI)
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Practitioner?identifier=http://hl7.org/fhir/sid/us-npi|1245319599
-</pre>
-
-&nbsp;
-
-#### Example: Get all active Practitioners whose city starts with 'Tampa'
-
-<pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Practitioner?address-city=Tampa
-</pre>
-
-&nbsp;
-
-#### Example: Get a specific Practitioner(s) based on gender
-
-<pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Practitioner?gender=male
+GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner?identifier=http://hl7.org/fhir/r4/sid/us-npi|1245319599
 </pre>
 
 &nbsp;
@@ -171,13 +139,13 @@ GET https://select.nextech-api.com/api/r4/Practitioner?gender=male
 #### Example: Get all Practitioners whose name contains 'smith'
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Practitioner?name:contains=smith
+GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner?name:contains=smith
 </pre>
 
 &nbsp;
 
 ### Remarks
 
-- To get a specific Practitioner by the National Provider Identifier (NPI), the system (http://hl7.org/fhir/sid/us-npi) must be included in the query.
+- To get a specific Practitioner by the National Provider Identifier (NPI), the system (http://hl7.org/fhir/r4/sid/us-npi) must be included in the query.
 - Providers will not show up as Practitioners unless their Contacts module record has the Linked User setting configured.
   - Prior to version 14.1, Practitioners could be returned more than once if multiple users are assigned to use the same provider in their Contacts module User properties.

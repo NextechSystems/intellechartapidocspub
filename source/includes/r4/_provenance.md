@@ -8,14 +8,14 @@ The [provenance](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-u
 
 | Name             | Description                                                                    | Type                                                                                                                                                                                                                                                                                                                                                                                                                                | Initial Version |
 | ---------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| id               | The unique value assigned to each provenance which discerns it from all others | [string](https://www.hl7.org/fhir/R4/datatypes.html#string)                                                                                                                                                                                                                                                                                                                                                                         | _17.0_          |
-| meta.lastUpdated | The last time the provenance was modified                                      | [instant](https://hl7.org/fhir/R4/datatypes.html#instant)                                                                                                                                                                                                                                                                                                                                                                           | _17.0_          |
-| target           | The resource(s) the provenance supports                                        | [Reference](http://hl7.org/fhir/R4/references.html#Reference) ([Resource](http://hl7.org/fhir/R4/resource.html))                                                                                                                                                                                                                                                                                                                    | _17.0_          |
+| id               | The unique value assigned to each provenance which discerns it from all others | [string](https://www.hl7.org/fhirdatatypes.html#string)                                                                                                                                                                                                                                                                                                                                                                         | _17.0_          |
+| meta.lastUpdated | The last time the provenance was modified                                      | [instant](https://hl7.org/fhirdatatypes.html#instant)                                                                                                                                                                                                                                                                                                                                                                           | _17.0_          |
+| target           | The resource(s) the provenance supports                                        | [Reference](http://hl7.org/fhirreferences.html#Reference) ([Resource](http://hl7.org/fhirresource.html))                                                                                                                                                                                                                                                                                                                    | _17.0_          |
 | recorded         | Timestamp of when the activity was recorded                                    | [instant](http://hl7.org/fhir/R4/datatypes.html#instant)                                                                                                                                                                                                                                                                                                                                                                            | _17.0_          |
-| agent            | Actor involved                                                                 | [slice](http://hl7.org/fhir/R4/profiling.html#slicing)                                                                                                                                                                                                                                                                                                                                                                              | _17.0_          |
+| agent            | Actor involved                                                                 | [slice](http://hl7.org/fhirprofiling.html#slicing)                                                                                                                                                                                                                                                                                                                                                                              | _17.0_          |
 | agent.type       | How the agent participated                                                     | [CodeableConcept](http://hl7.org/fhir/R4/datatypes.html#CodeableConcept)                                                                                                                                                                                                                                                                                                                                                            | _17.0_          |
-| agent.who        | Who participated                                                               | [Reference](http://hl7.org/fhir/R4/references.html#Reference) ([US Core Practitioner Profile](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-practitioner.html) or [US Core Organization Profile](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-organization.html) or [US Core Patient Profile](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html)) | _17.0_          |
-| agent.onBehalfOf | Who the agent is representing                                                  | [Reference](http://hl7.org/fhir/R4/references.html#Reference) ([US Core Organization Profile](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-organization.html))                                                                                                                                                                                                                                             | _17.0_          |
+| agent.who        | Who participated                                                               | [Reference](http://hl7.org/fhirreferences.html#Reference) ([US Core Practitioner Profile](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-practitioner.html) or [US Core Organization Profile](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-organization.html) or [US Core Patient Profile](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html)) | _17.0_          |
+| agent.onBehalfOf | Who the agent is representing                                                  | [Reference](http://hl7.org/fhirreferences.html#Reference) ([US Core Organization Profile](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-organization.html))                                                                                                                                                                                                                                             | _17.0_          |
 
 ### Example
 
@@ -60,7 +60,7 @@ The [provenance](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-u
             "type": {
                 "coding": [
                     {
-                        "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type",
+                        "system": "http://hl7.org/fhir/r4/us/core/CodeSystem/us-core-provenance-participant-type",
                         "code": "transmitter",
                         "display": "Transmitter"
                     }
@@ -88,7 +88,7 @@ Returns a single Provenance result based on the Provenance ID.
 
 #### HTTP Request
 
-`GET /r4/Provenance/{ProvenanceID}`
+`GET /Provenance/{ProvenanceID}`
 
 #### Parameters
 
@@ -99,46 +99,7 @@ Returns a single Provenance result based on the Provenance ID.
 #### Example: Get a specific provenance based on identifier
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Provenance/123
-</pre>
-
-&nbsp;
-
-### _Search_
-
-Searches for all provenance info based on the given search criteria.
-
-#### HTTP Requests
-
-- `GET /r4/Provenance?{parameters}`
-- `POST /r4/Provenance/_search?{parameters}`
-  - _application/x-www-form-urlencoded body:_ `{parameters}`
-
-**_Note:_** For POST based searches the parameters can be provided in either the URL, the body, or both.
-
-#### Parameters
-
-| Name          | Located in    | Description                                                                         | Required | Initial Version |
-| ------------- | ------------- | ----------------------------------------------------------------------------------- | -------- | --------------- |
-| \_id          | query or body | The unique value assigned to each provenance which discerns it from all others      | No       | _17.0_          |
-| identifier    | query or body | The unique value assigned to each provenance which discerns it from all others      | No       | _17.0_          |
-| \_lastUpdated | query or body | The last time the provenance was modified                                           | No       | _17.0_          |
-| patient       | query or body | The unique patient ID to find direct (Patient resource only) patient provenance for | No       | _17.0_          |
-
-**_Note:_** The possible filter values for the `_lastUpdated` parameter are: `eq`, `ne`, `le`, `lt`, `ge` and `gt`.
-
-#### Example: Get all provenance info
-
-<pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Provenance
-</pre>
-
-&nbsp;
-
-#### Example: Get a specific provenance based on identifier
-
-<pre class="center-column">
-GET https://select.nextech-api.com/api/r4/Provenance?_id=123
+GET https://qa.intellechartbeta.net/icp-fhir-api/Provenance/123
 </pre>
 
 &nbsp;
