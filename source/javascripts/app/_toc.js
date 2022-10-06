@@ -84,6 +84,25 @@
       }
     };
 
+    var makeVersion = function() {
+      var ddlVersion = $(".versions-wrapper select");      
+      var url = window.location.href;
+      url = url.split("#")[0];
+      if(url.indexOf('r4.html') > -1)
+      {
+        ddlVersion.val("r4.html");
+      }
+      ddlVersion.on("change", function()
+      {
+        url = url.replace(/[^\/\?#]+(?=[^\/]*$)/,ddlVersion.val());
+        if(url.indexOf(ddlVersion.val()) == -1)
+        {
+          url += ddlVersion.val();
+        }
+        window.location = url;
+      });
+    }
+
     var makeToc = function() {
       recacheHeights();
       refreshToc();
@@ -108,7 +127,7 @@
     };
 
     makeToc();
-
+    makeVersion();
     window.recacheHeights = recacheHeights;
     window.refreshToc = refreshToc;
   }
