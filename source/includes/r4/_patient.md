@@ -1,324 +1,5 @@
 # Patient
 
-### Overview
-
-The [patient](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html) resource contains information about the demographics of a patient.
-
-### Fields
-
-| Name                | Description                                                                                                                                                                                                                                                                                                                                          | Type                                                                                                                                                                             | Initial Version |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| id                  | The unique identifier of the patient                                                                                                                                                                                                                                                                                                                 | [string](http://hl7.org/fhir/R4/datatypes.html#string)                                                                                                                           | _12.6_          |
-| identifier          | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number. <br/><br/> As a convenience for some use cases, in version 14.1 and above, the patient's masked social security number (last four only) is also returned in this field if available. | [Identifier](http://hl7.org/fhir/R4/datatypes.html#Identifier)                                                                                                                   | _12.6_          |
-| extension:race      | The race of the patient                                                                                                                                                                                                                                                                                                                              | [Extension](http://hl7.org/fhirextensibility.html#Extension) ([US Core Race Extension](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-race.html))           | _12.6_          |
-| extension:ethnicity | The ethnicity of the patient                                                                                                                                                                                                                                                                                                                         | [Extension](http://hl7.org/fhirextensibility.html#Extension) ([US Core Ethnicity Extension](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-ethnicity.html)) | _12.6_          |
-| extension:birthsex  | The patient's sex assigned at birth                                                                                                                                                                                                                                                                                                                  | [Extension](http://hl7.org/fhirextensibility.html#Extension) ([US Core Birth Sex Extension](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-birthsex.html))  |                 |
-| name                | Names of the patient, additional information including prefix and nickname added in version 12.9.20. Other patient names are also returned here starting in 16.9                                                                                                                                                                                     | [HumanName](http://hl7.org/fhir/R4/datatypes.html#HumanName)                                                                                                                     | _12.6_          |
-| telecom             | Contact details for the patient, fax, preferred contact, and other phone added 12.9.20                                                                                                                                                                                                                                                               | [ContactPoint](http://hl7.org/fhir/R4/datatypes.html#ContactPoint)                                                                                                               | _12.6_          |
-| gender              | The gender of the patient                                                                                                                                                                                                                                                                                                                            | [code](http://hl7.org/fhir/R4/datatypes.html#code)                                                                                                                               | _12.6_          |
-| birthDate           | The date of birth of the patient                                                                                                                                                                                                                                                                                                                     | [date](http://hl7.org/fhir/R4/datatypes.html#date)                                                                                                                               | _12.6_          |
-| address             | Addresses associated with the patient. Previous patient addresses are also returned here starting in 16.9                                                                                                                                                                                                                                            | [Address](http://hl7.org/fhir/R4/datatypes.html#Address)                                                                                                                         | _12.6_          |
-| communication       | A list of Languages which may be used to communicate with the patient about his or her health                                                                                                                                                                                                                                                        | [BackboneElement](http://hl7.org/fhir/R4/datatypes.html#BackboneElement)                                                                                                         | _12.6_          |
-
-### Example
-
-<pre class="center-column">
-{
-    "resourceType": "Patient",
-    "id": "b664fd37-ff5f-4022-9d71-2e476d42f316",
-    "extension": [
-        {
-            "extension": [
-                {
-                    "url": "ombCategory",
-                    "valueCoding": {
-                        "system": "urn:oid:2.16.840.1.113883.6.238",
-                        "code": "2054-5",
-                        "display": "Black or African American"
-                    }
-                },
-                {
-                    "url": "text",
-                    "valueString": "Black or African American"
-                }
-            ],
-            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-race"
-        },
-        {
-            "extension": [
-                {
-                    "url": "detailed",
-                    "valueCoding": {
-                        "system": "urn:oid:2.16.840.1.113883.6.238",
-                        "code": "2072-7",
-                        "display": "Jamaican"
-                    }
-                },
-                {
-                    "url": "text",
-                    "valueString": "Jamaican"
-                }
-            ],
-            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-race"
-        },
-        {
-            "extension": [
-                {
-                    "url": "ombCategory",
-                    "valueCoding": {
-                        "system": "urn:oid:2.16.840.1.113883.6.238",
-                        "code": "2186-5",
-                        "display": "Not Hispanic or Latino"
-                    }
-                },
-                {
-                    "url": "text",
-                    "valueString": "Not Hispanic or Latino"
-                }
-            ],
-            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-ethnicity"
-        },
-        {
-            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-birthsex",
-            "valueCode": "M"
-        }
-    ],
-    "identifier": [
-        {
-            "use": "official",
-            "system": "",
-            "value": "b664fd37-ff5f-4022-9d71-2e476d42f316"
-        },
-        {
-            "use": "usual",
-            "system": "",
-            "value": "112334"
-        }
-    ],
-    "name": [
-        {
-            "use": "official",
-            "text": "John Jacob Smith",
-            "family": "Smith",
-            "given": [
-                "John",
-                "Jacob"
-            ],
-            "suffix": [
-                ""
-            ]
-        }
-    ],
-    "telecom": [
-        {
-            "system": "email",
-            "value": "example@nextech.com"
-        },
-        {
-            "system": "phone",
-            "value": "(763) 560-8033",
-            "use": "home"
-        }
-    ],
-    "gender": "male",
-    "birthDate": "1952-06-13",
-    "address": [
-        {
-            "use": "home",
-            "type": "both",
-            "line": [
-                "4807 89th Ave N"
-            ],
-            "city": "Brooklyn Park",
-            "state": "MN",
-            "postalCode": "55443",
-            "country": "USA"
-        }
-    ],
-    "communication": [
-        {
-            "language": {
-                "coding": [
-                    {
-                        "system": "urn:ietf:bcp:47",
-                        "code": "en",
-                        "display": "English"
-                    }
-                ],
-                "text": "English"
-            },
-            "preferred": true
-        }
-    ]
-}
-</pre>
-
-&nbsp;
-
-### Contact Information and Privacy
-
-The telecom section contains the contact information for the patient. The example above shows the complete response based on what information is on file and which privacy settings
-are set. If the Privacy setting is checked then the checked fields will not be sent over the API even though the contact information is on file.
-
-i.e The patient's **work** number is on file, but marked private then the telecom section will not contain the **work** field.
-
-The preferred contact is also available from the API. If a preferred contact is set then it will contain a "rank":1 member in the telecom object indicating it is the preferred method.
-
-### _Get_
-
-Returns a single Patient result based on the patient ID.
-
-#### HTTP Request
-
-`GET /Patient/{patientId}`
-
-#### Parameters
-
-| Name      | Located in | Description                           | Required | Initial Version |
-| --------- | ---------- | ------------------------------------- | -------- | --------------- |
-| patientId | path       | The unique identifier for the patient | Yes      | _12.6_          |
-
-#### Example: Get the patient with an ID of 'c27e5be0-4b44-4ec5-a284-4308d6ac2b1a'
-
-<pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
-</pre>
-
-&nbsp;
-
-### _Search_
-
-Searches for all patients matching the given search criteria. See [https://www.hl7.org/fhirsearch.html](https://www.hl7.org/fhirsearch.html) for instructions on formatting search criteria.
-
-#### HTTP Request
-
-- `GET /Patient?{parameters}`
-- `POST /Patient/_search?{parameters}`
-  - _application/x-www-form-urlencoded body:_ `{parameters}`
-
-**_Note:_** For POST based searches the parameters can be provided in either the URL, the body, or both.
-
-#### Parameters
-
-| Name         | Located in    | Description                                                                                                                                                                                           | Required | Type                                                    | Initial Version |
-| ------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------- | --------------- |
-| birthdate    | query or body | The patient's date of birth formatted as YYYY-MM-DD                                                                                                                                                   | No       | [dateTime](https://hl7.org/fhirdatatypes.html#dateTime) | _12.6_          |
-| name         | query or body | The given(first) name, middle name, family(last) name, prefix or title of the patient                                                                                                                 | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | 12.6            |
-| identifier   | query or body | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number                                        | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _12.6_          |
-| \_id         | query or body | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number                                        | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _16.7_          |
-| gender       | query or body | The gender of the patient                                                                                                                                                                             | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _16.7_          |
-| group-id     | query or body | The letter writing group of the patient                                                                                                                                                               | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | 16.8            |
-| \_revinclude | query or body | Must be `Provenance:target`. This enables requesting additional [Provenance resources](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-provenance.html) that relate to each patient | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _17.0_          |
-
-**_Note:_** The possible filter values for the `_lastUpdated` parameter are: `eq`, `ne`, `le`, `lt`, `ge` and `gt`.
-
-#### Retrieve Provenance with patients
-
-The `_revinclude` parameter allows support for including Provenance references that match the returned patient.
-This value must be `Provenance:target`, otherwise the request will result in an error.
-These will be in additional bundle entry components, which have a `Provenance.Target` entry that identifies the relative link to the patient.
-
-#### Example: Get a patient with an identifier '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192' with provenance
-
-<pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
-</pre>
-
-<pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
-<i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
-</pre>
-
-<pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
-</pre>
-
-<pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
-<i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
-</pre>
-
-#### Example: Get the patient of a specific chart number
-
-<pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/12345
-</pre>
-
-&nbsp;
-
-#### Example: Get all patients
-
-<pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient
-</pre>
-
-&nbsp;
-
-#### Example: Get all patients with identifier '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192'
-
-<pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
-</pre>
-
-<pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
-<i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
-</pre>
-
-<pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
-</pre>
-
-<pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
-<i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
-</pre>
-
-#### Example: Get all patients who live within '12345' zip code
-
-<pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?address-postalcode=12345
-</pre>
-
-<pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
-<i><small>body:</small></i> address-postalcode=12345
-</pre>
-
-#### Example: Get all patients with birth dates between and including 1/1/1981 through 5/31/1981
-
-<pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?birthdate=ge1981-01-01&birthdate=lt1981-05-31
-</pre>
-
-<pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
-<i><small>body:</small></i> birthdate=ge1981-01-01&birthdate=lt1981-05-31
-</pre>
-
-### Patient ID Search
-
-Attempts to find patient IDs that match the given search criteria and, if
-successful, returns those patients' unique identifiers.
-
-### HTTP Request
-
-`GET /Patient/ID?{parameters}`
-
-### Parameters
-
-| Name     | Located in | Description                             | Required | Type   | Initial Version |
-| -------- | ---------- | --------------------------------------- | -------- | ------ | --------------- |
-| group-id | query      | The letter writing group of the patient | No       | string | 16.8            |
-
-#### Example: Get the unique identifiers of all patients that are in a letter writing group with an ID of 20
-
-<pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/ID?group-id=20
-</pre>
-
-&nbsp;
-
 ## Allergy Intolerance
 
 ### Overview
@@ -1235,6 +916,182 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Device/_search
 
 &nbsp;
 
+## Diagnostic Report
+
+### Overview
+
+A diagnostic report resource describes the findings and interpretation of diagnostic tests performed on patients and/or specimens derived from these. There are two types of diagnostic reports that can be returned:
+
+- [Diagnostic reports for laboratory specimens](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-diagnosticreport-lab.html)
+- [Diagnostic reports containing result documents for laboratory specimens](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-diagnosticreport-note.html)
+
+These types of laboratory reports are denoted by their category. Diagnostic reports for laboratory specimens will always have a category of "LAB", while reports containing result documents will have a the document's assigned LOINC code as their category. For example, "LP29684-5" would be the category for a radiology document report.
+
+### Fields
+
+| Name              | Description                                                                              | Type                                                                                                                                                                                    | Initial Version |
+| ----------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| id                | The logical id of the resource, as used in the URL for the resource.                     | [string](https://www.hl7.org/fhirdatatypes.html#string)                                                                                                                                 | _16.9_          |
+| identifier        | The unique value assigned to each diagnostic report which discerns them from all others. | [Identifier](https://www.hl7.org/fhirdatatypes.html#Identifier)                                                                                                                         | _16.9_          |
+| status            | The status of the diagnostic report                                                      | [code](https://hl7.org/fhirdatatypes.html#code) with [DiagnosticReportStatus](http://hl7.org/fhirvalueset-diagnostic-report-status.html)                                                | _16.9_          |
+| category          | Classification of type of diagnostic report                                              | [Category](https://www.hl7.org/fhirdatatypes.html#CodeableConcept) using [Diagnostic Service Section Codes](http://hl7.org/fhirvalueset-diagnostic-service-sections.html)               | _16.9_          |
+| code              | A code that describes the diagnostic report                                              | [LOINC Diagnostic Report Codes](http://hl7.org/fhirvalueset-report-codes.html)                                                                                                          | _16.9_          |
+| subject           | The patient pertaining to the diagnostic report                                          | [Reference](https://www.hl7.org/fhirreferences.html) ([US Core Patient Profile](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html))                    | _16.9_          |
+| effectiveTime     | The date and time of specimen collection                                                 | [dateTime](https://www.hl7.org/fhirdatatypes.html#dateTime)                                                                                                                             | _16.9_          |
+| issued            | The date and time that this version of the report was made available to providers        | [dateTime](https://www.hl7.org/fhirdatatypes.html#dateTime)                                                                                                                             | _16.9_          |
+| performer         | The provider who is responsible for issuing the report                                   | [Reference](http://hl7.org/fhirreferences.html#Reference) ([US Core Practitioner Profile](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-practitioner.html))         | _16.9_          |
+| encounter         | The healthcare event which this diagnostic report is about                               | [Reference](http://hl7.org/fhirreferences.html#Reference)([US Core Encounter Profile](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-encounter.html))                | _16.9_          |
+| result            | A reference to the related lab result observations                                       | [Reference](http://hl7.org/fhirreferences.html#Reference) ([US Core Observation Lab Profile](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-observation-lab.html)) | _16.9_          |
+| presentedForm     | A document attachment containing lab result data for the report                          | [Attachment](http://hl7.org/fhir/R4/datatypes.html#Attachment)                                                                                                                          | _16.9_          |
+| presentedForm.url | The url to retrieve the data from the binary endpoint                                    | [url](http://hl7.org/fhir/R4/datatypes.html#url)                                                                                                                                        | _17.0_          |
+
+### Example
+
+<pre class="center-column">
+{
+	"resourceType":"DiagnosticReport",
+	"id":"244",
+	"identifier":[
+	   {
+		  "use":"official",
+		  "value":"244"
+	   },
+	   {
+		  "use":"usual",
+		  "value":"XY202200011 - A"
+	   }
+	],
+	"status":"registered",
+	"category":[
+	   {
+		  "coding":[
+			 {
+				"system":"http://terminology.hl7.org/CodeSystem/v2-0074",
+				"code":"LAB"
+			 }
+		  ]
+	   }
+	],
+	"code":{
+	   "coding":[
+		  {
+			 "system":"http://loinc.org",
+			 "code":"11268-0",
+			 "display":"S pyog Throat Ql Cult"
+		  }
+	   ],
+	   "text":"S pyog Throat Ql Cult"
+	},
+	"subject":{
+	   "reference":"Patient/C56936DF-FED7-4EFA-8998-2A9848C99631"
+	},
+	"effectiveDateTime":"2022-06-24T00:00:00-04:00",
+	"issued":"2022-06-24T00:00:00-04:00",
+	"performer":[
+	   {
+		  "reference":"Practitioner/9149",
+		  "display":"Smith, Susan"
+	   }
+	],
+	"result":[
+	   {
+		  "reference":"Observation/442",
+		  "display":""
+	   }
+	]
+ }
+</pre>
+
+&nbsp;
+
+### _Get_
+
+Returns a single DiagnosticReport result based on the DiagnosticReport ID.
+
+#### HTTP Request
+
+`GET /DiagnosticReport/{diagnosticReportID}`
+
+#### Parameters
+
+| Name               | Located in | Description                             | Required | Initial Version |
+| ------------------ | ---------- | --------------------------------------- | -------- | --------------- |
+| diagnosticReportID | path       | The diagnostic report unique identifier | Yes      | _16.9_          |
+
+#### Example: Get a diagnostic report with an ID of '123'
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/123
+</pre>
+
+&nbsp;
+
+### _Search_
+
+Returns diagnostic reports based on the provided search parameters
+
+#### HTTP Request
+
+- `GET /DiagnosticReport?{parameters}`
+- `POST /DiagnosticReport/_search?{parameters}`
+  - _application/x-www-form-urlencoded body:_ `{parameters}`
+
+**_Note:_** For POST based searches the parameters can be provided in either the URL, the body, or both.
+
+#### Parameters
+
+| Name         | Located in            | Description                                                                                                                                                                | Required | Initial Version |
+| ------------ | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
+| identifier   | query or body or path | The diagnostic report identifier                                                                                                                                           | No       | _16.9_          |
+| \_id         | query or body or path | The diagnostic report identifier                                                                                                                                           | No       | _16.9_          |
+| patient      | query or body         | The official patient identifier acquired from a patient search                                                                                                             | No       | _16.9_          |
+| category     | query or body         | The category of the diagnostic report by either "LAB" or code ie. category=LP29684-5 or by token ie. category=http://terminology.hl7.org/CodeSystem/v2-0074&vert;LP29684-5 | No       | _16.9_          |
+| date         | query or body         | The diagnostic report date in the form YYYY-MM-DD                                                                                                                          | No       | _16.9_          |
+| code         | query or body         | The loinc code of the diagnostic report by code ie. code=49765-1 or token ie. code=http://loinc.org&vert;49765-1                                                           | No       | _16.9_          |
+| \_revinclude | query or body         | Must be `Provenance:target`. This enables requesting additional `Provenance` resources that relate to each diagnostic report                                               | No       | _17.0_          |
+
+**_Note:_** The possible filter values for the `date` parameter are: `eq`, `ne`, `le`, `lt`, `ge` and `gt`.
+
+#### Retrieve Provenance with diagnostic reports
+
+The `_revinclude` parameter allows support for including Provenance references that match the returned diagnostic reports.
+This value must be `Provenance:target`, otherwise the request will result in an error.
+These will be in additional bundle entry components, which have a `Provenance.Target` entry that identifies the relative link to the diagnostic report.
+
+#### Example: Get a diagnostic report with an identifier '123' with provenance
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport?identifier=123&_revinclude=Provenance:target
+</pre>
+
+<pre class="center-column">
+POST https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/_search
+<i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
+</pre>
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport?_id=123&_revinclude=Provenance:target
+</pre>
+
+<pre class="center-column">
+POST https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/_search
+<i><small>body:</small></i> _id=123&_revinclude=Provenance:target
+</pre>
+
+&nbsp;
+
+#### Example: Get all lab-type diagnostic reports on or after 5/1/2017
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport?category=LAB&date=ge2017-05-01
+</pre>
+<pre class="center-column">
+POST https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/_search
+<i><small>body:</small></i> category=LAB&date=ge2017-05-01
+</pre>
+
+&nbsp;
+
 ## DocumentReference
 
 ### Overview
@@ -2131,178 +1988,135 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Immunization/_search
 
 &nbsp;
 
-## Diagnostic Report
+## Medication
 
 ### Overview
 
-A diagnostic report resource describes the findings and interpretation of diagnostic tests performed on patients and/or specimens derived from these. There are two types of diagnostic reports that can be returned:
-
-- [Diagnostic reports for laboratory specimens](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-diagnosticreport-lab.html)
-- [Diagnostic reports containing result documents for laboratory specimens](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-diagnosticreport-note.html)
-
-These types of laboratory reports are denoted by their category. Diagnostic reports for laboratory specimens will always have a category of "LAB", while reports containing result documents will have a the document's assigned LOINC code as their category. For example, "LP29684-5" would be the category for a radiology document report.
+The [Medication](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-medication.html) resource can be used to record a patient's medication prescription or order.
 
 ### Fields
 
-| Name              | Description                                                                              | Type                                                                                                                                                                                    | Initial Version |
-| ----------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| id                | The logical id of the resource, as used in the URL for the resource.                     | [string](https://www.hl7.org/fhirdatatypes.html#string)                                                                                                                                 | _16.9_          |
-| identifier        | The unique value assigned to each diagnostic report which discerns them from all others. | [Identifier](https://www.hl7.org/fhirdatatypes.html#Identifier)                                                                                                                         | _16.9_          |
-| status            | The status of the diagnostic report                                                      | [code](https://hl7.org/fhirdatatypes.html#code) with [DiagnosticReportStatus](http://hl7.org/fhirvalueset-diagnostic-report-status.html)                                                | _16.9_          |
-| category          | Classification of type of diagnostic report                                              | [Category](https://www.hl7.org/fhirdatatypes.html#CodeableConcept) using [Diagnostic Service Section Codes](http://hl7.org/fhirvalueset-diagnostic-service-sections.html)               | _16.9_          |
-| code              | A code that describes the diagnostic report                                              | [LOINC Diagnostic Report Codes](http://hl7.org/fhirvalueset-report-codes.html)                                                                                                          | _16.9_          |
-| subject           | The patient pertaining to the diagnostic report                                          | [Reference](https://www.hl7.org/fhirreferences.html) ([US Core Patient Profile](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html))                    | _16.9_          |
-| effectiveTime     | The date and time of specimen collection                                                 | [dateTime](https://www.hl7.org/fhirdatatypes.html#dateTime)                                                                                                                             | _16.9_          |
-| issued            | The date and time that this version of the report was made available to providers        | [dateTime](https://www.hl7.org/fhirdatatypes.html#dateTime)                                                                                                                             | _16.9_          |
-| performer         | The provider who is responsible for issuing the report                                   | [Reference](http://hl7.org/fhirreferences.html#Reference) ([US Core Practitioner Profile](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-practitioner.html))         | _16.9_          |
-| encounter         | The healthcare event which this diagnostic report is about                               | [Reference](http://hl7.org/fhirreferences.html#Reference)([US Core Encounter Profile](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-encounter.html))                | _16.9_          |
-| result            | A reference to the related lab result observations                                       | [Reference](http://hl7.org/fhirreferences.html#Reference) ([US Core Observation Lab Profile](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-observation-lab.html)) | _16.9_          |
-| presentedForm     | A document attachment containing lab result data for the report                          | [Attachment](http://hl7.org/fhir/R4/datatypes.html#Attachment)                                                                                                                          | _16.9_          |
-| presentedForm.url | The url to retrieve the data from the binary endpoint                                    | [url](http://hl7.org/fhir/R4/datatypes.html#url)                                                                                                                                        | _17.0_          |
+| Name              | Description                                                                                                                      | Type                                                                                                                                                                              | Initial Version |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| id                | The logical id of the resource, as used in the URL for the resource                                                              | [string](https://www.hl7.org/fhirdatatypes.html#string)                                                                                                                           | _17.0_          |
+| status            | A code specifying the current state of the medication                                                                    | [MedicationRequestStatus](http://hl7.org/fhirValueSet/medicationrequest-status)                                                                                                   | _17.0_          |
+| code        | The supplied medication                                                                                                          | [CodeableConcept](http://hl7.org/fhir/R4/datatypes.html#CodeableConcept)                                                                                                          | _17.0_          |
 
 ### Example
 
 <pre class="center-column">
 {
-	"resourceType":"DiagnosticReport",
-	"id":"244",
-	"identifier":[
-	   {
-		  "use":"official",
-		  "value":"244"
-	   },
-	   {
-		  "use":"usual",
-		  "value":"XY202200011 - A"
-	   }
-	],
-	"status":"registered",
-	"category":[
-	   {
-		  "coding":[
-			 {
-				"system":"http://terminology.hl7.org/CodeSystem/v2-0074",
-				"code":"LAB"
-			 }
-		  ]
-	   }
-	],
-	"code":{
-	   "coding":[
-		  {
-			 "system":"http://loinc.org",
-			 "code":"11268-0",
-			 "display":"S pyog Throat Ql Cult"
-		  }
-	   ],
-	   "text":"S pyog Throat Ql Cult"
-	},
-	"subject":{
-	   "reference":"Patient/C56936DF-FED7-4EFA-8998-2A9848C99631"
-	},
-	"effectiveDateTime":"2022-06-24T00:00:00-04:00",
-	"issued":"2022-06-24T00:00:00-04:00",
-	"performer":[
-	   {
-		  "reference":"Practitioner/9149",
-		  "display":"Smith, Susan"
-	   }
-	],
-	"result":[
-	   {
-		  "reference":"Observation/442",
-		  "display":""
-	   }
-	]
- }
+  "resourceType": "Medication",
+  "id": "71705",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "670000",
+        "display": "Zyvox 400 MG Oral Tablet"
+      }
+    ],
+    "text": "Zyvox 400 MG Oral Tablet"
+  },
+  "status": "active"
+}
 </pre>
 
 &nbsp;
 
 ### _Get_
 
-Returns a single DiagnosticReport result based on the DiagnosticReport ID.
+Returns a single Medication result based on the Medication ID.
 
 #### HTTP Request
 
-`GET /DiagnosticReport/{diagnosticReportID}`
+`GET /Medication/{medicationId}`
 
 #### Parameters
 
-| Name               | Located in | Description                             | Required | Initial Version |
-| ------------------ | ---------- | --------------------------------------- | -------- | --------------- |
-| diagnosticReportID | path       | The diagnostic report unique identifier | Yes      | _16.9_          |
+| Name                | Located in | Description                                      | Required | Initial Version |
+| ------------------- | ---------- | ------------------------------------------------ | -------- | --------------- |
+| medicationId | path       | The unique identifier for the medication | Yes      | _17.0_          |
 
-#### Example: Get a diagnostic report with an ID of '123'
+#### Example: Get the medication with an ID of '12'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/123
+GET https://qa.intellechartbeta.net/icp-fhir-api/Medication/12
 </pre>
 
 &nbsp;
 
 ### _Search_
 
-Returns diagnostic reports based on the provided search parameters
+Searches for medications.
 
-#### HTTP Request
+#### HTTP Requests
 
-- `GET /DiagnosticReport?{parameters}`
-- `POST /DiagnosticReport/_search?{parameters}`
+- `GET /MedicationRequest?{parameters}`
+- `POST /MedicationRequest/_search?{parameters}`
   - _application/x-www-form-urlencoded body:_ `{parameters}`
 
 **_Note:_** For POST based searches the parameters can be provided in either the URL, the body, or both.
 
 #### Parameters
 
-| Name         | Located in            | Description                                                                                                                                                                | Required | Initial Version |
-| ------------ | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| identifier   | query or body or path | The diagnostic report identifier                                                                                                                                           | No       | _16.9_          |
-| \_id         | query or body or path | The diagnostic report identifier                                                                                                                                           | No       | _16.9_          |
-| patient      | query or body         | The official patient identifier acquired from a patient search                                                                                                             | No       | _16.9_          |
-| category     | query or body         | The category of the diagnostic report by either "LAB" or code ie. category=LP29684-5 or by token ie. category=http://terminology.hl7.org/CodeSystem/v2-0074&vert;LP29684-5 | No       | _16.9_          |
-| date         | query or body         | The diagnostic report date in the form YYYY-MM-DD                                                                                                                          | No       | _16.9_          |
-| code         | query or body         | The loinc code of the diagnostic report by code ie. code=49765-1 or token ie. code=http://loinc.org&vert;49765-1                                                           | No       | _16.9_          |
-| \_revinclude | query or body         | Must be `Provenance:target`. This enables requesting additional `Provenance` resources that relate to each diagnostic report                                               | No       | _17.0_          |
+| Name          | Located in    | Description                                                                                                                                                                                                      | Required | Initial Version |
+| ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
+| \_id          | query or body | The unique identifier for the medication request                                                                                                                                                                 | No       | _17.0_          |
+| identifier    | query or body | The unique identifier for the medication request                                                                                                                                                                 | No       | _17.0_          |
+| \_lastUpdated | query or body | The date the medication request was last modified, formatted as OOXXXXX where OO is an operator and XXXXX is a date in the form YYYY-MM-DD.                                                                      | No       | _17.0_          |
+| \_include | query or body | TODO                                                                      | No       | _17.0_          |
+| \_revinclude  | query or body | Must be `Provenance:target`. This enables requesting additional [Provenance resources](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-provenance.html) that relate to each medication request | No       | _17.0_          |
 
-**_Note:_** The possible filter values for the `date` parameter are: `eq`, `ne`, `le`, `lt`, `ge` and `gt`.
+**_Note:_** The possible filter values for the `_lastUpdated` parameter are: `eq`, `ne`, `le`, `lt`, `ge` and `gt`.
 
-#### Retrieve Provenance with diagnostic reports
+#### Retrieve Provenance with medication
 
-The `_revinclude` parameter allows support for including Provenance references that match the returned diagnostic reports.
+The `_revinclude` parameter allows support for including [Provenance resources](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-provenance.html) that match the returned medications.
 This value must be `Provenance:target`, otherwise the request will result in an error.
-These will be in additional bundle entry components, which have a `Provenance.Target` entry that identifies the relative link to the diagnostic report.
+These will be in additional bundle entry components, which have a `Provenance.Target` entry that identifies the relative link to the medication.
+&nbsp;
 
-#### Example: Get a diagnostic report with an identifier '123' with provenance
+#### Example: Get a medication with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport?identifier=123&_revinclude=Provenance:target
+GET https://qa.intellechartbeta.net/icp-fhir-api/Medication?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/_search
+POST https://qa.intellechartbeta.net/icp-fhir-api/Medication/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport?_id=123&_revinclude=Provenance:target
+GET https://qa.intellechartbeta.net/icp-fhir-api/Medication?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/_search
+POST https://qa.intellechartbeta.net/icp-fhir-api/Medication/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 &nbsp;
 
-#### Example: Get all lab-type diagnostic reports on or after 5/1/2017
+#### Example: Get the medication  with an ID of '12'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport?category=LAB&date=ge2017-05-01
+GET https://qa.intellechartbeta.net/icp-fhir-api/Medication?identifier=12
 </pre>
+
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/_search
-<i><small>body:</small></i> category=LAB&date=ge2017-05-01
+POST https://qa.intellechartbeta.net/icp-fhir-api/Medication/_search
+<i><small>body:</small></i> identifier=12
+</pre>
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Medication?_id=12
+</pre>
+
+<pre class="center-column">
+POST https://qa.intellechartbeta.net/icp-fhir-api/Medication/_search
+<i><small>body:</small></i> _id=12
 </pre>
 
 &nbsp;
@@ -2738,6 +2552,327 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Observation?category=vital-sign
 <pre class="center-column">
 POST https://qa.intellechartbeta.net/icp-fhir-api/Observation/_search
 <i><small>body:</small></i> category=vital-signs&date=ge2017-05-01
+</pre>
+
+&nbsp;
+
+## Patient
+
+### Overview
+
+The [patient](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html) resource contains information about the demographics of a patient.
+
+### Fields
+
+| Name                | Description                                                                                                                                                                                                                                                                                                                                          | Type                                                                                                                                                                             | Initial Version |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| id                  | The unique identifier of the patient                                                                                                                                                                                                                                                                                                                 | [string](http://hl7.org/fhir/R4/datatypes.html#string)                                                                                                                           | _12.6_          |
+| identifier          | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number. <br/><br/> As a convenience for some use cases, in version 14.1 and above, the patient's masked social security number (last four only) is also returned in this field if available. | [Identifier](http://hl7.org/fhir/R4/datatypes.html#Identifier)                                                                                                                   | _12.6_          |
+| extension:race      | The race of the patient                                                                                                                                                                                                                                                                                                                              | [Extension](http://hl7.org/fhirextensibility.html#Extension) ([US Core Race Extension](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-race.html))           | _12.6_          |
+| extension:ethnicity | The ethnicity of the patient                                                                                                                                                                                                                                                                                                                         | [Extension](http://hl7.org/fhirextensibility.html#Extension) ([US Core Ethnicity Extension](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-ethnicity.html)) | _12.6_          |
+| extension:birthsex  | The patient's sex assigned at birth                                                                                                                                                                                                                                                                                                                  | [Extension](http://hl7.org/fhirextensibility.html#Extension) ([US Core Birth Sex Extension](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-birthsex.html))  |                 |
+| name                | Names of the patient, additional information including prefix and nickname added in version 12.9.20. Other patient names are also returned here starting in 16.9                                                                                                                                                                                     | [HumanName](http://hl7.org/fhir/R4/datatypes.html#HumanName)                                                                                                                     | _12.6_          |
+| telecom             | Contact details for the patient, fax, preferred contact, and other phone added 12.9.20                                                                                                                                                                                                                                                               | [ContactPoint](http://hl7.org/fhir/R4/datatypes.html#ContactPoint)                                                                                                               | _12.6_          |
+| gender              | The gender of the patient                                                                                                                                                                                                                                                                                                                            | [code](http://hl7.org/fhir/R4/datatypes.html#code)                                                                                                                               | _12.6_          |
+| birthDate           | The date of birth of the patient                                                                                                                                                                                                                                                                                                                     | [date](http://hl7.org/fhir/R4/datatypes.html#date)                                                                                                                               | _12.6_          |
+| address             | Addresses associated with the patient. Previous patient addresses are also returned here starting in 16.9                                                                                                                                                                                                                                            | [Address](http://hl7.org/fhir/R4/datatypes.html#Address)                                                                                                                         | _12.6_          |
+| communication       | A list of Languages which may be used to communicate with the patient about his or her health                                                                                                                                                                                                                                                        | [BackboneElement](http://hl7.org/fhir/R4/datatypes.html#BackboneElement)                                                                                                         | _12.6_          |
+
+### Example
+
+<pre class="center-column">
+{
+    "resourceType": "Patient",
+    "id": "b664fd37-ff5f-4022-9d71-2e476d42f316",
+    "extension": [
+        {
+            "extension": [
+                {
+                    "url": "ombCategory",
+                    "valueCoding": {
+                        "system": "urn:oid:2.16.840.1.113883.6.238",
+                        "code": "2054-5",
+                        "display": "Black or African American"
+                    }
+                },
+                {
+                    "url": "text",
+                    "valueString": "Black or African American"
+                }
+            ],
+            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-race"
+        },
+        {
+            "extension": [
+                {
+                    "url": "detailed",
+                    "valueCoding": {
+                        "system": "urn:oid:2.16.840.1.113883.6.238",
+                        "code": "2072-7",
+                        "display": "Jamaican"
+                    }
+                },
+                {
+                    "url": "text",
+                    "valueString": "Jamaican"
+                }
+            ],
+            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-race"
+        },
+        {
+            "extension": [
+                {
+                    "url": "ombCategory",
+                    "valueCoding": {
+                        "system": "urn:oid:2.16.840.1.113883.6.238",
+                        "code": "2186-5",
+                        "display": "Not Hispanic or Latino"
+                    }
+                },
+                {
+                    "url": "text",
+                    "valueString": "Not Hispanic or Latino"
+                }
+            ],
+            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-ethnicity"
+        },
+        {
+            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "M"
+        }
+    ],
+    "identifier": [
+        {
+            "use": "official",
+            "system": "",
+            "value": "b664fd37-ff5f-4022-9d71-2e476d42f316"
+        },
+        {
+            "use": "usual",
+            "system": "",
+            "value": "112334"
+        }
+    ],
+    "name": [
+        {
+            "use": "official",
+            "text": "John Jacob Smith",
+            "family": "Smith",
+            "given": [
+                "John",
+                "Jacob"
+            ],
+            "suffix": [
+                ""
+            ]
+        }
+    ],
+    "telecom": [
+        {
+            "system": "email",
+            "value": "example@nextech.com"
+        },
+        {
+            "system": "phone",
+            "value": "(763) 560-8033",
+            "use": "home"
+        }
+    ],
+    "gender": "male",
+    "birthDate": "1952-06-13",
+    "address": [
+        {
+            "use": "home",
+            "type": "both",
+            "line": [
+                "4807 89th Ave N"
+            ],
+            "city": "Brooklyn Park",
+            "state": "MN",
+            "postalCode": "55443",
+            "country": "USA"
+        }
+    ],
+    "communication": [
+        {
+            "language": {
+                "coding": [
+                    {
+                        "system": "urn:ietf:bcp:47",
+                        "code": "en",
+                        "display": "English"
+                    }
+                ],
+                "text": "English"
+            },
+            "preferred": true
+        }
+    ]
+}
+</pre>
+
+&nbsp;
+
+### Contact Information and Privacy
+
+The telecom section contains the contact information for the patient. The example above shows the complete response based on what information is on file and which privacy settings
+are set. If the Privacy setting is checked then the checked fields will not be sent over the API even though the contact information is on file.
+
+i.e The patient's **work** number is on file, but marked private then the telecom section will not contain the **work** field.
+
+The preferred contact is also available from the API. If a preferred contact is set then it will contain a "rank":1 member in the telecom object indicating it is the preferred method.
+
+### _Get_
+
+Returns a single Patient result based on the patient ID.
+
+#### HTTP Request
+
+`GET /Patient/{patientId}`
+
+#### Parameters
+
+| Name      | Located in | Description                           | Required | Initial Version |
+| --------- | ---------- | ------------------------------------- | -------- | --------------- |
+| patientId | path       | The unique identifier for the patient | Yes      | _12.6_          |
+
+#### Example: Get the patient with an ID of 'c27e5be0-4b44-4ec5-a284-4308d6ac2b1a'
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
+</pre>
+
+&nbsp;
+
+### _Search_
+
+Searches for all patients matching the given search criteria. See [https://www.hl7.org/fhirsearch.html](https://www.hl7.org/fhirsearch.html) for instructions on formatting search criteria.
+
+#### HTTP Request
+
+- `GET /Patient?{parameters}`
+- `POST /Patient/_search?{parameters}`
+  - _application/x-www-form-urlencoded body:_ `{parameters}`
+
+**_Note:_** For POST based searches the parameters can be provided in either the URL, the body, or both.
+
+#### Parameters
+
+| Name         | Located in    | Description                                                                                                                                                                                           | Required | Type                                                    | Initial Version |
+| ------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------- | --------------- |
+| birthdate    | query or body | The patient's date of birth formatted as YYYY-MM-DD                                                                                                                                                   | No       | [dateTime](https://hl7.org/fhirdatatypes.html#dateTime) | _12.6_          |
+| name         | query or body | The given(first) name, middle name, family(last) name, prefix or title of the patient                                                                                                                 | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | 12.6            |
+| identifier   | query or body | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number                                        | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _12.6_          |
+| \_id         | query or body | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number                                        | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _16.7_          |
+| gender       | query or body | The gender of the patient                                                                                                                                                                             | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _16.7_          |
+| group-id     | query or body | The letter writing group of the patient                                                                                                                                                               | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | 16.8            |
+| \_revinclude | query or body | Must be `Provenance:target`. This enables requesting additional [Provenance resources](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-provenance.html) that relate to each patient | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _17.0_          |
+
+**_Note:_** The possible filter values for the `_lastUpdated` parameter are: `eq`, `ne`, `le`, `lt`, `ge` and `gt`.
+
+#### Retrieve Provenance with patients
+
+The `_revinclude` parameter allows support for including Provenance references that match the returned patient.
+This value must be `Provenance:target`, otherwise the request will result in an error.
+These will be in additional bundle entry components, which have a `Provenance.Target` entry that identifies the relative link to the patient.
+
+#### Example: Get a patient with an identifier '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192' with provenance
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+</pre>
+
+<pre class="center-column">
+POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+<i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+</pre>
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+</pre>
+
+<pre class="center-column">
+POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+<i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+</pre>
+
+#### Example: Get the patient of a specific chart number
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/12345
+</pre>
+
+&nbsp;
+
+#### Example: Get all patients
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient
+</pre>
+
+&nbsp;
+
+#### Example: Get all patients with identifier '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192'
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+</pre>
+
+<pre class="center-column">
+POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+<i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+</pre>
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+</pre>
+
+<pre class="center-column">
+POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+<i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+</pre>
+
+#### Example: Get all patients who live within '12345' zip code
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?address-postalcode=12345
+</pre>
+
+<pre class="center-column">
+POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+<i><small>body:</small></i> address-postalcode=12345
+</pre>
+
+#### Example: Get all patients with birth dates between and including 1/1/1981 through 5/31/1981
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?birthdate=ge1981-01-01&birthdate=lt1981-05-31
+</pre>
+
+<pre class="center-column">
+POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+<i><small>body:</small></i> birthdate=ge1981-01-01&birthdate=lt1981-05-31
+</pre>
+
+### Patient ID Search
+
+Attempts to find patient IDs that match the given search criteria and, if
+successful, returns those patients' unique identifiers.
+
+### HTTP Request
+
+`GET /Patient/ID?{parameters}`
+
+### Parameters
+
+| Name     | Located in | Description                             | Required | Type   | Initial Version |
+| -------- | ---------- | --------------------------------------- | -------- | ------ | --------------- |
+| group-id | query      | The letter writing group of the patient | No       | string | 16.8            |
+
+#### Example: Get the unique identifiers of all patients that are in a letter writing group with an ID of 20
+
+<pre class="center-column">
+GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/ID?group-id=20
 </pre>
 
 &nbsp;
