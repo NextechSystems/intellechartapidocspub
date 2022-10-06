@@ -8,13 +8,13 @@ A [Practitioner](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-co
 
 | Name       | Description                                                                      | Type                                                                | Initial Version |
 | ---------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------- |
-| identifier | The unique value assigned to each Practitioner which discerns it from all others | [Identifier](https://www.hl7.org/fhirdatatypes.html#Identifier)     | _1.0_          |
-| active     | Whether this practitioner's record is in active use.                             | [boolean](https://www.hl7.org/fhirdatatypes.html#boolean)           | _1.0_          |
-| name       | The name(s) associated with the practitioner                                     | [HumanName](https://www.hl7.org/fhirdatatypes.html#HumanName)       | _1.0_          |
-| telecom    | Contact detail(s) for the practitioner (that apply to all roles)                 | [ContactPoint](https://www.hl7.org/fhirdatatypes.html#ContactPoint) | _1.0_          |
-| address    | Address(es) of the practitioner that are not role specific                       | [Address](https://www.hl7.org/fhirdatatypes.html#Address)           | _1.0_          |
-| gender     | Gender of the practitioner                                                       | [Code](https://www.hl7.org/fhirvalueset-administrative-gender.html) | _1.0_          |
-| birthDate  | The date of birth of the practitioner                                            | [date](https://www.hl7.org/fhirdatatypes.html#date)                 | _1.0_          |
+| identifier | The unique value assigned to each Practitioner which discerns it from all others | [Identifier](https://www.hl7.org/fhir/r4/datatypes.html#Identifier)     | _1.0_          |
+| active     | Whether this practitioner's record is in active use.                             | [boolean](https://www.hl7.org/fhir/r4/datatypes.html#boolean)           | _1.0_          |
+| name       | The name(s) associated with the practitioner                                     | [HumanName](https://www.hl7.org/fhir/r4/datatypes.html#HumanName)       | _1.0_          |
+| telecom    | Contact detail(s) for the practitioner (that apply to all roles)                 | [ContactPoint](https://www.hl7.org/fhir/r4/datatypes.html#ContactPoint) | _1.0_          |
+| address    | Address(es) of the practitioner that are not role specific                       | [Address](https://www.hl7.org/fhir/r4/datatypes.html#Address)           | _1.0_          |
+| gender     | Gender of the practitioner                                                       | [Code](https://www.hl7.org/fhir/r4/valueset-administrative-gender.html) | _1.0_          |
+| birthDate  | The date of birth of the practitioner                                            | [date](https://www.hl7.org/fhir/r4/datatypes.html#date)                 | _1.0_          |
 
 ### Example
 
