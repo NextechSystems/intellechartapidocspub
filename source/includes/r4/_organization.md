@@ -8,15 +8,15 @@ An [Organization](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us
 
 | Name             | Description                                                                                                     | Type                                                                                                                                          | Initial Version |
 | ---------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| id               | The unique value assigned to each location which discerns it from all others                                    | [string](https://www.hl7.org/fhirdatatypes.html#string)                                                                                   | _12.8_          |
-| identifier       | The unique value assigned to each location which discerns it from all others                                    | [Identifier](https://www.hl7.org/fhirdatatypes.html#Identifier)                                                                           | _12.8_          |
-| identifier:NPI   | NPI identifier for the organization that is used to identify the organization across multiple disparate systems | [Identifier](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-organization-definitions.html#Organization.identifier:NPI) | _16.9_          |
-| meta.lastUpdated | The last time the organization was modified                                                                     | [instant](https://www.hl7.org/fhirdatatypes.html#instant)                                                                                 | _16.9_          |
-| name             | The name of the location                                                                                        | [string](https://www.hl7.org/fhirdatatypes.html#string)                                                                                   | _12.8_          |
-| telecom          | The contact details of communication at the location                                                            | [ContactPoint](https://www.hl7.org/fhirdatatypes.html#ContactPoint)                                                                       | _12.8_          |
-| address          | The address of the location                                                                                     | [Address](https://www.hl7.org/fhirdatatypes.html#Address)                                                                                 | _12.8_          |
-| address.country  | The country of the location address                                                                             | [string](https://www.hl7.org/fhirdatatypes.html#string)                                                                                   | _16.9_          |
-| active           | Whether the organization's record is still in active use                                                        | [boolean](http://hl7.org/fhir/R4/datatypes.html#boolean)                                                                                      | _12.8_          |
+| id               | The unique value assigned to each location which discerns it from all others                                    | [string](https://www.hl7.org/fhirdatatypes.html#string)                                                                                       | _1.0_          |
+| identifier       | The unique value assigned to each location which discerns it from all others                                    | [Identifier](https://www.hl7.org/fhirdatatypes.html#Identifier)                                                                               | _1.0_          |
+| identifier:NPI   | NPI identifier for the organization that is used to identify the organization across multiple disparate systems | [Identifier](https://www.hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-organization-definitions.html#Organization.identifier:NPI) | _1.0_          |
+| meta.lastUpdated | The last time the organization was modified                                                                     | [instant](https://www.hl7.org/fhirdatatypes.html#instant)                                                                                     | _1.0_          |
+| name             | The name of the location                                                                                        | [string](https://www.hl7.org/fhirdatatypes.html#string)                                                                                       | _1.0_          |
+| telecom          | The contact details of communication at the location                                                            | [ContactPoint](https://www.hl7.org/fhirdatatypes.html#ContactPoint)                                                                           | _1.0_          |
+| address          | The address of the location                                                                                     | [Address](https://www.hl7.org/fhirdatatypes.html#Address)                                                                                     | _1.0_          |
+| address.country  | The country of the location address                                                                             | [string](https://www.hl7.org/fhirdatatypes.html#string)                                                                                       | _1.0_          |
+| active           | Whether the organization's record is still in active use                                                        | [boolean](http://hl7.org/fhir/R4/datatypes.html#boolean)                                                                                      | _1.0_          |
 
 ### Example
 
@@ -85,7 +85,7 @@ Returns a single Organization result based on the Organization ID.
 
 | Name           | Located in | Description                        | Required | Initial Version |
 | -------------- | ---------- | ---------------------------------- | -------- | --------------- |
-| OrganizationID | path       | The organization unique identifier | Yes      | _16.9_          |
+| OrganizationID | path       | The organization unique identifier | Yes      | _1.0_          |
 
 #### Example: Get an organization with an ID of '123'
 
@@ -109,13 +109,13 @@ Searches for all organizations based on the given search criteria.
 
 #### Parameters
 
-| Name               | Located in    | Description                                                                                                                                                                                                                                                                                                                        | Required | Initial Version |
-| ------------------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| identifier         | query or body | The unique value assigned to each organization which discerns it from all others                                                                                                                                                                                                                                                   | No       | _12.8_          |
-| name               | query or body | The name of the organization                                                                                                                                                                                                                                                                                                       | No       | _12.8_          |
-| address            | query or body | A (part of the) address of the organization                                                                                                                                                                                                                                                                                        | No       | _12.8_          |
-| \_id               | query or body | The organization unique identifier                                                                                                                                                                                                                                                                                                 | No       | _16.9_          |
-| \_lastUpdated      | query or body | The last time the organization was modified                                                                                                                                                                                                                                                                                        | No       | _16.9_          |
+| Name          | Located in    | Description                                                                      | Required | Initial Version |
+| ------------- | ------------- | -------------------------------------------------------------------------------- | -------- | --------------- |
+| identifier    | query or body | The unique value assigned to each organization which discerns it from all others | No       | _1.0_          |
+| name          | query or body | The name of the organization                                                     | No       | _1.0_          |
+| address       | query or body | A (part of the) address of the organization                                      | No       | _1.0_          |
+| \_id          | query or body | The organization unique identifier                                               | No       | _1.0_          |
+| \_lastUpdated | query or body | The last time the organization was modified                                      | No       | _1.0_          |
 
 **_Note:_** The possible filter values for the `_lastUpdated` parameter are: `eq`, `ne`, `le`, `lt`, `ge` and `gt`.
 

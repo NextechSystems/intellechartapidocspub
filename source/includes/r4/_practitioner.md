@@ -6,15 +6,15 @@ A [Practitioner](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-co
 
 ### Fields
 
-| Name       | Description                                                                      | Type                                                                    | Initial Version |
-| ---------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------- |
-| identifier | The unique value assigned to each Practitioner which discerns it from all others | [Identifier](https://www.hl7.org/fhirdatatypes.html#Identifier)     | _12.8_          |
-| active     | Whether this practitioner's record is in active use.                             | [boolean](https://www.hl7.org/fhirdatatypes.html#boolean)           | _12.8_          |
-| name       | The name(s) associated with the practitioner                                     | [HumanName](https://www.hl7.org/fhirdatatypes.html#HumanName)       | _12.8_          |
-| telecom    | Contact detail(s) for the practitioner (that apply to all roles)                 | [ContactPoint](https://www.hl7.org/fhirdatatypes.html#ContactPoint) | _12.8_          |
-| address    | Address(es) of the practitioner that are not role specific                       | [Address](https://www.hl7.org/fhirdatatypes.html#Address)           | _12.8_          |
-| gender     | Gender of the practitioner                                                       | [Code](https://www.hl7.org/fhirvalueset-administrative-gender.html) | _12.8_          |
-| birthDate  | The date of birth of the practitioner                                            | [date](https://www.hl7.org/fhirdatatypes.html#date)                 | _12.8_          |
+| Name       | Description                                                                      | Type                                                                | Initial Version |
+| ---------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------- |
+| identifier | The unique value assigned to each Practitioner which discerns it from all others | [Identifier](https://www.hl7.org/fhirdatatypes.html#Identifier)     | _1.0_          |
+| active     | Whether this practitioner's record is in active use.                             | [boolean](https://www.hl7.org/fhirdatatypes.html#boolean)           | _1.0_          |
+| name       | The name(s) associated with the practitioner                                     | [HumanName](https://www.hl7.org/fhirdatatypes.html#HumanName)       | _1.0_          |
+| telecom    | Contact detail(s) for the practitioner (that apply to all roles)                 | [ContactPoint](https://www.hl7.org/fhirdatatypes.html#ContactPoint) | _1.0_          |
+| address    | Address(es) of the practitioner that are not role specific                       | [Address](https://www.hl7.org/fhirdatatypes.html#Address)           | _1.0_          |
+| gender     | Gender of the practitioner                                                       | [Code](https://www.hl7.org/fhirvalueset-administrative-gender.html) | _1.0_          |
+| birthDate  | The date of birth of the practitioner                                            | [date](https://www.hl7.org/fhirdatatypes.html#date)                 | _1.0_          |
 
 ### Example
 
@@ -85,7 +85,7 @@ Returns a single Practitioner result based on the Practitioner ID.
 
 | Name           | Located in | Description                                | Required | Initial Version |
 | -------------- | ---------- | ------------------------------------------ | -------- | --------------- |
-| practitionerID | path       | The unique identifier for the practitioner | Yes      | _12.8_          |
+| practitionerID | path       | The unique identifier for the practitioner | Yes      | _1.0_          |
 
 #### Example: Get a specific Practitioner based on identifier
 
@@ -107,10 +107,10 @@ Searches for all based on the given search criteria.
 
 #### Parameters
 
-| Name               | Located in   | Description                                                                      | Required | Initial Version |
-| ------------------ | ------------ | -------------------------------------------------------------------------------- | -------- | --------------- |
-| identifier         | query or uri | The unique value assigned to each Practitioner which discerns it from all others | No       | _12.8_          |
-| name               | query        | The name of the Practitioner                                                     | No       | _12.8_          |
+| Name       | Located in   | Description                                                                      | Required | Initial Version |
+| ---------- | ------------ | -------------------------------------------------------------------------------- | -------- | --------------- |
+| identifier | query or uri | The unique value assigned to each Practitioner which discerns it from all others | No       | _1.0_          |
+| name       | query        | The name of the Practitioner                                                     | No       | _1.0_          |
 
 #### Example: Get all Practitioners
 

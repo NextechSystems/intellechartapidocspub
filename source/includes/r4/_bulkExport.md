@@ -25,11 +25,11 @@ Allows for the generation of bulk data in one of three different formats: all pa
 
 #### Parameters
 
-| Name           | Located in | Description                                                                                                                                                                                                                                                         | Required | Initial Version |
-| -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _16.9_          |
-| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                        | No       | _16.9_          |
-| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                     | No       | _16.9_          |
+| Name           | Located in | Description                                                                                                                                                                                                                                                            | Required | Initial Version |
+| -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
+| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _1.0_          |
+| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                           | No       | _1.0_          |
+| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                        | No       | _1.0_          |
 
 #### HTTP Response
 
@@ -59,12 +59,12 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/$export
 
 #### Parameters
 
-| Name           | Located in | Description                                                                                                                                                                                                                                                         | Required | Initial Version |
-| -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| GroupID        | path       | ID of the group of patients to export                                                                                                                                                                                                                               | Yes      | _16.9_          |
-| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _16.9_          |
-| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                        | No       | _16.9_          |
-| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                     | No       | _16.9_          |
+| Name           | Located in | Description                                                                                                                                                                                                                                                            | Required | Initial Version |
+| -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
+| GroupID        | path       | ID of the group of patients to export                                                                                                                                                                                                                                  | Yes      | _1.0_          |
+| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _1.0_          |
+| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                           | No       | _1.0_          |
+| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                        | No       | _1.0_          |
 
 #### HTTP Response
 
@@ -94,11 +94,11 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Group/1/$export
 
 #### Parameters
 
-| Name           | Located in | Description                                                                                                                                                                                                                                                         | Required | Initial Version |
-| -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _16.9_          |
-| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                        | No       | _16.9_          |
-| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                     | No       | _16.9_          |
+| Name           | Located in | Description                                                                                                                                                                                                                                                            | Required | Initial Version |
+| -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
+| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _1.0_          |
+| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                           | No       | _1.0_          |
+| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                        | No       | _1.0_          |
 
 #### HTTP Response
 
@@ -123,7 +123,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/$export
 
 | Name        | Located in | Description                                                                                                                             | Required | Initial Version |
 | ----------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| ExportJobID | path       | ID of the export job to poll the status of. Returned in the `Content-Location` HTTP header in the HTTP response to the kick-off request | Yes      | _16.9_          |
+| ExportJobID | path       | ID of the export job to poll the status of. Returned in the `Content-Location` HTTP header in the HTTP response to the kick-off request | Yes      | _1.0_          |
 
 #### HTTP Response
 
@@ -228,7 +228,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Export/61b05fbe-6b5f-4b68-aec4-
 
 | Name        | Located in | Description                                                                                                                 | Required | Initial Version |
 | ----------- | ---------- | --------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| ExportJobID | path       | ID of the export job to cancel. Returned in the `Content-Location` HTTP header in the HTTP response to the kick-off request | Yes      | _16.9_          |
+| ExportJobID | path       | ID of the export job to cancel. Returned in the `Content-Location` HTTP header in the HTTP response to the kick-off request | Yes      | _1.0_          |
 
 #### Example: Cancel an export job with an ID of "61b05fbe-6b5f-4b68-aec4-c03d09f51e82"
 

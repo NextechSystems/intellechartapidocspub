@@ -16,9 +16,9 @@ Before you can access the Nextech API you must have the proper credentials to au
 
 The following values are required in the Header for every request...
 
-| Name           | Description                                                   | Required? |
-| -------------- | ------------------------------------------------------------- | --------- |
-| Authorization  | Every request requires a Bearer token `Bearer {access_token}` | Yes       |
+| Name          | Description                                                   | Required? |
+| ------------- | ------------------------------------------------------------- | --------- |
+| Authorization | Every request requires a Bearer token `Bearer {access_token}` | Yes       |
 
 ## Rate Limiting
 
@@ -106,14 +106,14 @@ Each `rest.resource` member in the metadata response contains information about 
 
 Postman makes it easy to acquire OAuth 2.0 access tokens. Use the information listed below for obtaining a token via the `authorization_code` grant type. When requesting a new token, you will be redirected to the _Auth URL_ listed below where you can enter your user credentials to authenticate.
 
-| Field                 | Value                                                                                                                    |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Field                 | Value                                                                                                                                                                                     |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Auth URL              | `https://mypatientvisit-sts-dev.azurewebsites.net/connect/authorize?aud=https://qa.intellechartbeta.net/icp-fhir-api&launch=eyJwIjoiODdhMzM5ZDAtOGNhZS00MThlLTg5YzctODY1MWU2YWFiM2M2In0=` |
-| Access Token URL      | `https://mypatientvisit-sts-dev.azurewebsites.net/connect/token`                                                         |
-| Callback URL          | `https://www.getpostman.com/oauth2/callback`                                                                             |
-| Client ID             | Your application ID                                                                                                      |
-| Grant Type            | `Authorization Code`                                                                                                     |
-| Client Authentication | `Send client credentials in body`                                                                                        |
+| Access Token URL      | `https://mypatientvisit-sts-dev.azurewebsites.net/connect/token`                                                                                                                          |
+| Callback URL          | `https://www.getpostman.com/oauth2/callback`                                                                                                                                              |
+| Client ID             | Your application ID                                                                                                                                                                       |
+| Grant Type            | `Authorization Code`                                                                                                                                                                      |
+| Client Authentication | `Send client credentials in body`                                                                                                                                                         |
 
 ## Searching
 
