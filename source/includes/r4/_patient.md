@@ -1,5 +1,325 @@
 # Patient
 
+### Overview
+
+The [patient](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html) resource contains information about the demographics of a patient.
+
+### Fields
+
+| Name                | Description                                                                                                                                                                                                                                                                                                                                          | Type                                                                                                                                                                             | Initial Version |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| id                  | The unique identifier of the patient                                                                                                                                                                                                                                                                                                                 | [string](http://hl7.org/fhir/R4/datatypes.html#string)                                                                                                                           | _1.0_          |
+| identifier          | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number                                                                                                                                                                                       | [Identifier](http://hl7.org/fhir/R4/datatypes.html#Identifier)                                                                                                                   | _1.0_          |
+| extension:race      | The race of the patient                                                                                                                                                                                                                                                                                                                              | [Extension](http://hl7.org/fhir/R4/extensibility.html#Extension) ([US Core Race Extension](http://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-race.html))           | _1.0_          |
+| extension:ethnicity | The ethnicity of the patient                                                                                                                                                                                                                                                                                                                         | [Extension](http://hl7.org/fhir/R4/extensibility.html#Extension) ([US Core Ethnicity Extension](http://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-ethnicity.html)) | _1.0_          |
+| extension:birthsex  | The patient's sex assigned at birth                                                                                                                                                                                                                                                                                                                  | [Extension](http://hl7.org/fhir/R4/extensibility.html#Extension) ([US Core Birth Sex Extension](http://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-birthsex.html))  | _1.0_          |
+| name                | Names of the patient                                                                                                                                                                                                                                                                                                                                 | [HumanName](http://hl7.org/fhir/R4/datatypes.html#HumanName)                                                                                                                     | _1.0_          |
+| telecom             | Contact details for the patient, fax, preferred contact, and other phone                                                                                                                                                                                                                                                                             | [ContactPoint](http://hl7.org/fhir/R4/datatypes.html#ContactPoint)                                                                                                               | _1.0_          |
+| gender              | The gender of the patient                                                                                                                                                                                                                                                                                                                            | [code](http://hl7.org/fhir/R4/datatypes.html#code)                                                                                                                               | _1.0_          |
+| birthDate           | The date of birth of the patient                                                                                                                                                                                                                                                                                                                     | [date](http://hl7.org/fhir/R4/datatypes.html#date)                                                                                                                               | _1.0_          |
+| address             | Addresses associated with the patient                                                                                                                                                                                                                                                                                                                | [Address](http://hl7.org/fhir/R4/datatypes.html#Address)                                                                                                                         | _1.0_          |
+| communication       | A list of Languages which may be used to communicate with the patient about his or her health                                                                                                                                                                                                                                                        | [BackboneElement](http://hl7.org/fhir/R4/datatypes.html#BackboneElement)                                                                                                         | _1.0_          |
+
+### Example
+
+<pre class="center-column">
+{
+    "resourceType": "Patient",
+    "id": "b664fd37-ff5f-4022-9d71-2e476d42f316",
+    "extension": [
+        {
+            "extension": [
+                {
+                    "url": "ombCategory",
+                    "valueCoding": {
+                        "system": "urn:oid:2.16.840.1.113883.6.238",
+                        "code": "2054-5",
+                        "display": "Black or African American"
+                    }
+                },
+                {
+                    "url": "text",
+                    "valueString": "Black or African American"
+                }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        },
+        {
+            "extension": [
+                {
+                    "url": "detailed",
+                    "valueCoding": {
+                        "system": "urn:oid:2.16.840.1.113883.6.238",
+                        "code": "2072-7",
+                        "display": "Jamaican"
+                    }
+                },
+                {
+                    "url": "text",
+                    "valueString": "Jamaican"
+                }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        },
+        {
+            "extension": [
+                {
+                    "url": "ombCategory",
+                    "valueCoding": {
+                        "system": "urn:oid:2.16.840.1.113883.6.238",
+                        "code": "2186-5",
+                        "display": "Not Hispanic or Latino"
+                    }
+                },
+                {
+                    "url": "text",
+                    "valueString": "Not Hispanic or Latino"
+                }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        },
+        {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "M"
+        }
+    ],
+    "identifier": [
+        {
+            "use": "official",
+            "system": "",
+            "value": "b664fd37-ff5f-4022-9d71-2e476d42f316"
+        },
+        {
+            "use": "usual",
+            "system": "",
+            "value": "112334"
+        }
+    ],
+    "name": [
+        {
+            "use": "official",
+            "text": "John Jacob Smith",
+            "family": "Smith",
+            "given": [
+                "John",
+                "Jacob"
+            ],
+            "suffix": [
+                ""
+            ]
+        }
+    ],
+    "telecom": [
+        {
+            "system": "email",
+            "value": "example@nextech.com"
+        },
+        {
+            "system": "phone",
+            "value": "(763) 560-8033",
+            "use": "home"
+        }
+    ],
+    "gender": "male",
+    "birthDate": "1952-06-13",
+    "address": [
+        {
+            "use": "home",
+            "type": "both",
+            "line": [
+                "4807 89th Ave N"
+            ],
+            "city": "Brooklyn Park",
+            "state": "MN",
+            "postalCode": "55443",
+            "country": "USA"
+        }
+    ],
+    "communication": [
+        {
+            "language": {
+                "coding": [
+                    {
+                        "system": "urn:ietf:bcp:47",
+                        "code": "en",
+                        "display": "English"
+                    }
+                ],
+                "text": "English"
+            },
+            "preferred": true
+        }
+    ]
+}
+</pre>
+
+&nbsp;
+
+### Contact Information and Privacy
+
+The telecom section contains the contact information for the patient. The example above shows the complete response based on what information is on file and which privacy settings
+are set. If the Privacy setting is checked then the checked fields will not be sent over the API even though the contact information is on file.
+
+i.e The patient's **work** number is on file, but marked private then the telecom section will not contain the **work** field.
+
+The preferred contact is also available from the API. If a preferred contact is set then it will contain a "rank":1 member in the telecom object indicating it is the preferred method.
+
+### _Get_
+
+Returns a single Patient result based on the patient ID.
+
+#### HTTP Request
+
+`GET /Patient/{patientId}`
+
+#### Parameters
+
+| Name      | Located in | Description                           | Required | Initial Version |
+| --------- | ---------- | ------------------------------------- | -------- | --------------- |
+| patientId | path       | The unique identifier for the patient | Yes      | _1.0_          |
+
+#### Example: Get the patient with an ID of 'c27e5be0-4b44-4ec5-a284-4308d6ac2b1a'
+
+<pre class="center-column">
+GET https://icp.nextech-api.com/Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
+</pre>
+
+&nbsp;
+
+### _Search_
+
+Searches for all patients matching the given search criteria. See [https://www.hl7.org/fhir/R4/search.html](https://www.hl7.org/fhir/R4/search.html) for instructions on formatting search criteria.
+
+#### HTTP Request
+
+- `GET /Patient?{parameters}`
+- `POST /Patient/_search?{parameters}`
+  - _application/x-www-form-urlencoded body:_ `{parameters}`
+
+**_Note:_** For POST based searches the parameters can be provided in either the URL, the body, or both.
+
+#### Parameters
+
+| Name         | Located in    | Description                                                                                                                                                                                           | Required | Type                                                    | Initial Version |
+| ------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------- | --------------- |
+| birthdate    | query or body | The patient's date of birth formatted as YYYY-MM-DD                                                                                                                                                   | No       | [dateTime](https://hl7.org/fhir/r4/datatypes.html#dateTime) | _1.0_          |
+| name         | query or body | The given(first) name, middle name, family(last) name, prefix or title of the patient                                                                                                                 | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_            |
+| identifier   | query or body | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number                                        | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_          |
+| \_id         | query or body | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number                                        | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_          |
+| gender       | query or body | The gender of the patient                                                                                                                                                                             | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_          |
+| group-id     | query or body | The letter writing group of the patient                                                                                                                                                               | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_            |
+| \_revinclude | query or body | Must be `Provenance:target`. This enables requesting additional [Provenance resources](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-provenance.html) that relate to each patient | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_          |
+
+**_Note:_** The possible filter values for the `_lastUpdated` parameter are: `eq`, `ne`, `le`, `lt`, `ge` and `gt`.
+
+#### Retrieve Provenance with patients
+
+The `_revinclude` parameter allows support for including Provenance references that match the returned patient.
+This value must be `Provenance:target`, otherwise the request will result in an error.
+These will be in additional bundle entry components, which have a `Provenance.Target` entry that identifies the relative link to the patient.
+
+#### Example: Get a patient with an identifier '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192' with provenance
+
+<pre class="center-column">
+GET https://icp.nextech-api.com/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+</pre>
+
+<pre class="center-column">
+POST https://icp.nextech-api.com/Patient/_search
+<i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+</pre>
+
+<pre class="center-column">
+GET https://icp.nextech-api.com/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+</pre>
+
+<pre class="center-column">
+POST https://icp.nextech-api.com/Patient/_search
+<i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+</pre>
+
+#### Example: Get the patient of a specific chart number
+
+<pre class="center-column">
+GET https://icp.nextech-api.com/Patient/12345
+</pre>
+
+&nbsp;
+
+#### Example: Get all patients
+
+<pre class="center-column">
+GET https://icp.nextech-api.com/Patient
+</pre>
+
+&nbsp;
+
+#### Example: Get all patients with identifier '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192'
+
+<pre class="center-column">
+GET https://icp.nextech-api.com/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+</pre>
+
+<pre class="center-column">
+POST https://icp.nextech-api.com/Patient/_search
+<i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+</pre>
+
+<pre class="center-column">
+GET https://icp.nextech-api.com/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+</pre>
+
+<pre class="center-column">
+POST https://icp.nextech-api.com/Patient/_search
+<i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+</pre>
+
+#### Example: Get all patients who live within '12345' zip code
+
+<pre class="center-column">
+GET https://icp.nextech-api.com/Patient?address-postalcode=12345
+</pre>
+
+<pre class="center-column">
+POST https://icp.nextech-api.com/Patient/_search
+<i><small>body:</small></i> address-postalcode=12345
+</pre>
+
+#### Example: Get all patients with birth dates between and including 1/1/1981 through 5/31/1981
+
+<pre class="center-column">
+GET https://icp.nextech-api.com/Patient?birthdate=ge1981-01-01&birthdate=lt1981-05-31
+</pre>
+
+<pre class="center-column">
+POST https://icp.nextech-api.com/Patient/_search
+<i><small>body:</small></i> birthdate=ge1981-01-01&birthdate=lt1981-05-31
+</pre>
+
+### Patient ID Search
+
+Attempts to find patient IDs that match the given search criteria and, if
+successful, returns those patients' unique identifiers.
+
+### HTTP Request
+
+`GET /Patient/ID?{parameters}`
+
+### Parameters
+
+| Name     | Located in | Description                             | Required | Type   | Initial Version |
+| -------- | ---------- | --------------------------------------- | -------- | ------ | --------------- |
+| group-id | query      | The letter writing group of the patient | No       | string | _1.0_            |
+
+#### Example: Get the unique identifiers of all patients that are in a letter writing group with an ID of 20
+
+<pre class="center-column">
+GET https://icp.nextech-api.com/Patient/ID?group-id=20
+</pre>
+
+&nbsp;
+
+
 ## Allergy Intolerance
 
 ### Overview
@@ -204,7 +524,7 @@ A [Care Plan](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-
 		{
 			"coding": [
 				{
-					"system": "http://hl7.org/fhir/r4/us/core/CodeSystem/careplan-category",
+					"system": "http://hl7.org/fhir/us/core/CodeSystem/careplan-category",
 					"code": "assess-plan"
 				}
 			]
@@ -305,7 +625,7 @@ GET https://icp.nextech-api.com/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=http://hl7.org/fhir/r4/us/core/CodeSystem/careplan-category|assess-plan
+GET https://icp.nextech-api.com/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan
 </pre>
 
 <pre class="center-column">
@@ -315,7 +635,7 @@ POST https://icp.nextech-api.com/CarePlan/_search
 
 <pre class="center-column">
 POST https://icp.nextech-api.com/CarePlan/_search
-<i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=http://hl7.org/fhir/r4/us/core/CodeSystem/careplan-category|assess-plan
+<i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan
 </pre>
 
 &nbsp;
@@ -2552,327 +2872,6 @@ GET https://icp.nextech-api.com/Observation?category=vital-signs&date=ge2017-05-
 <pre class="center-column">
 POST https://icp.nextech-api.com/Observation/_search
 <i><small>body:</small></i> category=vital-signs&date=ge2017-05-01
-</pre>
-
-&nbsp;
-
-## Patient
-
-### Overview
-
-The [patient](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html) resource contains information about the demographics of a patient.
-
-### Fields
-
-| Name                | Description                                                                                                                                                                                                                                                                                                                                          | Type                                                                                                                                                                             | Initial Version |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| id                  | The unique identifier of the patient                                                                                                                                                                                                                                                                                                                 | [string](http://hl7.org/fhir/R4/datatypes.html#string)                                                                                                                           | _1.0_          |
-| identifier          | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number. <br/><br/> As a convenience for some use cases, in version 14.1 and above, the patient's masked social security number (last four only) is also returned in this field if available. | [Identifier](http://hl7.org/fhir/R4/datatypes.html#Identifier)                                                                                                                   | _1.0_          |
-| extension:race      | The race of the patient                                                                                                                                                                                                                                                                                                                              | [Extension](http://hl7.org/fhirextensibility.html#Extension) ([US Core Race Extension](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-race.html))           | _1.0_          |
-| extension:ethnicity | The ethnicity of the patient                                                                                                                                                                                                                                                                                                                         | [Extension](http://hl7.org/fhirextensibility.html#Extension) ([US Core Ethnicity Extension](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-ethnicity.html)) | _1.0_          |
-| extension:birthsex  | The patient's sex assigned at birth                                                                                                                                                                                                                                                                                                                  | [Extension](http://hl7.org/fhirextensibility.html#Extension) ([US Core Birth Sex Extension](http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-birthsex.html))  |                 |
-| name                | Names of the patient, additional information including prefix and nickname added in version 12.9.20. Other patient names are also returned here starting in 16.9                                                                                                                                                                                     | [HumanName](http://hl7.org/fhir/R4/datatypes.html#HumanName)                                                                                                                     | _1.0_          |
-| telecom             | Contact details for the patient, fax, preferred contact, and other phone added 12.9.20                                                                                                                                                                                                                                                               | [ContactPoint](http://hl7.org/fhir/R4/datatypes.html#ContactPoint)                                                                                                               | _1.0_          |
-| gender              | The gender of the patient                                                                                                                                                                                                                                                                                                                            | [code](http://hl7.org/fhir/R4/datatypes.html#code)                                                                                                                               | _1.0_          |
-| birthDate           | The date of birth of the patient                                                                                                                                                                                                                                                                                                                     | [date](http://hl7.org/fhir/R4/datatypes.html#date)                                                                                                                               | _1.0_          |
-| address             | Addresses associated with the patient. Previous patient addresses are also returned here starting in 16.9                                                                                                                                                                                                                                            | [Address](http://hl7.org/fhir/R4/datatypes.html#Address)                                                                                                                         | _1.0_          |
-| communication       | A list of Languages which may be used to communicate with the patient about his or her health                                                                                                                                                                                                                                                        | [BackboneElement](http://hl7.org/fhir/R4/datatypes.html#BackboneElement)                                                                                                         | _1.0_          |
-
-### Example
-
-<pre class="center-column">
-{
-    "resourceType": "Patient",
-    "id": "b664fd37-ff5f-4022-9d71-2e476d42f316",
-    "extension": [
-        {
-            "extension": [
-                {
-                    "url": "ombCategory",
-                    "valueCoding": {
-                        "system": "urn:oid:2.16.840.1.113883.6.238",
-                        "code": "2054-5",
-                        "display": "Black or African American"
-                    }
-                },
-                {
-                    "url": "text",
-                    "valueString": "Black or African American"
-                }
-            ],
-            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-race"
-        },
-        {
-            "extension": [
-                {
-                    "url": "detailed",
-                    "valueCoding": {
-                        "system": "urn:oid:2.16.840.1.113883.6.238",
-                        "code": "2072-7",
-                        "display": "Jamaican"
-                    }
-                },
-                {
-                    "url": "text",
-                    "valueString": "Jamaican"
-                }
-            ],
-            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-race"
-        },
-        {
-            "extension": [
-                {
-                    "url": "ombCategory",
-                    "valueCoding": {
-                        "system": "urn:oid:2.16.840.1.113883.6.238",
-                        "code": "2186-5",
-                        "display": "Not Hispanic or Latino"
-                    }
-                },
-                {
-                    "url": "text",
-                    "valueString": "Not Hispanic or Latino"
-                }
-            ],
-            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-ethnicity"
-        },
-        {
-            "url": "http://hl7.org/fhir/r4/us/core/StructureDefinition/us-core-birthsex",
-            "valueCode": "M"
-        }
-    ],
-    "identifier": [
-        {
-            "use": "official",
-            "system": "",
-            "value": "b664fd37-ff5f-4022-9d71-2e476d42f316"
-        },
-        {
-            "use": "usual",
-            "system": "",
-            "value": "112334"
-        }
-    ],
-    "name": [
-        {
-            "use": "official",
-            "text": "John Jacob Smith",
-            "family": "Smith",
-            "given": [
-                "John",
-                "Jacob"
-            ],
-            "suffix": [
-                ""
-            ]
-        }
-    ],
-    "telecom": [
-        {
-            "system": "email",
-            "value": "example@nextech.com"
-        },
-        {
-            "system": "phone",
-            "value": "(763) 560-8033",
-            "use": "home"
-        }
-    ],
-    "gender": "male",
-    "birthDate": "1952-06-13",
-    "address": [
-        {
-            "use": "home",
-            "type": "both",
-            "line": [
-                "4807 89th Ave N"
-            ],
-            "city": "Brooklyn Park",
-            "state": "MN",
-            "postalCode": "55443",
-            "country": "USA"
-        }
-    ],
-    "communication": [
-        {
-            "language": {
-                "coding": [
-                    {
-                        "system": "urn:ietf:bcp:47",
-                        "code": "en",
-                        "display": "English"
-                    }
-                ],
-                "text": "English"
-            },
-            "preferred": true
-        }
-    ]
-}
-</pre>
-
-&nbsp;
-
-### Contact Information and Privacy
-
-The telecom section contains the contact information for the patient. The example above shows the complete response based on what information is on file and which privacy settings
-are set. If the Privacy setting is checked then the checked fields will not be sent over the API even though the contact information is on file.
-
-i.e The patient's **work** number is on file, but marked private then the telecom section will not contain the **work** field.
-
-The preferred contact is also available from the API. If a preferred contact is set then it will contain a "rank":1 member in the telecom object indicating it is the preferred method.
-
-### _Get_
-
-Returns a single Patient result based on the patient ID.
-
-#### HTTP Request
-
-`GET /Patient/{patientId}`
-
-#### Parameters
-
-| Name      | Located in | Description                           | Required | Initial Version |
-| --------- | ---------- | ------------------------------------- | -------- | --------------- |
-| patientId | path       | The unique identifier for the patient | Yes      | _1.0_          |
-
-#### Example: Get the patient with an ID of 'c27e5be0-4b44-4ec5-a284-4308d6ac2b1a'
-
-<pre class="center-column">
-GET https://icp.nextech-api.com/Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
-</pre>
-
-&nbsp;
-
-### _Search_
-
-Searches for all patients matching the given search criteria. See [https://www.hl7.org/fhirsearch.html](https://www.hl7.org/fhirsearch.html) for instructions on formatting search criteria.
-
-#### HTTP Request
-
-- `GET /Patient?{parameters}`
-- `POST /Patient/_search?{parameters}`
-  - _application/x-www-form-urlencoded body:_ `{parameters}`
-
-**_Note:_** For POST based searches the parameters can be provided in either the URL, the body, or both.
-
-#### Parameters
-
-| Name         | Located in    | Description                                                                                                                                                                                           | Required | Type                                                    | Initial Version |
-| ------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------- | --------------- |
-| birthdate    | query or body | The patient's date of birth formatted as YYYY-MM-DD                                                                                                                                                   | No       | [dateTime](https://hl7.org/fhir/r4/datatypes.html#dateTime) | _1.0_          |
-| name         | query or body | The given(first) name, middle name, family(last) name, prefix or title of the patient                                                                                                                 | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_            |
-| identifier   | query or body | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number                                        | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_          |
-| \_id         | query or body | The unique value assigned to each patient which discerns them from all others. It can be the patient's unique identifier or the patient's Nextech chart number                                        | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_          |
-| gender       | query or body | The gender of the patient                                                                                                                                                                             | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_          |
-| group-id     | query or body | The letter writing group of the patient                                                                                                                                                               | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_            |
-| \_revinclude | query or body | Must be `Provenance:target`. This enables requesting additional [Provenance resources](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-provenance.html) that relate to each patient | No       | [string](http://hl7.org/fhir/R4/datatypes.html#string)  | _1.0_          |
-
-**_Note:_** The possible filter values for the `_lastUpdated` parameter are: `eq`, `ne`, `le`, `lt`, `ge` and `gt`.
-
-#### Retrieve Provenance with patients
-
-The `_revinclude` parameter allows support for including Provenance references that match the returned patient.
-This value must be `Provenance:target`, otherwise the request will result in an error.
-These will be in additional bundle entry components, which have a `Provenance.Target` entry that identifies the relative link to the patient.
-
-#### Example: Get a patient with an identifier '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192' with provenance
-
-<pre class="center-column">
-GET https://icp.nextech-api.com/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
-</pre>
-
-<pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
-<i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
-</pre>
-
-<pre class="center-column">
-GET https://icp.nextech-api.com/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
-</pre>
-
-<pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
-<i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
-</pre>
-
-#### Example: Get the patient of a specific chart number
-
-<pre class="center-column">
-GET https://icp.nextech-api.com/Patient/12345
-</pre>
-
-&nbsp;
-
-#### Example: Get all patients
-
-<pre class="center-column">
-GET https://icp.nextech-api.com/Patient
-</pre>
-
-&nbsp;
-
-#### Example: Get all patients with identifier '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192'
-
-<pre class="center-column">
-GET https://icp.nextech-api.com/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
-</pre>
-
-<pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
-<i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
-</pre>
-
-<pre class="center-column">
-GET https://icp.nextech-api.com/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
-</pre>
-
-<pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
-<i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
-</pre>
-
-#### Example: Get all patients who live within '12345' zip code
-
-<pre class="center-column">
-GET https://icp.nextech-api.com/Patient?address-postalcode=12345
-</pre>
-
-<pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
-<i><small>body:</small></i> address-postalcode=12345
-</pre>
-
-#### Example: Get all patients with birth dates between and including 1/1/1981 through 5/31/1981
-
-<pre class="center-column">
-GET https://icp.nextech-api.com/Patient?birthdate=ge1981-01-01&birthdate=lt1981-05-31
-</pre>
-
-<pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
-<i><small>body:</small></i> birthdate=ge1981-01-01&birthdate=lt1981-05-31
-</pre>
-
-### Patient ID Search
-
-Attempts to find patient IDs that match the given search criteria and, if
-successful, returns those patients' unique identifiers.
-
-### HTTP Request
-
-`GET /Patient/ID?{parameters}`
-
-### Parameters
-
-| Name     | Located in | Description                             | Required | Type   | Initial Version |
-| -------- | ---------- | --------------------------------------- | -------- | ------ | --------------- |
-| group-id | query      | The letter writing group of the patient | No       | string | _1.0_            |
-
-#### Example: Get the unique identifiers of all patients that are in a letter writing group with an ID of 20
-
-<pre class="center-column">
-GET https://icp.nextech-api.com/Patient/ID?group-id=20
 </pre>
 
 &nbsp;
