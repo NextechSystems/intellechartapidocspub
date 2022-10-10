@@ -777,7 +777,7 @@ GET https://icp.nextech-api.com/Patient?family:contains=mit
 <p><strong>Example: Get the patients with chart numbers between and including 100 and 200</strong></p>
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/Patient/r4?identifier=ge100&identifier=le200
+GET https://icp.nextech-api.com/api/Patient/r4?identifier=ge100&identifier=le200
 </pre>
 
 <p>&nbsp;</p>
@@ -848,7 +848,7 @@ GET https://icp.nextech-api.com/Patient?address=1500
 
 <p>You may overide the number of matches returned, up to fifty, by including <code>_count={number}</code> in your search.</p>
 
-<p><code>GET http://select.nextech-api.com/apiPatient?_count=25</code></p>
+<p><code>GET http://icp.nextech-api.com/apiPatient?_count=25</code></p>
 
 <aside class="notice">
 Search results are limited to 50 matches per page.
@@ -2792,7 +2792,7 @@ POST https://icp.nextech-api.com/DiagnosticReport/_search
         {
             "coding": [
                 {
-                    "system": "https://select.nextech-api.com/api/structuredefinition/note-category",
+                    "system": "https://icp.nextech-api.com/api/structuredefinition/note-category",
                     "code": "Prescriptions",
                     "display": "Prescriptions"
                 }
@@ -3098,7 +3098,7 @@ patient:c21ab936-3a2a-4c5a-81b8-76b120194053
     "identifier": [
         {
             "use": "official",
-            "system": "https://select.nextech-api.com/api/structuredefinition/encounter-id",
+            "system": "https://icp.nextech-api.com/api/structuredefinition/encounter-id",
             "value": "19632"
         }
     ],
@@ -5477,7 +5477,7 @@ POST https://icp.nextech-api.com/Procedure/_search
     },
     "extension": [
         {
-            "url": "https://select.nextech-api.com/api/structuredefinition/managed",
+            "url": "https://icp.nextech-api.com/api/structuredefinition/managed",
             "valueBoolean": true
         }
     ],
@@ -5704,7 +5704,7 @@ GET https://icp.nextech-api.com/Location?identifier=123
     "identifier": [
         {
             "use": "official",
-            "system": "https://select.nextech-api.com/api/structuredefinition/practitioner-id"
+            "system": "https://icp.nextech-api.com/api/structuredefinition/practitioner-id"
             "value": "9219"
         },
         {
