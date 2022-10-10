@@ -24,7 +24,7 @@ A [Practitioner](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-co
     "identifier": [
         {
             "use": "official",
-            "system": "https://select.nextech-api.com/api/structuredefinition/practitioner-id"
+            "system": "https://icp.nextech-api.com/api/structuredefinition/practitioner-id"
             "value": "9219"
         },
         {

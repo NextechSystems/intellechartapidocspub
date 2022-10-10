@@ -191,7 +191,7 @@ Numeric and date values can be combined with operators to search on ranges of va
 **Example: Get the patients with chart numbers between and including 100 and 200**
 
 <pre class="center-column">
-GET https://select.nextech-api.com/api/Patient/r4?identifier=ge100&identifier=le200
+GET https://icp.nextech-api.com/api/Patient/r4?identifier=ge100&identifier=le200
 </pre>
 
 &nbsp;
@@ -278,7 +278,7 @@ When a search results in multiple matches, the first ten matches ordered by ente
 
 You may overide the number of matches returned, up to fifty, by including `_count={number}` in your search.
 
-`GET http://select.nextech-api.com/apiPatient?_count=25`
+`GET http://icp.nextech-api.com/apiPatient?_count=25`
 
 <aside class="notice">
 Search results are limited to 50 matches per page.
