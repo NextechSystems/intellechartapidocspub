@@ -1149,7 +1149,7 @@ A reference to a [document](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefin
         {
             "coding": [
                 {
-                    "system": "https://select.nextech-api.com/api/structuredefinition/note-category",
+                    "system": "https://icp.nextech-api.com/api/structuredefinition/note-category",
                     "code": "Prescriptions",
                     "display": "Prescriptions"
                 }
@@ -1357,7 +1357,7 @@ The [Encounter](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-cor
     "identifier": [
         {
             "use": "official",
-            "system": "https://select.nextech-api.com/api/structuredefinition/encounter-id",
+            "system": "https://icp.nextech-api.com/api/structuredefinition/encounter-id",
             "value": "19632"
         }
     ],

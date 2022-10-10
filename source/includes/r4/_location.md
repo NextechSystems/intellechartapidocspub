@@ -30,7 +30,7 @@ A [Location](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-l
     },
     "extension": [
         {
-            "url": "https://select.nextech-api.com/api/structuredefinition/managed",
+            "url": "https://icp.nextech-api.com/api/structuredefinition/managed",
             "valueBoolean": true
         }
     ],
