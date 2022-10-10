@@ -44,7 +44,7 @@ Retrieves the Capability Statement which holds information about supported serve
 ##### Example: Get Capability Statement
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/metadata
+GET https://icp.nextech-api.com/metadata
 </pre>
 
 &nbsp;
@@ -72,7 +72,7 @@ Retrieves server's SMART on FHIR configuration
 ##### Example: Get SMART on FHIR configuration
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/.well-known/smart-configuration
+GET https://icp.nextech-api.com/.well-known/smart-configuration
 </pre>
 
 &nbsp;

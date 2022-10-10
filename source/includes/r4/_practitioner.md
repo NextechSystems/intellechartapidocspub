@@ -90,7 +90,7 @@ Returns a single Practitioner result based on the Practitioner ID.
 #### Example: Get a specific Practitioner based on identifier
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner/12
+GET https://icp.nextech-api.com/Practitioner/12
 </pre>
 
 &nbsp;
@@ -115,7 +115,7 @@ Searches for all based on the given search criteria.
 #### Example: Get all Practitioners
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner
+GET https://icp.nextech-api.com/Practitioner
 </pre>
 
 &nbsp;
@@ -123,7 +123,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner
 #### Example: Get a specific Practitioner based on identifier
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner?identifier=12
+GET https://icp.nextech-api.com/Practitioner?identifier=12
 </pre>
 
 &nbsp;
@@ -131,7 +131,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner?identifier=12
 #### Example: Get a specific Practitioner based on National Provider Identifier (NPI)
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner?identifier=http://hl7.org/fhir/r4/sid/us-npi|1245319599
+GET https://icp.nextech-api.com/Practitioner?identifier=http://hl7.org/fhir/r4/sid/us-npi|1245319599
 </pre>
 
 &nbsp;
@@ -139,7 +139,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner?identifier=http://
 #### Example: Get all Practitioners whose name contains 'smith'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Practitioner?name:contains=smith
+GET https://icp.nextech-api.com/Practitioner?name:contains=smith
 </pre>
 
 &nbsp;
