@@ -90,7 +90,7 @@ Returns a single Organization result based on the Organization ID.
 #### Example: Get an organization with an ID of '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Organization/123
+GET https://icp.nextech-api.com/Organization/123
 </pre>
 
 &nbsp;
@@ -122,7 +122,7 @@ Searches for all organizations based on the given search criteria.
 #### Example: Get all organizations whose name contains 'dermatology'
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Organization/_search?name:contains=dermatology
+POST https://icp.nextech-api.com/Organization/_search?name:contains=dermatology
 </pre>
 
 &nbsp;
@@ -130,7 +130,7 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Organization/_search?name:cont
 #### Example: Get a specific organization based on identifier
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Organization/_search?identifier=123
+POST https://icp.nextech-api.com/Organization/_search?identifier=123
 </pre>
 
 &nbsp;
@@ -138,7 +138,7 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Organization/_search?identifie
 #### Example: Get all organizations whose name contains 'dermatology'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Organization?name:contains=dermatology
+GET https://icp.nextech-api.com/Organization?name:contains=dermatology
 </pre>
 
 &nbsp;
@@ -146,7 +146,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Organization?name:contains=derm
 #### Example: Get a specific organization based on identifier
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Organization?identifier=123
+GET https://icp.nextech-api.com/Organization?identifier=123
 </pre>
 
 &nbsp;

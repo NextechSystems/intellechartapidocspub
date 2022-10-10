@@ -99,7 +99,7 @@ Returns a single AllergyIntolerance result based on the allergy intolerance ID.
 #### Example: Get the allergy intolerance with an ID of '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/AllergyIntolerance/123
+GET https://icp.nextech-api.com/AllergyIntolerance/123
 </pre>
 
 &nbsp;
@@ -135,20 +135,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get an allergy intolerance with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/AllergyIntolerance?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/AllergyIntolerance?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/AllergyIntolerance/_search
+POST https://icp.nextech-api.com/AllergyIntolerance/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/AllergyIntolerance?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/AllergyIntolerance?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/AllergyIntolerance/_search
+POST https://icp.nextech-api.com/AllergyIntolerance/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -157,13 +157,13 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/AllergyIntolerance/_search
 #### Examples:
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/AllergyIntolerance?patient=b664fd37-ff5f-4022-9d71-2e476d42f316
+GET https://icp.nextech-api.com/AllergyIntolerance?patient=b664fd37-ff5f-4022-9d71-2e476d42f316
 </pre>
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/AllergyIntolerance?patient=Patient/b664fd37-ff5f-4022-9d71-2e476d42f316
+GET https://icp.nextech-api.com/AllergyIntolerance?patient=Patient/b664fd37-ff5f-4022-9d71-2e476d42f316
 </pre>
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/AllergyIntolerance/_search
+POST https://icp.nextech-api.com/AllergyIntolerance/_search
 <i><small>body:</small></i> patient=b664fd37-ff5f-4022-9d71-2e476d42f316
 </pre>
 
@@ -236,7 +236,7 @@ Returns a single Care Plan result based on the Care Plan ID.
 #### Example: Get the care plan with an ID of '676'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CarePlan/676
+GET https://icp.nextech-api.com/CarePlan/676
 </pre>
 
 &nbsp;
@@ -275,20 +275,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a care plan with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CarePlan?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/CarePlan?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/CarePlan/_search
+POST https://icp.nextech-api.com/CarePlan/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CarePlan?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/CarePlan?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/CarePlan/_search
+POST https://icp.nextech-api.com/CarePlan/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -297,24 +297,24 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/CarePlan/_search
 #### Example: Get all care plans for a single patient with id 'c27e5be0-4b44-4ec5-a284-4308d6ac2b1a' and category 'assess-plan'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CarePlan?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=assess-plan
+GET https://icp.nextech-api.com/CarePlan?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=assess-plan
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=assess-plan
+GET https://icp.nextech-api.com/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=assess-plan
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=http://hl7.org/fhir/r4/us/core/CodeSystem/careplan-category|assess-plan
+GET https://icp.nextech-api.com/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=http://hl7.org/fhir/r4/us/core/CodeSystem/careplan-category|assess-plan
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/CarePlan/_search
+POST https://icp.nextech-api.com/CarePlan/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=assess-plan
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/CarePlan/_search
+POST https://icp.nextech-api.com/CarePlan/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=http://hl7.org/fhir/r4/us/core/CodeSystem/careplan-category|assess-plan
 </pre>
 
@@ -323,7 +323,7 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/CarePlan/_search
 #### Example: Get all care plans for a single patient that were modified as of 5/5/2022
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CarePlan?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
+GET https://icp.nextech-api.com/CarePlan?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
 </pre>
 
 &nbsp;
@@ -331,7 +331,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/CarePlan?patient=c27e5be0-4b44-
 #### Example: Get all care plans that were modified by 5/5/2022
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CarePlan?_lastUpdated=le2022-05-05
+GET https://icp.nextech-api.com/CarePlan?_lastUpdated=le2022-05-05
 </pre>
 
 &nbsp;
@@ -435,7 +435,7 @@ Returns a single Care Team result based on the Care Team ID.
 #### Example: Get the care team with an ID of '3'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CareTeam/3
+GET https://icp.nextech-api.com/CareTeam/3
 </pre>
 
 &nbsp;
@@ -474,20 +474,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a care team with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CareTeam?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/CareTeam?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/CareTeam/_search
+POST https://icp.nextech-api.com/CareTeam/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CareTeam?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/CareTeam?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/CareTeam/_search
+POST https://icp.nextech-api.com/CareTeam/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -496,24 +496,24 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/CareTeam/_search
 #### Example: Get all care teams for a single patient with id 'c27e5be0-4b44-4ec5-a284-4308d6ac2b1a' and status 'active'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CareTeam?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=active
+GET https://icp.nextech-api.com/CareTeam?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=active
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CareTeam?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=active
+GET https://icp.nextech-api.com/CareTeam?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=active
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CareTeam?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=http://hl7.org/fhir/r4/ValueSet/care-team-status|active
+GET https://icp.nextech-api.com/CareTeam?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=http://hl7.org/fhir/r4/ValueSet/care-team-status|active
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/CareTeam/_search
+POST https://icp.nextech-api.com/CareTeam/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=active
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/CareTeam/_search
+POST https://icp.nextech-api.com/CareTeam/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=http://hl7.org/fhir/r4/ValueSet/care-team-status|active
 </pre>
 
@@ -522,7 +522,7 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/CareTeam/_search
 #### Example: Get all care teams for a single patient that were modified as of 5/5/2022
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CareTeam?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
+GET https://icp.nextech-api.com/CareTeam?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
 </pre>
 
 &nbsp;
@@ -530,7 +530,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/CareTeam?patient=c27e5be0-4b44-
 #### Example: Get all care teams that were modified by 5/5/2022
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/CareTeam?_lastUpdated=le2022-05-05
+GET https://icp.nextech-api.com/CareTeam?_lastUpdated=le2022-05-05
 </pre>
 
 &nbsp;
@@ -626,7 +626,7 @@ Returns a single Condition result based on the Condition ID.
 #### Example: Get a condition problem with an ID of '12'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Condition/prb-12
+GET https://icp.nextech-api.com/Condition/prb-12
 </pre>
 
 &nbsp;
@@ -668,20 +668,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a condition problem with an identifier '12' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Condition?identifier=prb-12&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Condition?identifier=prb-12&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Condition/_search
+POST https://icp.nextech-api.com/Condition/_search
 <i><small>body:</small></i> identifier=prb-12&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Condition?_id=prb-12&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Condition?_id=prb-12&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Condition/_search
+POST https://icp.nextech-api.com/Condition/_search
 <i><small>body:</small></i> _id=prb-12&_revinclude=Provenance:target
 </pre>
 
@@ -690,11 +690,11 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Condition/_search
 #### Example: Get all conditions for a single patient
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Condition?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
+GET https://icp.nextech-api.com/Condition?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Condition/_search
+POST https://icp.nextech-api.com/Condition/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
@@ -703,20 +703,20 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Condition/_search
 #### Example: Get the condition problem with id of 'prb-12'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Condition?_id=prb-12
+GET https://icp.nextech-api.com/Condition?_id=prb-12
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Condition?identifier=prb-12
+GET https://icp.nextech-api.com/Condition?identifier=prb-12
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Condition/_search
+POST https://icp.nextech-api.com/Condition/_search
 <i><small>body:</small></i> _id=prb-12
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Condition/_search
+POST https://icp.nextech-api.com/Condition/_search
 <i><small>body:</small></i> identifier=prb-12
 </pre>
 
@@ -725,11 +725,11 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Condition/_search
 #### Example: Get all conditions for a single patient that were modified as of 5/5/2022
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Condition?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
+GET https://icp.nextech-api.com/Condition?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Condition/_search
+POST https://icp.nextech-api.com/Condition/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
 </pre>
 
@@ -808,7 +808,7 @@ Returns a single Device result based on the Device ID.
 #### Example: Get the device with an ID of '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Device/123
+GET https://icp.nextech-api.com/Device/123
 </pre>
 
 &nbsp;
@@ -845,20 +845,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a device with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Device?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Device?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Device/_search
+POST https://icp.nextech-api.com/Device/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Device?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Device?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Device/_search
+POST https://icp.nextech-api.com/Device/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -867,15 +867,15 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Device/_search
 #### Example: Get all devices for a single patient with id 'ad2085b5-b974-401d-bfcb-3b865109fd35'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Device?patient=ad2085b5-b974-401d-bfcb-3b865109fd35
+GET https://icp.nextech-api.com/Device?patient=ad2085b5-b974-401d-bfcb-3b865109fd35
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Device?patient=Patient/ad2085b5-b974-401d-bfcb-3b865109fd35
+GET https://icp.nextech-api.com/Device?patient=Patient/ad2085b5-b974-401d-bfcb-3b865109fd35
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Device/_search
+POST https://icp.nextech-api.com/Device/_search
 <i><small>body:</small></i> patient=ad2085b5-b974-401d-bfcb-3b865109fd35
 </pre>
 
@@ -884,11 +884,11 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Device/_search
 #### Example: Get all devices for a single patient with id 'ad2085b5-b974-401d-bfcb-3b865109fd35' that were recorded as of 1/1/2017
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Device?patient=ad2085b5-b974-401d-bfcb-3b865109fd35&_lastUpdated=ge2017-01-01
+GET https://icp.nextech-api.com/Device?patient=ad2085b5-b974-401d-bfcb-3b865109fd35&_lastUpdated=ge2017-01-01
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Device/_search
+POST https://icp.nextech-api.com/Device/_search
 <i><small>body:</small></i> patient=ad2085b5-b974-401d-bfcb-3b865109fd35&_lastUpdated=ge2017-01-01
 </pre>
 
@@ -897,20 +897,20 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Device/_search
 #### Search for a device with the id '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Device?identifier=123
+GET https://icp.nextech-api.com/Device?identifier=123
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Device/_search
+POST https://icp.nextech-api.com/Device/_search
 <i><small>body:</small></i> identifier=123
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Device?_id=123
+GET https://icp.nextech-api.com/Device?_id=123
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Device/_search
+POST https://icp.nextech-api.com/Device/_search
 <i><small>body:</small></i> _id=123
 </pre>
 
@@ -1021,7 +1021,7 @@ Returns a single DiagnosticReport result based on the DiagnosticReport ID.
 #### Example: Get a diagnostic report with an ID of '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/123
+GET https://icp.nextech-api.com/DiagnosticReport/123
 </pre>
 
 &nbsp;
@@ -1061,20 +1061,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a diagnostic report with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/DiagnosticReport?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/_search
+POST https://icp.nextech-api.com/DiagnosticReport/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/DiagnosticReport?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/_search
+POST https://icp.nextech-api.com/DiagnosticReport/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -1083,10 +1083,10 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/_search
 #### Example: Get all lab-type diagnostic reports on or after 5/1/2017
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport?category=LAB&date=ge2017-05-01
+GET https://icp.nextech-api.com/DiagnosticReport?category=LAB&date=ge2017-05-01
 </pre>
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/DiagnosticReport/_search
+POST https://icp.nextech-api.com/DiagnosticReport/_search
 <i><small>body:</small></i> category=LAB&date=ge2017-05-01
 </pre>
 
@@ -1220,7 +1220,7 @@ Finds a single document based on the ID
 #### Example: Get the history document with ID 2262 which is a text file with a content of "Hello!"
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference/2262
+GET https://icp.nextech-api.com/DocumentReference/2262
 </pre>
 
 &nbsp;
@@ -1260,20 +1260,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a history document reference with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/DocumentReference?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference/_search
+POST https://icp.nextech-api.com/DocumentReference/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/DocumentReference?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference/_search
+POST https://icp.nextech-api.com/DocumentReference/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -1282,7 +1282,7 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference/_search
 #### Example: Get the history document with ID 7741
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference?_id=history-7741
+GET https://icp.nextech-api.com/DocumentReference?_id=history-7741
 </pre>
 
 &nbsp;
@@ -1290,7 +1290,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference?_id=history-7
 #### Example: Searching for all documents that have a type of 11488-4, category of Unknown, created on 2022-06-03 for the specific patient
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference?type=11488-4&category=Unknown&date=2022-06-03&patient=c21ab936-3a2a-4c5a-81b8-76b120194053
+GET https://icp.nextech-api.com/DocumentReference?type=11488-4&category=Unknown&date=2022-06-03&patient=c21ab936-3a2a-4c5a-81b8-76b120194053
 </pre>
 
 &nbsp;
@@ -1298,7 +1298,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference?type=11488-4&
 #### Example: Search for all documents that were created between 2020-06-03 and 2022-06-01
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference?date=gt2020-06-03&date=lt2022-06-01
+GET https://icp.nextech-api.com/DocumentReference?date=gt2020-06-03&date=lt2022-06-01
 </pre>
 
 &nbsp;
@@ -1306,7 +1306,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference?date=gt2020-0
 #### Example Search by \_id in POST Body
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference/_search
+POST https://icp.nextech-api.com/DocumentReference/_search
 <i><small>body:</small></i>
 _id:history-2262
 </pre>
@@ -1314,7 +1314,7 @@ _id:history-2262
 #### Example Searching for all documents that have a type of 11488-4, category of Clinical, created before 2022-06-03 for the specific patient
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/DocumentReference/_search
+POST https://icp.nextech-api.com/DocumentReference/_search
 <i><small>body:</small></i>
 type:11488-4
 category:Clinical
@@ -1531,7 +1531,7 @@ Returns a single Encounter result based on the Encounter ID.
 #### Example: Get an encounter with an ID of '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Encounter/123
+GET https://icp.nextech-api.com/Encounter/123
 </pre>
 
 &nbsp;
@@ -1573,20 +1573,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get an encounter with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Encounter?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Encounter?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Encounter/_search
+POST https://icp.nextech-api.com/Encounter/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Encounter?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Encounter?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Encounter/_search
+POST https://icp.nextech-api.com/Encounter/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -1597,48 +1597,48 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Encounter/_search
 #### Get all encounters
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Encounter
+GET https://icp.nextech-api.com/Encounter
 </pre>
 
 #### Search for encounters for the patient with the id '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Encounter?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+GET https://icp.nextech-api.com/Encounter?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Encounter/_search
+POST https://icp.nextech-api.com/Encounter/_search
 <i><small>body:</small></i> patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 #### Search for encounters for the patient with the id '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192' that took place between and including 1/1/2022 through 11/14/2022
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Encounter?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
+GET https://icp.nextech-api.com/Encounter?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Encounter/_search
+POST https://icp.nextech-api.com/Encounter/_search
 <i><small>body:</small></i> patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 
 #### Search for an Encounter with the id '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Encounter?identifier=123
+GET https://icp.nextech-api.com/Encounter?identifier=123
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Encounter/_search
+POST https://icp.nextech-api.com/Encounter/_search
 <i><small>body:</small></i> identifier=123
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Encounter?_id=123
+GET https://icp.nextech-api.com/Encounter?_id=123
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Encounter/_search
+POST https://icp.nextech-api.com/Encounter/_search
 <i><small>body:</small></i> _id=123
 </pre>
 
@@ -1724,7 +1724,7 @@ Returns a single Goal based on the goal's ID.
 #### Example: Get a goal with ID 'goalemn-2284code-559215'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Goal/goalemn-2284code-559215
+GET https://icp.nextech-api.com/Goal/goalemn-2284code-559215
 </pre>
 
 &nbsp;
@@ -1762,20 +1762,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a goal with an identifier 'goalemn-2284code-559215' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Goal?identifier=goalemn-2284code-559215&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Goal?identifier=goalemn-2284code-559215&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Goal/_search
+POST https://icp.nextech-api.com/Goal/_search
 <i><small>body:</small></i> identifier=goalemn-2284code-559215&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Goal?_id=goalemn-2284code-559215&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Goal?_id=goalemn-2284code-559215&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Goal/_search
+POST https://icp.nextech-api.com/Goal/_search
 <i><small>body:</small></i> _id=goalemn-2284code-559215&_revinclude=Provenance:target
 </pre>
 
@@ -1784,7 +1784,7 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Goal/_search
 #### Example: Get all goals for a single patient
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Goal?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC
+GET https://icp.nextech-api.com/Goal?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC
 </pre>
 
 &nbsp;
@@ -1792,7 +1792,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Goal?patient=29D5AA40-6E3E-4683
 #### Example: Get all goals for a single patient, using a `Patient/` reference prefix
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Goal?patient=Patient/29D5AA40-6E3E-4683-B17F-2FBFECACF9BC
+GET https://icp.nextech-api.com/Goal?patient=Patient/29D5AA40-6E3E-4683-B17F-2FBFECACF9BC
 </pre>
 
 &nbsp;
@@ -1800,7 +1800,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Goal?patient=Patient/29D5AA40-6
 #### Example: Get all goals for a patient on a date
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Goal?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC&date=2017-01-01
+GET https://icp.nextech-api.com/Goal?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC&date=2017-01-01
 </pre>
 
 &nbsp;
@@ -1808,7 +1808,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Goal?patient=29D5AA40-6E3E-4683
 #### Example: Get all goals for a patient on a date
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Goal/_search?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC&date=2017-01-01
+POST https://icp.nextech-api.com/Goal/_search?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC&date=2017-01-01
 </pre>
 
 &nbsp;
@@ -1888,7 +1888,7 @@ Returns a single Immunization result based on the Immunization ID.
 #### Example: Get an immunization with an ID of '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Immunization/123
+GET https://icp.nextech-api.com/Immunization/123
 </pre>
 
 &nbsp;
@@ -1928,20 +1928,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get an immunization with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Immunization?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Immunization?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Immunization/_search
+POST https://icp.nextech-api.com/Immunization/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Immunization?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Immunization?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Immunization/_search
+POST https://icp.nextech-api.com/Immunization/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -1952,37 +1952,37 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Immunization/_search
 #### Get all immunizations
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Immunization
+GET https://icp.nextech-api.com/Immunization
 </pre>
 
 #### Search for immunizations for the patient with the id '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Immunization?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+GET https://icp.nextech-api.com/Immunization?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Immunization/_search
+POST https://icp.nextech-api.com/Immunization/_search
 <i><small>body:</small></i> patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 #### Search for an immunization with the id '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Immunization?identifier=123
+GET https://icp.nextech-api.com/Immunization?identifier=123
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Immunization/_search
+POST https://icp.nextech-api.com/Immunization/_search
 <i><small>body:</small></i> identifier=123
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Immunization?_id=123
+GET https://icp.nextech-api.com/Immunization?_id=123
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Immunization/_search
+POST https://icp.nextech-api.com/Immunization/_search
 <i><small>body:</small></i> _id=123
 </pre>
 
@@ -2041,7 +2041,7 @@ Returns a single Medication result based on the Medication ID.
 #### Example: Get the medication with an ID of '12'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Medication/12
+GET https://icp.nextech-api.com/Medication/12
 </pre>
 
 &nbsp;
@@ -2080,20 +2080,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a medication with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Medication?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Medication?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Medication/_search
+POST https://icp.nextech-api.com/Medication/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Medication?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Medication?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Medication/_search
+POST https://icp.nextech-api.com/Medication/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -2102,20 +2102,20 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Medication/_search
 #### Example: Get the medication with an ID of '12'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Medication?identifier=12
+GET https://icp.nextech-api.com/Medication?identifier=12
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Medication/_search
+POST https://icp.nextech-api.com/Medication/_search
 <i><small>body:</small></i> identifier=12
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Medication?_id=12
+GET https://icp.nextech-api.com/Medication?_id=12
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Medication/_search
+POST https://icp.nextech-api.com/Medication/_search
 <i><small>body:</small></i> _id=12
 </pre>
 
@@ -2200,7 +2200,7 @@ Returns a single Medication Request result based on the Medication Request ID.
 #### Example: Get the medication request with an ID of '12'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/12
+GET https://icp.nextech-api.com/MedicationRequest/12
 </pre>
 
 &nbsp;
@@ -2242,20 +2242,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a medication request with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/MedicationRequest?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
+POST https://icp.nextech-api.com/MedicationRequest/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/MedicationRequest?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
+POST https://icp.nextech-api.com/MedicationRequest/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -2264,20 +2264,20 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
 #### Example: Get the medication request with an ID of '12'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?identifier=12
+GET https://icp.nextech-api.com/MedicationRequest?identifier=12
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
+POST https://icp.nextech-api.com/MedicationRequest/_search
 <i><small>body:</small></i> identifier=12
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?_id=12
+GET https://icp.nextech-api.com/MedicationRequest?_id=12
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
+POST https://icp.nextech-api.com/MedicationRequest/_search
 <i><small>body:</small></i> _id=12
 </pre>
 
@@ -2286,15 +2286,15 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
 #### Example: Get all medication requests for a single patient with id 'c27e5be0-4b44-4ec5-a284-4308d6ac2b1a'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
+GET https://icp.nextech-api.com/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
+GET https://icp.nextech-api.com/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
+POST https://icp.nextech-api.com/MedicationRequest/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
@@ -2303,20 +2303,20 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
 #### Example: Get all medication requests for a single patient with id 'c27e5be0-4b44-4ec5-a284-4308d6ac2b1a' and intent 'original-order'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order
+GET https://icp.nextech-api.com/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-intent|original-order
+GET https://icp.nextech-api.com/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-intent|original-order
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
+POST https://icp.nextech-api.com/MedicationRequest/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
+POST https://icp.nextech-api.com/MedicationRequest/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-intent|original-order
 </pre>
 
@@ -2325,20 +2325,20 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
 #### Example: Get all medication requests for a single patient with id 'c27e5be0-4b44-4ec5-a284-4308d6ac2b1a', intent 'original-order' and status 'active'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=active
+GET https://icp.nextech-api.com/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=active
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-status|active
+GET https://icp.nextech-api.com/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-status|active
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
+POST https://icp.nextech-api.com/MedicationRequest/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=active
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
+POST https://icp.nextech-api.com/MedicationRequest/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-status|active
 </pre>
 
@@ -2347,7 +2347,7 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest/_search
 #### Example: Get all medication requests for a single patient that were modified as of 5/5/2022
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
+GET https://icp.nextech-api.com/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
 </pre>
 
 &nbsp;
@@ -2355,7 +2355,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?patient=c27e5
 #### Example: Get all medication requests that were modified by 5/5/2022
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/MedicationRequest?_lastUpdated=le2022-05-05
+GET https://icp.nextech-api.com/MedicationRequest?_lastUpdated=le2022-05-05
 </pre>
 
 &nbsp;
@@ -2459,7 +2459,7 @@ Returns a single Observation result based on the Observation ID.
 #### Example: Get a lab observation with an ID of '12'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Observation/lab-12
+GET https://icp.nextech-api.com/Observation/lab-12
 </pre>
 
 &nbsp;
@@ -2501,20 +2501,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a lab observation with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Observation?identifier=lab-123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Observation?identifier=lab-123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Observation/_search
+POST https://icp.nextech-api.com/Observation/_search
 <i><small>body:</small></i> identifier=lab-123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Observation?_id=lab-123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Observation?_id=lab-123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Observation/_search
+POST https://icp.nextech-api.com/Observation/_search
 <i><small>body:</small></i> _id=lab-123&_revinclude=Provenance:target
 </pre>
 
@@ -2523,10 +2523,10 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Observation/_search
 #### Example: Get all laboratory requisitions and lab results 5/1/2017
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Observation?category=laboratory&date=ge2017-05-01
+GET https://icp.nextech-api.com/Observation?category=laboratory&date=ge2017-05-01
 </pre>
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Observation/_search
+POST https://icp.nextech-api.com/Observation/_search
 <i><small>body:</small></i> category=laboratory&date=ge2017-05-01
 </pre>
 
@@ -2535,10 +2535,10 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Observation/_search
 #### Example: Get the social histories charted in encounters as of 5/1/2017
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Observation?category=social-history&date=ge2017-05-01
+GET https://icp.nextech-api.com/Observation?category=social-history&date=ge2017-05-01
 </pre>
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Observation/_search
+POST https://icp.nextech-api.com/Observation/_search
 <i><small>body:</small></i> category=social-history&date=ge2017-05-01
 </pre>
 
@@ -2547,10 +2547,10 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Observation/_search
 #### Example: Get the vital signs charted in encounters as of 5/1/2017
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Observation?category=vital-signs&date=ge2017-05-01
+GET https://icp.nextech-api.com/Observation?category=vital-signs&date=ge2017-05-01
 </pre>
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Observation/_search
+POST https://icp.nextech-api.com/Observation/_search
 <i><small>body:</small></i> category=vital-signs&date=ge2017-05-01
 </pre>
 
@@ -2739,7 +2739,7 @@ Returns a single Patient result based on the patient ID.
 #### Example: Get the patient with an ID of 'c27e5be0-4b44-4ec5-a284-4308d6ac2b1a'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
+GET https://icp.nextech-api.com/Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
 &nbsp;
@@ -2779,27 +2779,27 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a patient with an identifier '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+POST https://icp.nextech-api.com/Patient/_search
 <i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+POST https://icp.nextech-api.com/Patient/_search
 <i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
 </pre>
 
 #### Example: Get the patient of a specific chart number
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/12345
+GET https://icp.nextech-api.com/Patient/12345
 </pre>
 
 &nbsp;
@@ -2807,7 +2807,7 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/12345
 #### Example: Get all patients
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient
+GET https://icp.nextech-api.com/Patient
 </pre>
 
 &nbsp;
@@ -2815,42 +2815,42 @@ GET https://qa.intellechartbeta.net/icp-fhir-api/Patient
 #### Example: Get all patients with identifier '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+GET https://icp.nextech-api.com/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+POST https://icp.nextech-api.com/Patient/_search
 <i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+GET https://icp.nextech-api.com/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+POST https://icp.nextech-api.com/Patient/_search
 <i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 #### Example: Get all patients who live within '12345' zip code
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?address-postalcode=12345
+GET https://icp.nextech-api.com/Patient?address-postalcode=12345
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+POST https://icp.nextech-api.com/Patient/_search
 <i><small>body:</small></i> address-postalcode=12345
 </pre>
 
 #### Example: Get all patients with birth dates between and including 1/1/1981 through 5/31/1981
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient?birthdate=ge1981-01-01&birthdate=lt1981-05-31
+GET https://icp.nextech-api.com/Patient?birthdate=ge1981-01-01&birthdate=lt1981-05-31
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Patient/_search
+POST https://icp.nextech-api.com/Patient/_search
 <i><small>body:</small></i> birthdate=ge1981-01-01&birthdate=lt1981-05-31
 </pre>
 
@@ -2872,7 +2872,7 @@ successful, returns those patients' unique identifiers.
 #### Example: Get the unique identifiers of all patients that are in a letter writing group with an ID of 20
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Patient/ID?group-id=20
+GET https://icp.nextech-api.com/Patient/ID?group-id=20
 </pre>
 
 &nbsp;
@@ -2943,7 +2943,7 @@ Returns a single Procedure result based on the Procedure ID.
 #### Example: Get an procedure with an ID of '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Procedure/123
+GET https://icp.nextech-api.com/Procedure/123
 </pre>
 
 &nbsp;
@@ -2984,20 +2984,20 @@ These will be in additional bundle entry components, which have a `Provenance.Ta
 #### Example: Get a procedure with an identifier '123' with provenance
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Procedure?identifier=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Procedure?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Procedure/_search
+POST https://icp.nextech-api.com/Procedure/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Procedure?_id=123&_revinclude=Provenance:target
+GET https://icp.nextech-api.com/Procedure?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Procedure/_search
+POST https://icp.nextech-api.com/Procedure/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
@@ -3008,38 +3008,38 @@ POST https://qa.intellechartbeta.net/icp-fhir-api/Procedure/_search
 #### Get all procedures
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Procedure
+GET https://icp.nextech-api.com/Procedure
 </pre>
 
 #### Search for procedures for the patient with the id '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Procedure?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+GET https://icp.nextech-api.com/Procedure?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Procedure/_search
+POST https://icp.nextech-api.com/Procedure/_search
 <i><small>body:</small></i> patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 #### Search for procedures for the patient with the id '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192' performed between and including 1/1/2022 through 11/14/2022
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Procedure?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
+GET https://icp.nextech-api.com/Procedure?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Procedure/_search
+POST https://icp.nextech-api.com/Procedure/_search
 <i><small>body:</small></i> patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 
 #### Search for an procedure with the id '123'
 
 <pre class="center-column">
-GET https://qa.intellechartbeta.net/icp-fhir-api/Procedure?_id=123
+GET https://icp.nextech-api.com/Procedure?_id=123
 </pre>
 
 <pre class="center-column">
-POST https://qa.intellechartbeta.net/icp-fhir-api/Procedure/_search
+POST https://icp.nextech-api.com/Procedure/_search
 <i><small>body:</small></i> _id=123
 </pre>
