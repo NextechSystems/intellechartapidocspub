@@ -42,7 +42,7 @@
 .highlight .cs {
   color: #75715e;
 }
-.highlight .c, .highlight .cd {
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
   color: #75715e;
 }
 .highlight .err {
@@ -126,7 +126,7 @@
 .highlight .s1 {
   color: #e6db74;
 }
-.highlight .s {
+.highlight .s, .highlight .sa, .highlight .dl {
   color: #e6db74;
 }
 .highlight .na {
@@ -141,41 +141,52 @@
 .highlight .ne {
   color: #a6e22e;
 }
-.highlight .nf {
+.highlight .nf, .highlight .fm {
   color: #a6e22e;
 }
 .highlight .vc {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .nn {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .nl {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .ni {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .bp {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .vg {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .vi {
   color: #ffffff;
+  background-color: #272822;
 }
-.highlight .nv {
+.highlight .nv, .highlight .vm {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .w {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .n, .highlight .py, .highlight .nx {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .ow {
   color: #f92672;
@@ -205,11 +216,18 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar.png" alt="" />
       </span>
-    </a>
+    </a>    
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/logo.png" class="logo" alt="" />
+      <div id="versions" class="versions-wrapper">
+        <label>Version: </label> 
+        <select>
+          <option value="index.html">STU3</option>
+          <option value="r4.html">R4</option>
+        </select>          
+      </div>
       <div id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
@@ -243,7 +261,7 @@
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='http://hl7.org/fhir/'>FHIR Documentation</a></li>
+            <li><a href='http://hl7.org/fhir/r4/'>FHIR Documentation</a></li>
             <li><a href='https://app.getpostman.com/run-collection/899edff2cda90cba5159'>Run in Postman</a></li>
             <li><a href='https://cdn2.hubspot.net/hubfs/306056/Developers%20Portal/Nextech%20API%20Terms%20and%20Conditions%20Agreement%20Document.pdf'>Terms of Use</a></li>
         </ul>
@@ -465,7 +483,7 @@ Form (x-www-form-urlencoded):
 </pre>
 
 <p>&nbsp;</p>
-<h3 id='em-search-em'><em>Search</em></h3>
+<h3 id='search'><em>Search</em></h3>
 <p>Searches for all appointments matching the given search criteria. See <a href="https://www.hl7.org/fhir/search.html">https://www.hl7.org/fhir/search.html</a> for instructions on formatting search criteria.</p>
 <h4 id='http-request'>HTTP Request</h4>
 <p><code>GET /search?{parameters}</code></p>
@@ -599,7 +617,7 @@ GET https://saas.nextech-api.com/ehr/api/search?term=william
 </pre>
 
 <p>&nbsp;</p>
-<h3 id='em-search-em'><em>Search</em></h3>
+<h3 id='search'><em>Search</em></h3>
 <p>Searches for all of a one patient&#39;s encounters within a date range.</p>
 <h4 id='http-request'>HTTP Request</h4>
 <p><code>GET /{patientId]/encounters/search</code></p>
