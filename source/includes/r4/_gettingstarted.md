@@ -1,24 +1,16 @@
 # Getting Started
 
-All API requests are performed over HTTPS. Although the [FHIR® standard](https://www.hl7.org/fhir/index.html) supports both JSON and XML, this API currently only supports JSON. Therefore any type explicitly defined in the request's `Accept` header will be ignored.
+All API requests are performed over HTTPS, and **must** use TLS 1.2. Although the [FHIR® standard](https://www.hl7.org/fhir/R4/index.html) supports both JSON and XML, this API currently only supports JSON. Therefore any type explicitly defined in the request's `Accept` header will be ignored.
 
-Before you can access the Nextech API you must have the proper credentials to authenticate. These credentials will be provided to you by your Nextech representative.
+Before you can access the Nextech API you must have the proper credentials for authorization. These credentials will be provided to you by your Nextech representative, and vary depending on how you wish to integrate with the Nextech API. There are two different authorization models available for accessing the Nextech API: [SMART App authorization](#smart-app-authorization), and [partner authorization](#partner-authorization). See each linked authorization section for more information on each, including how to register your application with the Nextech API and acquire the necessary credentials.
 
-**These credentials will expire on your first login and must be reset through Microsoft [here] (http://portal.azure.com/).**
+**Base API Endpoint**
+`https://icp.nextech-api.com/`
 
 **API Limitations**
 
 - Users of the Nextech API are restricted to a rate limit of 20 requests per second per endpoint
 - Nextech is not responsible for the development or maintenance of any third-party application
-
-**API Endpoint**
-`https://icp.nextech-api.com/`
-
-The following values are required in the Header for every request...
-
-| Name          | Description                                                   | Required? |
-| ------------- | ------------------------------------------------------------- | --------- |
-| Authorization | Every request requires a Bearer token `Bearer {access_token}` | Yes       |
 
 ## Rate Limiting
 
@@ -36,60 +28,6 @@ If your API user exceeds the rate limit, you will receive a HTTP 429 response co
 - Query with \_lastUpdated search parameters to avoid re-querying unmodified data.
 - If you need to synchronize data, it is best to do so during non-peak business hours. Which vary on a per practice basis.
 
-## Authentication
-
-Nextech's implementation of the FHIR® standard is protected by the [OAuth 2.0 standard](https://oauth.net/2/) for authenticating requests. All API requests are authenticated by passing a Bearer token in the Authorization Header.
-
-`Authorization: Bearer {access_token}`
-
-### Request Access Token
-
-Access tokens are used to make API requests on behalf of a user. These tokens are short-lived (1 hour by default) but should be kept confidential in transit and in storage. A `access_token` and `refresh_token` pair is issued when requesting an access token.
-
-**HTTP Request**
-`POST https://mypatientvisit-sts-dev.azurewebsites.net/connect/token`
-
-| Parameter  | Description                                       |
-| ---------- | ------------------------------------------------- |
-| grant_type | Use `password` (Resource owner credentials grant) |
-| client_id  | Application ID                                    |
-| username   | Resource owner username                           |
-| password   | Resource owner password                           |
-| resource   | The app to consume the token                      |
-
-**Response Parameters**
-
-| Parameter     | Description                                                                                         |
-| ------------- | --------------------------------------------------------------------------------------------------- |
-| token_type    | Always `Bearer`                                                                                     |
-| scope         | Always `user_impersonation`                                                                         |
-| expires_in    | The lifetime of the access token, in seconds. Default 3600                                          |
-| access_token  | The bearer token used in the `Authorization` header for subsquent requests                          |
-| refresh_token | A long-lived token (14 days) used to renew expired access tokens without providing user credentials |
-
-### Refresh Access Token
-
-Refresh tokens are used to renew an expired access token without providing user credentials. A `access_token` and `refresh_token` pair is issued when requesting an access token using the resource owner credentials grant. A new pair is also generated when using the `refresh_token` grant type.
-
-**HTTP Request**
-`POST https://mypatientvisit-sts-dev.azurewebsites.net/connect/token`
-
-| Parameter     | Description            |
-| ------------- | ---------------------- |
-| grant_type    | Always `refresh_token` |
-| client_id     | Application ID         |
-| refresh_token | A valid refresh token  |
-
-**Response Parameters**
-
-| Parameter     | Description                                                                                         |
-| ------------- | --------------------------------------------------------------------------------------------------- |
-| token_type    | Always `Bearer`                                                                                     |
-| scope         | Always `user_impersonation`                                                                         |
-| expires_in    | The lifetime of the access token, in seconds. Default 3600                                          |
-| access_token  | The bearer token used in the `Authorization` header for subsquent requests                          |
-| refresh_token | A long-lived token (14 days) used to renew expired access tokens without providing user credentials |
-
 ## Using Postman
 
 You can use Postman to make a simple request to the [metadata](#metadata) endpoint:
@@ -101,19 +39,6 @@ GET https://icp.nextech-api.com/metadata
 
 &nbsp;
 Each `rest.resource` member in the metadata response contains information about all FHIR resources that are supported, along with the supported interactions and search parameters for each resource.
-
-### Authorization
-
-Postman makes it easy to acquire OAuth 2.0 access tokens. Use the information listed below for obtaining a token via the `authorization_code` grant type. When requesting a new token, you will be redirected to the _Auth URL_ listed below where you can enter your user credentials to authenticate.
-
-| Field                 | Value                                                                                                                                                                                     |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Auth URL              | `https://mypatientvisit-sts-dev.azurewebsites.net/connect/authorize?aud=https://icp.nextech-api.com/&launch=eyJwIjoiODdhMzM5ZDAtOGNhZS00MThlLTg5YzctODY1MWU2YWFiM2M2In0=` |
-| Access Token URL      | `https://mypatientvisit-sts-dev.azurewebsites.net/connect/token`                                                                                                                          |
-| Callback URL          | `https://www.getpostman.com/oauth2/callback`                                                                                                                                              |
-| Client ID             | Your application ID                                                                                                                                                                       |
-| Grant Type            | `Authorization Code`                                                                                                                                                                      |
-| Client Authentication | `Send client credentials in body`                                                                                                                                                         |
 
 ## Searching
 
@@ -278,7 +203,7 @@ When a search results in multiple matches, the first ten matches ordered by ente
 
 You may overide the number of matches returned, up to fifty, by including `_count={number}` in your search.
 
-`GET http://icp.nextech-api.com/apiPatient?_count=25`
+`GET http://icp.nextech-api.com/Patient?_count=25`
 
 <aside class="notice">
 Search results are limited to 50 matches per page.
@@ -288,14 +213,26 @@ Search results are limited to 50 matches per page.
 
 The Nextech IntelleChartPRO APIs use the standard HTTP response codes to indicate success or failure of an API request.
 
-| Code | Description                                                                       |
-| ---- | --------------------------------------------------------------------------------- |
-| 200  | OK - Successful request                                                           |
-| 400  | Bad Request - The request is missing information or is malformed                  |
-| 403  | Forbidden - The request is valid, but the server is refusing action               |
-| 404  | Not Found - The requested resource cannot be found                                |
-| 429  | Too Many Requests - The user has sent too many requests in a given amount of time |
-| 500  | Internal Server Error - We had a problem with our server                          |
+| Code | Description                                                                          |
+| ---- | ------------------------------------------------------------------------------------ |
+| 200  | OK - Successful request                                                              |
+| 400  | Bad Request - The request is missing information or is malformed                     |
+| 401  | Unauthorized - The request lacks valid authentication credentials                    |
+| 403  | Forbidden - The request is valid, but the server is refusing action                  |
+| 404  | Not Found - The requested resource cannot be found                                   |
+| 408  | Request Timeout - Client did not send a request in the time the server was expecting |
+| 422  | Unprocessable Entity - Unable to process the contained instructions                  |
+| 429  | Too Many Requests - The user has sent too many requests in a given amount of time    |
+| 500  | Internal Server Error - We had a problem with our server                             |
+| 501  | Not Implemented Error - Requested implementation is not available                    |
+| 502  | Bad Gateway - Communication has been disrupted                                       |
+| 523  | Authentication Fault - Unexpected exception in regards to authentication             |
+
+### Exception Handling
+
+- Exceptions are logged and monitored by the Nextech staff.
+- Any request related exceptions will be returned to the user with the appropriate 4xx/5xx code as noted above.
+- Any unexpected exceptions will result in a 500 error response and indicate there is an issue with the API and/or connected services.
 
 ## Remarks
 
