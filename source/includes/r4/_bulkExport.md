@@ -1,6 +1,6 @@
 # Bulk Export
 
-## Bulk FHIR Export [(Documentation)](http://hl7.org/fhir/r4/uv/bulkdata/STU1.0.1/export/index.html)
+## Bulk FHIR Export [(Documentation)](http://hl7.org/fhir/uv/bulkdata/STU1.0.1/export/index.html)
 
 ### Overview
 
@@ -14,7 +14,7 @@ Allows for the generation of bulk data in one of three different formats: all pa
 
 #### HTTP Request
 
-`GET Patient/$export?{parameters}`
+`GET /Patient/$export?{parameters}`
 
 #### HTTP Headers
 
@@ -25,11 +25,11 @@ Allows for the generation of bulk data in one of three different formats: all pa
 
 #### Parameters
 
-| Name           | Located in | Description                                                                                                                                                                                                                                                            | Required | Initial Version |
-| -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _1.0_          |
-| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                           | No       | _1.0_          |
-| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                        | No       | _1.0_          |
+| Name           | Located in | Description                                                                                                                                                                                                                                                         | Required | Initial Version |
+| -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
+| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _1.0_           |
+| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                        | No       | _1.0_           |
+| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                     | No       | _1.0_           |
 
 #### HTTP Response
 
@@ -48,7 +48,7 @@ GET https://icp.nextech-api.com/Patient/$export
 
 #### HTTP Request
 
-`GET Group/{GroupID}/$export?{parameters}`
+`GET /Group/{GroupID}/$export?{parameters}`
 
 #### HTTP Headers
 
@@ -59,12 +59,12 @@ GET https://icp.nextech-api.com/Patient/$export
 
 #### Parameters
 
-| Name           | Located in | Description                                                                                                                                                                                                                                                            | Required | Initial Version |
-| -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| GroupID        | path       | ID of the group of patients to export                                                                                                                                                                                                                                  | Yes      | _1.0_          |
-| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _1.0_          |
-| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                           | No       | _1.0_          |
-| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                        | No       | _1.0_          |
+| Name           | Located in | Description                                                                                                                                                                                                                                                         | Required | Initial Version |
+| -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
+| GroupID        | path       | ID of the group of patients to export                                                                                                                                                                                                                               | Yes      | _1.0_           |
+| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _1.0_           |
+| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                        | No       | _1.0_           |
+| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                     | No       | _1.0_           |
 
 #### HTTP Response
 
@@ -83,7 +83,7 @@ GET https://icp.nextech-api.com/Group/1/$export
 
 #### HTTP Request
 
-`GET $export?{parameters}`
+`GET /$export?{parameters}`
 
 #### HTTP Headers
 
@@ -94,11 +94,11 @@ GET https://icp.nextech-api.com/Group/1/$export
 
 #### Parameters
 
-| Name           | Located in | Description                                                                                                                                                                                                                                                            | Required | Initial Version |
-| -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/r4/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _1.0_          |
-| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                           | No       | _1.0_          |
-| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                        | No       | _1.0_          |
+| Name           | Located in | Description                                                                                                                                                                                                                                                         | Required | Initial Version |
+| -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
+| \_outputFormat | query      | The format for the requested bulk data files to be generated as per the [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/async.html). Defaults to `application/fhir+ndjson`, but also supports `application/ndjson` and `ndjson` abbreviated representations | No       | _1.0_           |
+| \_since        | query      | Resources will be included in the response if their state has changed after the supplied time (e.g. if `Resource.meta.lastUpdated` is later than the supplied `_since` time)                                                                                        | No       | _1.0_           |
+| \_type         | query      | String of comma-delimited FHIR R4 resource types (example: `Patient,MedicationRequest`). All supported resources are returned if this parameter is not provided                                                                                                     | No       | _1.0_           |
 
 #### HTTP Response
 
@@ -117,13 +117,13 @@ GET https://icp.nextech-api.com/$export
 
 #### HTTP Request
 
-`GET Export/{ExportJobID}`
+`GET /Export/{ExportJobID}`
 
 #### Parameters
 
 | Name        | Located in | Description                                                                                                                             | Required | Initial Version |
 | ----------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| ExportJobID | path       | ID of the export job to poll the status of. Returned in the `Content-Location` HTTP header in the HTTP response to the kick-off request | Yes      | _1.0_          |
+| ExportJobID | path       | ID of the export job to poll the status of. Returned in the `Content-Location` HTTP header in the HTTP response to the kick-off request | Yes      | _1.0_           |
 
 #### HTTP Response
 
@@ -222,13 +222,13 @@ GET https://icp.nextech-api.com/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
 
 #### HTTP Request
 
-`DELETE Export/{ExportJobID}`
+`DELETE /Export/{ExportJobID}`
 
 #### Parameters
 
 | Name        | Located in | Description                                                                                                                 | Required | Initial Version |
 | ----------- | ---------- | --------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
-| ExportJobID | path       | ID of the export job to cancel. Returned in the `Content-Location` HTTP header in the HTTP response to the kick-off request | Yes      | _1.0_          |
+| ExportJobID | path       | ID of the export job to cancel. Returned in the `Content-Location` HTTP header in the HTTP response to the kick-off request | Yes      | _1.0_           |
 
 #### Example: Cancel an export job with an ID of "61b05fbe-6b5f-4b68-aec4-c03d09f51e82"
 
