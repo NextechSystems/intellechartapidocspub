@@ -2676,7 +2676,11 @@ GET https://icp.nextech-api.com/CareTeam?_lastUpdated=le2022-05-05
 
 <p>&nbsp;</p>
 <h2 id='condition'>Condition</h2><h3 id='overview-4'>Overview</h3>
-<p>The <a href="https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-condition.html">condition</a> resource describes a certain state of health of a patient.</p>
+<p>The <a href="https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-condition.html">condition</a> resource describes a certain state of health of a patient. The following category codes are supported:</p>
+
+<ul>
+<li>problem-list-item</li>
+</ul>
 <h3 id='fields-5'>Fields</h3>
 <table><thead>
 <tr>
@@ -2707,7 +2711,7 @@ GET https://icp.nextech-api.com/CareTeam?_lastUpdated=le2022-05-05
 <tr>
 <td>category</td>
 <td>A category assigned to the condition</td>
-<td><a href="http://hl7.org/fhir/r4/us/core/STU3.1.1/ValueSet/us-core-condition-category">Condition Category Code</a></td>
+<td><a href="http://hl7.org/fhir/us/core/STU3.1.1/ValueSet/us-core-condition-category">Condition Category Code</a></td>
 <td><em>1.0</em></td>
 </tr>
 <tr>
@@ -2719,7 +2723,7 @@ GET https://icp.nextech-api.com/CareTeam?_lastUpdated=le2022-05-05
 <tr>
 <td>subject</td>
 <td>The patient pertaining to the condition</td>
-<td><a href="https://www.hl7.org/fhirreferences.html">Reference</a>(<a href="https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html">US Core Patient Profile</a>)</td>
+<td><a href="https://www.hl7.org/fhir/references.html">Reference</a>(<a href="https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html">US Core Patient Profile</a>)</td>
 <td><em>1.0</em></td>
 </tr>
 </tbody></table>
@@ -2752,7 +2756,7 @@ GET https://icp.nextech-api.com/CareTeam?_lastUpdated=le2022-05-05
         {
             "coding": [
                 {
-                    "system": "http://hl7.org/fhir/r4/us/core/ValueSet/us-core-condition-category",
+                    "system": "http://hl7.org/fhir/r4/ValueSet/us-core-condition-category",
                     "code": "problem-list-item",
                     "display": "Problem List Item"
                 }
@@ -5291,7 +5295,13 @@ GET https://icp.nextech-api.com/MedicationRequest?_lastUpdated=le2022-05-05
 
 <p>&nbsp;</p>
 <h2 id='observation'>Observation</h2><h3 id='overview-13'>Overview</h3>
-<p>An observation resource describes a measurement or an assertion made about a patient.</p>
+<p>An observation resource describes a measurement or an assertion made about a patient. The following category codes are supported:</p>
+
+<ul>
+<li>laboratory</li>
+<li>social-history</li>
+<li>vital-signs</li>
+</ul>
 <h3 id='fields-14'>Fields</h3>
 <table><thead>
 <tr>
