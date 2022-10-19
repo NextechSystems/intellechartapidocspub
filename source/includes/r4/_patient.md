@@ -859,7 +859,8 @@ GET https://icp.nextech-api.com/CareTeam?_lastUpdated=le2022-05-05
 
 ### Overview
 
-The [condition](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-condition.html) resource describes a certain state of health of a patient.
+The [condition](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-condition.html) resource describes a certain state of health of a patient. The following category codes are supported:
+- problem-list-item
 
 ### Fields
 
@@ -868,9 +869,9 @@ The [condition](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-cor
 | id                 | The unique value assigned to each condition record which discerns them from all others. | [Identifier](https://www.hl7.org/fhir/r4/datatypes.html#Identifier)                                                                                                 | _1.0_          |
 | clinicalStatus     | The condition status                                                                    | [Condition Clinical Status Code](https://www.hl7.org/fhir/r4/valueset-condition-clinical.html)                                                                      | _1.0_          |
 | verificationStatus | The condition verification status                                                       | [Condition Verification Status](https://www.hl7.org/fhir/r4/valueset-condition-ver-status.html)                                                                     | _1.0_          |
-| category           | A category assigned to the condition                                                    | [Condition Category Code](http://hl7.org/fhir/r4/us/core/STU3.1.1/ValueSet/us-core-condition-category)                                                          | _1.0_          |
+| category           | A category assigned to the condition                                                    | [Condition Category Code](http://hl7.org/fhir/us/core/STU3.1.1/ValueSet/us-core-condition-category)                                                          | _1.0_          |
 | code               | Identification of the condition, problem or diagnosis                                   | [Condition/Problem/Diagnosis Code](https://www.hl7.org/fhir/r4/valueset-condition-code.html)                                                                        | _1.0_          |
-| subject            | The patient pertaining to the condition                                                 | [Reference](https://www.hl7.org/fhirreferences.html)([US Core Patient Profile](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html)) | _1.0_          |
+| subject            | The patient pertaining to the condition                                                 | [Reference](https://www.hl7.org/fhir/references.html)([US Core Patient Profile](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-patient.html)) | _1.0_          |
 
 ### Example
 
@@ -902,7 +903,7 @@ The [condition](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-cor
 		{
 			"coding": [
 				{
-					"system": "http://hl7.org/fhir/r4/us/core/ValueSet/us-core-condition-category",
+					"system": "http://hl7.org/fhir/r4/ValueSet/us-core-condition-category",
 					"code": "problem-list-item",
 					"display": "Problem List Item"
 				}
@@ -2684,7 +2685,10 @@ GET https://icp.nextech-api.com/MedicationRequest?_lastUpdated=le2022-05-05
 
 ### Overview
 
-An observation resource describes a measurement or an assertion made about a patient.
+An observation resource describes a measurement or an assertion made about a patient. The following category codes are supported:
+- laboratory
+- social-history
+- vital-signs
 
 ### Fields
 
