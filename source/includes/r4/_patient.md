@@ -860,6 +860,7 @@ GET https://icp.nextech-api.com/CareTeam?_lastUpdated=le2022-05-05
 ### Overview
 
 The [condition](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-condition.html) resource describes a certain state of health of a patient. The following category codes are supported:
+
 - problem-list-item
 
 ### Fields
@@ -2686,6 +2687,7 @@ GET https://icp.nextech-api.com/MedicationRequest?_lastUpdated=le2022-05-05
 ### Overview
 
 An observation resource describes a measurement or an assertion made about a patient. The following category codes are supported:
+
 - laboratory
 - social-history
 - vital-signs
