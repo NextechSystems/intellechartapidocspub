@@ -859,9 +859,7 @@ GET https://icp.nextech-api.com/CareTeam?_lastUpdated=le2022-05-05
 
 ### Overview
 
-The [condition](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-condition.html) resource describes a certain state of health of a patient. The following category codes are supported:
-
-- problem-list-item
+The condition ([an encounter diagnosis](https://www.hl7.org/fhir/us/core/StructureDefinition-us-core-condition-encounter-diagnosis.html), [a health concern or a problem](https://www.hl7.org/fhir/us/core/StructureDefinition-us-core-condition-problems-health-concerns.html)) resource describes a certain state of health of a patient.
 
 ### Fields
 
