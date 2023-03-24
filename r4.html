@@ -1137,7 +1137,6 @@ Content-Type: application/x-www-form-urlencoded</p>
 <li><code>patient/Binary.read</code></li>
 <li><code>patient/DiagnosticReport.read</code></li>
 <li><code>patient/DocumentReference.read</code></li>
-<li><code>patient/DocumentReference.write</code></li>
 <li><code>patient/Encounter.read</code></li>
 <li><code>patient/Goal.read</code></li>
 <li><code>patient/Immunization.read</code></li>
@@ -1163,7 +1162,6 @@ Content-Type: application/x-www-form-urlencoded</p>
 <li><code>user/Binary.read</code></li>
 <li><code>user/DiagnosticReport.read</code></li>
 <li><code>user/DocumentReference.read</code></li>
-<li><code>user/DocumentReference.write</code></li>
 <li><code>user/Encounter.read</code></li>
 <li><code>user/Goal.read</code></li>
 <li><code>user/Immunization.read</code></li>
@@ -1188,7 +1186,6 @@ Content-Type: application/x-www-form-urlencoded</p>
 <li><code>system/Binary.read</code></li>
 <li><code>system/DiagnosticReport.read</code></li>
 <li><code>system/DocumentReference.read</code></li>
-<li><code>system/DocumentReference.write</code></li>
 <li><code>system/Encounter.read</code></li>
 <li><code>system/Goal.read</code></li>
 <li><code>system/Immunization.read</code></li>
@@ -1204,7 +1201,7 @@ Content-Type: application/x-www-form-urlencoded</p>
 
 <p>All scope names map to the FHIR resource endpoint that they can be used against. For example, a SMART app using an access token that has been granted the <code>patient/Encounter.read</code>, <code>user/Encounter.read</code>, or <code>system/Encounter.read</code> scopes can use that token against the <code>GET https://icp.nextech-api.com/Encounter/{someEncounterID}</code> endpoint to grab information about a particular encounter.</p>
 
-<p><strong>Important note:</strong> With the exception of the <code>DocumentReference.write</code> scopes, writing-related scopes are currently <strong>not supported</strong>. Additionally, SMART apps must only request the bare minimum scopes that are required for their app to function.</p>
+<p><strong>Important note:</strong> Writing-related scopes are currently <strong>not supported</strong>. Additionally, SMART apps must only request the bare minimum scopes that are required for their app to function.</p>
 <h3 id='example-of-smart-app-authorization-with-postman'>Example of SMART App Authorization With Postman</h3>
 <p>Once you have been issued a client ID (and client secret, if capable of securing one) from Nextech, you can use Postman to test grabbing an access token using your app credentials:
 1. For a given Postman collection go to the <code>Authorization</code> tab
