@@ -232,7 +232,6 @@ Nextech currently only supports scopes that adhere to the format defined in vers
 * `patient/Binary.read`
 * `patient/DiagnosticReport.read`
 * `patient/DocumentReference.read`
-* `patient/DocumentReference.write`
 * `patient/Encounter.read`
 * `patient/Goal.read`
 * `patient/Immunization.read`
@@ -257,7 +256,6 @@ Nextech currently only supports scopes that adhere to the format defined in vers
 * `user/Binary.read`
 * `user/DiagnosticReport.read`
 * `user/DocumentReference.read`
-* `user/DocumentReference.write`
 * `user/Encounter.read`
 * `user/Goal.read`
 * `user/Immunization.read`
@@ -281,7 +279,6 @@ Nextech currently only supports scopes that adhere to the format defined in vers
 * `system/Binary.read`
 * `system/DiagnosticReport.read`
 * `system/DocumentReference.read`
-* `system/DocumentReference.write`
 * `system/Encounter.read`
 * `system/Goal.read`
 * `system/Immunization.read`
@@ -297,7 +294,7 @@ Nextech currently only supports scopes that adhere to the format defined in vers
 
 All scope names map to the FHIR resource endpoint that they can be used against. For example, a SMART app using an access token that has been granted the `patient/Encounter.read`, `user/Encounter.read`, or `system/Encounter.read` scopes can use that token against the `GET https://icp.nextech-api.com/Encounter/{someEncounterID}` endpoint to grab information about a particular encounter.
 
-**Important note:** With the exception of the `DocumentReference.write` scopes, writing-related scopes are currently **not supported**. Additionally, SMART apps must only request the bare minimum scopes that are required for their app to function.
+**Important note:** Writing-related scopes are currently **not supported**. Additionally, SMART apps must only request the bare minimum scopes that are required for their app to function.
 
 ### Example of SMART App Authorization With Postman ###
  Once you have been issued a client ID (and client secret, if capable of securing one) from Nextech, you can use Postman to test grabbing an access token using your app credentials:
