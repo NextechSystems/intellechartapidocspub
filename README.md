@@ -21,15 +21,15 @@ For assistance or additional instructions please visit the official Slate readme
 1. Open a new Terminal or Command Shell window
 2. Browse into the path of your cloned repository on your local machine
 3. Type in `ruby -v` to determine your version of Ruby
-4. If your version of Ruby is before 2.4, then upgrade Ruby. Mac users may follow the instructions at https://stackoverflow.com/questions/38194032/how-to-update-ruby-version-2-0-0-to-the-latest-version-in-mac-osx-yosemite to upgrade
-5. Once you've verified your version of Ruby is 2.4 or better, type in `bundle install`
+4. If your version of Ruby is before 3.3.7, then upgrade Ruby.
+5. Once you've verified your version of Ruby is 3.3.7 or better, type in `bundle install`
 
 ### Testing
 
 1. Open a new Terminal or Command Shell window
 2. Browse into the path of your cloned repository on your local machine
 3. Type in `bundle exec middleman server`
-4. The URL to the localhost site will appearin your window. Open it from a browser
+4. The URL to the localhost site will appear in your window. Open it from a browser
 5. If necessary, make changes to your markdown or style sheet, and refresh the page upon saving your changes
 
 ### Publishing
@@ -37,7 +37,7 @@ For assistance or additional instructions please visit the official Slate readme
 You can publish the contents of this repository to https://nextechsystems.github.io/intellechartapidocspub by doing the following:
 
 1. Cloning https://github.com/NextechSystems/intellechartapidocspub to a Mac OS machine
-2. Open a new Terminal or Command Shell window 
+2. Open a new Terminal or Command Shell window
 3. Browse into the path of your cloned repository on your local machine
 4. Type in `./deploy.sh`
 
