@@ -42,7 +42,8 @@ configure :build do
   # If you're having trouble with Middleman hanging, commenting
   # out the following two lines has been known to help
   activate :minify_css
-  activate :minify_javascript
+  # Use terser for JavaScript minification (replacing uglify)
+  activate :minify_javascript, compressor: ::Terser.new
   # activate :relative_assets
   # activate :asset_hash
   # activate :gzip
