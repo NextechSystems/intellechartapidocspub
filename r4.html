@@ -519,7 +519,7 @@
 <p>Before you can access the Nextech API you must have the proper credentials for authorization. These credentials will be provided to you by your Nextech representative, and vary depending on how you wish to integrate with the Nextech API. There are two different authorization models available for accessing the Nextech API: <a href="#smart-app-authorization">SMART App authorization</a>, and <a href="#partner-authorization">partner authorization</a>. See each linked authorization section for more information on each, including how to register your application with the Nextech API and acquire the necessary credentials.</p>
 
 <p><strong>Base API Endpoint</strong>
-<code>https://icp.nextech-api.com/</code></p>
+<code>https://api.intellechart.net/icp-fhir-api/</code></p>
 
 <p><strong>API Limitations</strong></p>
 
@@ -548,7 +548,7 @@
 &nbsp;</p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/metadata
+GET https://api.intellechart.net/icp-fhir-api/metadata
 </pre>
 
 <p>&nbsp;
@@ -557,7 +557,7 @@ Each <code>rest.resource</code> member in the metadata response contains informa
 <p>Searches may be performed via HTTPS calls to the API where supported.</p>
 
 <p>A search is executed by performing a <code>GET</code> operation in the RESTful framework
-<code>GET https://icp.nextech-api.com/[type]?[field1][:modifier1]=[value1]&amp;[field2][:modifier2]=[value2]...</code>
+<code>GET https://api.intellechart.net/icp-fhir-api/[type]?[field1][:modifier1]=[value1]&amp;[field2][:modifier2]=[value2]...</code>
 where [type] refers to a resource such as Patient or Immunization followed by one or more query filters and optional modifiers.</p>
 
 <ul>
@@ -570,7 +570,7 @@ where [type] refers to a resource such as Patient or Immunization followed by on
 <p><strong>Example: Get patients who live in several nearby cities</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?address-postalcode=33609,33625,33647
+GET https://api.intellechart.net/icp-fhir-api/Patient?address-postalcode=33609,33625,33647
 </pre>
 
 <p>&nbsp;</p>
@@ -580,7 +580,7 @@ GET https://icp.nextech-api.com/Patient?address-postalcode=33609,33625,33647
 <p><strong>Example: Search for encounters for the patient with the id &#39;9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&#39; that took place between and including 1/1/2022 through 11/14/2022</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Encounter?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
+GET https://api.intellechart.net/icp-fhir-api/Encounter?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 
 <p>&nbsp;</p>
@@ -606,7 +606,7 @@ GET https://icp.nextech-api.com/Encounter?patient=patient/9D0B7ADE-4B5B-41DD-8AC
 <p><strong>Example: Get all patients whose last name is Smith</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?family:exact=Smith
+GET https://api.intellechart.net/icp-fhir-api/Patient?family:exact=Smith
 </pre>
 
 <p>&nbsp;</p>
@@ -614,7 +614,7 @@ GET https://icp.nextech-api.com/Patient?family:exact=Smith
 <p><strong>Example: Get all patients whose last name contains the text &quot;mit&quot;</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?family:contains=mit
+GET https://api.intellechart.net/icp-fhir-api/Patient?family:contains=mit
 </pre>
 
 <p>&nbsp;</p>
@@ -656,7 +656,7 @@ GET https://icp.nextech-api.com/Patient?family:contains=mit
 <p><strong>Example: Get the patients with chart numbers between and including 100 and 200</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/api/Patient/r4?identifier=ge100&identifier=le200
+GET https://api.intellechart.net/icp-fhir-api/api/Patient/r4?identifier=ge100&identifier=le200
 </pre>
 
 <p>&nbsp;</p>
@@ -664,7 +664,7 @@ GET https://icp.nextech-api.com/api/Patient/r4?identifier=ge100&identifier=le200
 <p><strong>Example: Search for immunizations for the patient with the id &#39;9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&#39; administered between and including 1/1/2022 through 11/14/2022</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
+GET https://api.intellechart.net/icp-fhir-api/Immunization?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 
 <p>&nbsp;</p>
@@ -674,7 +674,7 @@ GET https://icp.nextech-api.com/Immunization?patient=patient/9D0B7ADE-4B5B-41DD-
 <p><strong>Example: Get all patients whose last name begins with Smith</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?family=Smith
+GET https://api.intellechart.net/icp-fhir-api/Patient?family=Smith
 </pre>
 
 <p>&nbsp;</p>
@@ -684,7 +684,7 @@ GET https://icp.nextech-api.com/Patient?family=Smith
 <p><strong>Example: Get the patient with chart number 3442</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?identifier=3442
+GET https://api.intellechart.net/icp-fhir-api/Patient?identifier=3442
 </pre>
 
 <p>&nbsp;</p>
@@ -694,7 +694,7 @@ GET https://icp.nextech-api.com/Patient?identifier=3442
 <p><strong>Example: Get immunizations for the month of October 2022</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization?date=ge2022-10-01&date=lt2022-11-01
+GET https://api.intellechart.net/icp-fhir-api/Immunization?date=ge2022-10-01&date=lt2022-11-01
 </pre>
 
 <p>&nbsp;</p>
@@ -704,7 +704,7 @@ GET https://icp.nextech-api.com/Immunization?date=ge2022-10-01&date=lt2022-11-01
 <p><strong>Example: Get the patients whose first name, last name, prefix or suffix begins with Doe</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?name=doe
+GET https://api.intellechart.net/icp-fhir-api/Patient?name=doe
 </pre>
 
 <p>&nbsp;</p>
@@ -714,12 +714,12 @@ GET https://icp.nextech-api.com/Patient?name=doe
 <p><strong>Example: Get the patients whose Address 1, Address 2, City, State or Zip code begins with 1500</strong></p>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?address=1500
+GET https://api.intellechart.net/icp-fhir-api/Patient?address=1500
 </pre>
 
 <p>&nbsp;</p>
 <h2 id='writing'>Writing</h2>
-<p>Currently, only creating a document via a <code>POST https://icp.nextech-api.com/DocumentReference</code> call is supported.</p>
+<p>Currently, only creating a document via a <code>POST https://api.intellechart.net/icp-fhir-api/DocumentReference</code> call is supported.</p>
 
 <p>&nbsp;</p>
 <h2 id='pagination'>Pagination</h2>
@@ -893,7 +893,7 @@ There are a few different pieces of information that will need to be provided to
 <h2 id='practitioner-facing-apps'>Practitioner-facing apps</h2>
 <p>SMART apps of this type are for use by a practitioner within a practice, and can be allowed to access all patient information in the practice, or can instead be focused on a single patient at a time. The practice that the practitioner is associated with must be setup with <a href="https://www.mypatientvisit.com">myPatientVisit</a>. Once setup, practitioner apps may follow either the <a href="https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html#standalone-launch-sequence">standlone launch sequence (1.0.0)</a> or the <a href="https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html#ehr-launch-sequence">EHR launch sequence (1.0.0)</a> as defined by the SMART app framework specification, both of which use the authorization code flow (described further below).</p>
 
-<p>For practitioner apps following the EHR launch sequence, the app that resides at the launch URL provided to Nextech upon client registration must use the provided <code>iss</code> URL parameter, which should always point to the Nextech API URL ( <code>https://icp.nextech-api.com</code>) to query either the Nextech API &#39;s metadata endpoint (<code>https://icp.nextech-api.com/metadata</code>) or SMART configuration endpoint (<code>https://icp.nextech-api.com/.well-known/smart-configuration</code>), both of which contain in their responses OAuth <code>authorize</code> and <code>token</code> endpoint URLs for use in requesting authorization to access the Nextech API via the Nextech authorization server.</p>
+<p>For practitioner apps following the EHR launch sequence, the app that resides at the launch URL provided to Nextech upon client registration must use the provided <code>iss</code> URL parameter, which should always point to the Nextech API URL ( <code>https://api.intellechart.net/icp-fhir-api</code>) to query either the Nextech API &#39;s metadata endpoint (<code>https://api.intellechart.net/icp-fhir-api/metadata</code>) or SMART configuration endpoint (<code>https://api.intellechart.net/icp-fhir-api/.well-known/smart-configuration</code>), both of which contain in their responses OAuth <code>authorize</code> and <code>token</code> endpoint URLs for use in requesting authorization to access the Nextech API via the Nextech authorization server.</p>
 
 <p>Practitioner-facing apps must request, at a minimum, the below scopes in their authorization request to the Nextech authorization server, in addition to whatever other access scopes are required by the application:</p>
 
@@ -907,7 +907,7 @@ There are a few different pieces of information that will need to be provided to
 
 <p><strong>Step 1.</strong> The SMART app redirects the user to the Authorization Server (or in the case of a native application, opens a web browser) at a URL similar to the following:
 <pre class="center-column">
-https://mypatientvisit-sts-experimental.azurewebsites.net/connect/authorize?aud=https://icp.nextech-api.com&amp;response_type=code&amp;client_id={appClientID}&amp;scope=openid%20offline_access%20fhirUser%20launch%2Fpatient%20patient%2FAllergyIntolerance.read&amp;redirect_uri=https%3A%2F%2FmySmartApp.com%2Fcallback&amp;code_challenge={sha256HashOfRandomString}0&amp;code_challenge_method=S256&amp;state={someUnpredictableValue}
+https://sts.mypatientvisit.com/connect/authorize?aud=https://api.intellechart.net/icp-fhir-api&amp;response_type=code&amp;client_id={appClientID}&amp;scope=openid%20offline_access%20fhirUser%20launch%2Fpatient%20patient%2FAllergyIntolerance.read&amp;redirect_uri=https%3A%2F%2FmySmartApp.com%2Fcallback&amp;code_challenge={sha256HashOfRandomString}0&amp;code_challenge_method=S256&amp;state={someUnpredictableValue}
 </pre></p>
 
 <p><em>URL parameter notes:</em></p>
@@ -920,7 +920,7 @@ https://mypatientvisit-sts-experimental.azurewebsites.net/connect/authorize?aud=
 </thead><tbody>
 <tr>
 <td>aud</td>
-<td>This is the base URL to the Nextech API that the app is requesting access to pull FHIR resources from, and will always be <code>https://icp.nextech-api.com</code></td>
+<td>This is the base URL to the Nextech API that the app is requesting access to pull FHIR resources from, and will always be <code>https://api.intellechart.net/icp-fhir-api</code></td>
 </tr>
 <tr>
 <td>response_type</td>
@@ -965,7 +965,7 @@ POST /connect/token
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic [client ID and secret]</p>
 
-<p>client_id={appClientID}&amp;grant_type=authorization_code&amp;code=aded553gr3g7dggakG&amp;redirect_uri=https://mySmartApp.com/callback&amp;scope=openid%20offline_access%20fhirUser%20launch%2Fpatient%20patient%2FAllergyIntolerance.read&amp;aud=https://icp.nextech-api.com&amp;code_verifier={someRandomString}
+<p>client_id={appClientID}&amp;grant_type=authorization_code&amp;code=aded553gr3g7dggakG&amp;redirect_uri=https://mySmartApp.com/callback&amp;scope=openid%20offline_access%20fhirUser%20launch%2Fpatient%20patient%2FAllergyIntolerance.read&amp;aud=https://api.intellechart.net/icp-fhir-api&amp;code_verifier={someRandomString}
 </pre></p>
 
 <p><em>Header notes:</em></p>
@@ -1030,7 +1030,7 @@ Authorization: Basic [client ID and secret]</p>
    &quot;scope&quot;:&quot;openid fhirUser launch/patient patient/AllergyIntolerance.read&quot;,
    &quot;patient&quot;:&quot;123&quot;,
    &quot;encounter&quot;:null,
-   &quot;smart_style_url&quot;:&quot;https://mypatientvisit-sts-dev.azurewebsites.net/css/smart-style.json?v=133092895520000000&quot;,
+   &quot;smart_style_url&quot;:&quot;https://sts.mypatientvisit.com/css/smart-style.json?v=133092895520000000&quot;,
    &quot;need_patient_banner&quot;: false
 }
 </pre></p>
@@ -1199,7 +1199,7 @@ Content-Type: application/x-www-form-urlencoded</p>
 <li><code>system/Provenance.read</code></li>
 </ul>
 
-<p>All scope names map to the FHIR resource endpoint that they can be used against. For example, a SMART app using an access token that has been granted the <code>patient/Encounter.read</code>, <code>user/Encounter.read</code>, or <code>system/Encounter.read</code> scopes can use that token against the <code>GET https://icp.nextech-api.com/Encounter/{someEncounterID}</code> endpoint to grab information about a particular encounter.</p>
+<p>All scope names map to the FHIR resource endpoint that they can be used against. For example, a SMART app using an access token that has been granted the <code>patient/Encounter.read</code>, <code>user/Encounter.read</code>, or <code>system/Encounter.read</code> scopes can use that token against the <code>GET https://api.intellechart.net/icp-fhir-api/Encounter/{someEncounterID}</code> endpoint to grab information about a particular encounter.</p>
 
 <p><strong>Important note:</strong> Writing-related scopes are currently <strong>not supported</strong>. Additionally, SMART apps must only request the bare minimum scopes that are required for their app to function.</p>
 <h3 id='example-of-smart-app-authorization-with-postman'>Example of SMART App Authorization With Postman</h3>
@@ -1208,8 +1208,8 @@ Content-Type: application/x-www-form-urlencoded</p>
 1. Set <code>Authorization</code> to <code>Oauth 2.0</code>. This should give you additional fields to fill out
 1. <code>Header Prefix</code> should be set to <code>Bearer</code>
 1. Grant type ahould be set to <code>Authorization Code (With PKCE)</code>
-1. <code>Auth URL</code> should be set to <code>https://mypatientvisit-sts-dev.azurewebsites.net/connect/authorize?aud=https://icp.nextech-api.com</code>
-1. <code>Access Token URL</code> should be set to <code>https://mypatientvisit-sts-dev.azurewebsites.net/connect/token</code>
+1. <code>Auth URL</code> should be set to <code>https://sts.mypatientvisit.com/connect/authorize?aud=https://api.intellechart.net/icp-fhir-api</code>
+1. <code>Access Token URL</code> should be set to <code>https://sts.mypatientvisit.com/connect/token</code>
 1. <code>Client ID</code> should be set to the value given to you by Nextech
 1. <code>Secret</code> should be set to the value given to you by Nextech, if any
 1. <code>Code Challenge Method</code> should be <code>SHA-256</code>
@@ -1440,7 +1440,7 @@ Authorization: Bearer [access token]
 <p><code>GET /metadata</code></p>
 <h5 id='example-get-capability-statement'>Example: Get Capability Statement</h5>
 <pre class="center-column">
-GET https://icp.nextech-api.com/metadata
+GET https://api.intellechart.net/icp-fhir-api/metadata
 </pre>
 
 <p>&nbsp;</p>
@@ -1484,7 +1484,7 @@ GET https://icp.nextech-api.com/metadata
 <p><code>GET /.well-known/smart-configuration</code></p>
 <h5 id='example-get-smart-on-fhir-configuration'>Example: Get SMART on FHIR configuration</h5>
 <pre class="center-column">
-GET https://icp.nextech-api.com/.well-known/smart-configuration
+GET https://api.intellechart.net/icp-fhir-api/.well-known/smart-configuration
 </pre>
 
 <p>&nbsp;</p>
@@ -1730,7 +1730,7 @@ are set. If the Privacy setting is checked then the checked fields will not be s
 </tbody></table>
 <h4 id='example-get-the-patient-with-an-id-of-39-c27e5be0-4b44-4ec5-a284-4308d6ac2b1a-39'>Example: Get the patient with an ID of &#39;c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
+GET https://api.intellechart.net/icp-fhir-api/Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
 <p>&nbsp;</p>
@@ -1823,68 +1823,68 @@ This value must be <code>Provenance:target</code>, otherwise the request will re
 These will be in additional bundle entry components, which have a <code>Provenance.Target</code> entry that identifies the relative link to the patient.</p>
 <h4 id='example-get-a-patient-with-an-identifier-39-9d0b7ade-4b5b-41dd-8ac4-88db4c93b192-39-with-provenance'>Example: Get a patient with an identifier &#39;9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
+POST https://api.intellechart.net/icp-fhir-api/Patient/_search
 <i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
+POST https://api.intellechart.net/icp-fhir-api/Patient/_search
 <i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&_revinclude=Provenance:target
 </pre>
 <h4 id='example-get-the-patient-of-a-specific-chart-number'>Example: Get the patient of a specific chart number</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient/12345
+GET https://api.intellechart.net/icp-fhir-api/Patient/12345
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-patients'>Example: Get all patients</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient
+GET https://api.intellechart.net/icp-fhir-api/Patient
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-patients-with-identifier-39-9d0b7ade-4b5b-41dd-8ac4-88db4c93b192-39'>Example: Get all patients with identifier &#39;9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+GET https://api.intellechart.net/icp-fhir-api/Patient?identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
+POST https://api.intellechart.net/icp-fhir-api/Patient/_search
 <i><small>body:</small></i> identifier=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+GET https://api.intellechart.net/icp-fhir-api/Patient?_id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
+POST https://api.intellechart.net/icp-fhir-api/Patient/_search
 <i><small>body:</small></i> _id=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 <h4 id='example-get-all-patients-who-live-within-39-12345-39-zip-code'>Example: Get all patients who live within &#39;12345&#39; zip code</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?address-postalcode=12345
+GET https://api.intellechart.net/icp-fhir-api/Patient?address-postalcode=12345
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
+POST https://api.intellechart.net/icp-fhir-api/Patient/_search
 <i><small>body:</small></i> address-postalcode=12345
 </pre>
 <h4 id='example-get-all-patients-with-birth-dates-between-and-including-1-1-1981-through-5-31-1981'>Example: Get all patients with birth dates between and including 1/1/1981 through 5/31/1981</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?birthdate=ge1981-01-01&birthdate=lt1981-05-31
+GET https://api.intellechart.net/icp-fhir-api/Patient?birthdate=ge1981-01-01&birthdate=lt1981-05-31
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Patient/_search
+POST https://api.intellechart.net/icp-fhir-api/Patient/_search
 <i><small>body:</small></i> birthdate=ge1981-01-01&birthdate=lt1981-05-31
 </pre>
 <h3 id='patient-id-search'>Patient ID Search</h3>
@@ -1914,7 +1914,7 @@ successful, returns those patients&#39; unique identifiers.</p>
 </tbody></table>
 <h4 id='example-get-the-unique-identifiers-of-all-patients-that-are-in-a-letter-writing-group-with-an-id-of-20'>Example: Get the unique identifiers of all patients that are in a letter writing group with an ID of 20</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient/ID?group-id=20
+GET https://api.intellechart.net/icp-fhir-api/Patient/ID?group-id=20
 </pre>
 
 <p>&nbsp;</p>
@@ -2063,7 +2063,7 @@ GET https://icp.nextech-api.com/Patient/ID?group-id=20
 </tbody></table>
 <h4 id='example-get-the-allergy-intolerance-with-an-id-of-39-123-39'>Example: Get the allergy intolerance with an ID of &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/AllergyIntolerance/123
+GET https://api.intellechart.net/icp-fhir-api/AllergyIntolerance/123
 </pre>
 
 <p>&nbsp;</p>
@@ -2132,35 +2132,35 @@ This value must be <code>Provenance:target</code>, otherwise the request will re
 These will be in additional bundle entry components, which have a <code>Provenance.Target</code> entry that identifies the relative link to the allergy intolerance.</p>
 <h4 id='example-get-an-allergy-intolerance-with-an-identifier-39-123-39-with-provenance'>Example: Get an allergy intolerance with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/AllergyIntolerance?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/AllergyIntolerance?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/AllergyIntolerance/_search
+POST https://api.intellechart.net/icp-fhir-api/AllergyIntolerance/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/AllergyIntolerance?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/AllergyIntolerance?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/AllergyIntolerance/_search
+POST https://api.intellechart.net/icp-fhir-api/AllergyIntolerance/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='examples'>Examples:</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/AllergyIntolerance?patient=b664fd37-ff5f-4022-9d71-2e476d42f316
+GET https://api.intellechart.net/icp-fhir-api/AllergyIntolerance?patient=b664fd37-ff5f-4022-9d71-2e476d42f316
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/AllergyIntolerance?patient=Patient/b664fd37-ff5f-4022-9d71-2e476d42f316
+GET https://api.intellechart.net/icp-fhir-api/AllergyIntolerance?patient=Patient/b664fd37-ff5f-4022-9d71-2e476d42f316
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/AllergyIntolerance/_search
+POST https://api.intellechart.net/icp-fhir-api/AllergyIntolerance/_search
 <i><small>body:</small></i> patient=b664fd37-ff5f-4022-9d71-2e476d42f316
 </pre>
 
@@ -2278,7 +2278,7 @@ POST https://icp.nextech-api.com/AllergyIntolerance/_search
 </tbody></table>
 <h4 id='example-get-the-care-plan-with-an-id-of-39-676-39'>Example: Get the care plan with an ID of &#39;676&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/CarePlan/676
+GET https://api.intellechart.net/icp-fhir-api/CarePlan/676
 </pre>
 
 <p>&nbsp;</p>
@@ -2356,57 +2356,57 @@ This value must be <code>Provenance:target</code>, otherwise the request will re
 These will be in additional bundle entry components, which have a <code>Provenance.Target</code> entry that identifies the relative link to the care plan.</p>
 <h4 id='example-get-a-care-plan-with-an-identifier-39-123-39-with-provenance'>Example: Get a care plan with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/CarePlan?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/CarePlan?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/CarePlan/_search
+POST https://api.intellechart.net/icp-fhir-api/CarePlan/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/CarePlan?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/CarePlan?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/CarePlan/_search
+POST https://api.intellechart.net/icp-fhir-api/CarePlan/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-care-plans-for-a-single-patient-with-id-39-c27e5be0-4b44-4ec5-a284-4308d6ac2b1a-39-and-category-39-assess-plan-39'>Example: Get all care plans for a single patient with id &#39;c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&#39; and category &#39;assess-plan&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/CarePlan?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=assess-plan
+GET https://api.intellechart.net/icp-fhir-api/CarePlan?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=assess-plan
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=assess-plan
+GET https://api.intellechart.net/icp-fhir-api/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=assess-plan
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan
+GET https://api.intellechart.net/icp-fhir-api/CarePlan?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/CarePlan/_search
+POST https://api.intellechart.net/icp-fhir-api/CarePlan/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=assess-plan
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/CarePlan/_search
+POST https://api.intellechart.net/icp-fhir-api/CarePlan/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-care-plans-for-a-single-patient-that-were-modified-as-of-5-5-2022'>Example: Get all care plans for a single patient that were modified as of 5/5/2022</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/CarePlan?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
+GET https://api.intellechart.net/icp-fhir-api/CarePlan?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-care-plans-that-were-modified-by-5-5-2022'>Example: Get all care plans that were modified by 5/5/2022</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/CarePlan?_lastUpdated=le2022-05-05
+GET https://api.intellechart.net/icp-fhir-api/CarePlan?_lastUpdated=le2022-05-05
 </pre>
 
 <p>&nbsp;</p>
@@ -2540,7 +2540,7 @@ GET https://icp.nextech-api.com/CarePlan?_lastUpdated=le2022-05-05
 </tbody></table>
 <h4 id='example-get-the-care-team-with-an-id-of-39-3-39'>Example: Get the care team with an ID of &#39;3&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/CareTeam/3
+GET https://api.intellechart.net/icp-fhir-api/CareTeam/3
 </pre>
 
 <p>&nbsp;</p>
@@ -2618,57 +2618,57 @@ This value must be <code>Provenance:target</code>, otherwise the request will re
 These will be in additional bundle entry components, which have a <code>Provenance.Target</code> entry that identifies the relative link to the care team.</p>
 <h4 id='example-get-a-care-team-with-an-identifier-39-123-39-with-provenance'>Example: Get a care team with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/CareTeam?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/CareTeam?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/CareTeam/_search
+POST https://api.intellechart.net/icp-fhir-api/CareTeam/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/CareTeam?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/CareTeam?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/CareTeam/_search
+POST https://api.intellechart.net/icp-fhir-api/CareTeam/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-care-teams-for-a-single-patient-with-id-39-c27e5be0-4b44-4ec5-a284-4308d6ac2b1a-39-and-status-39-active-39'>Example: Get all care teams for a single patient with id &#39;c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&#39; and status &#39;active&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/CareTeam?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=active
+GET https://api.intellechart.net/icp-fhir-api/CareTeam?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=active
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/CareTeam?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=active
+GET https://api.intellechart.net/icp-fhir-api/CareTeam?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=active
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/CareTeam?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=http://hl7.org/fhir/r4/ValueSet/care-team-status|active
+GET https://api.intellechart.net/icp-fhir-api/CareTeam?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=http://hl7.org/fhir/r4/ValueSet/care-team-status|active
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/CareTeam/_search
+POST https://api.intellechart.net/icp-fhir-api/CareTeam/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=active
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/CareTeam/_search
+POST https://api.intellechart.net/icp-fhir-api/CareTeam/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&status=http://hl7.org/fhir/r4/ValueSet/care-team-status|active
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-care-teams-for-a-single-patient-that-were-modified-as-of-5-5-2022'>Example: Get all care teams for a single patient that were modified as of 5/5/2022</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/CareTeam?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
+GET https://api.intellechart.net/icp-fhir-api/CareTeam?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-care-teams-that-were-modified-by-5-5-2022'>Example: Get all care teams that were modified by 5/5/2022</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/CareTeam?_lastUpdated=le2022-05-05
+GET https://api.intellechart.net/icp-fhir-api/CareTeam?_lastUpdated=le2022-05-05
 </pre>
 
 <p>&nbsp;</p>
@@ -2799,7 +2799,7 @@ GET https://icp.nextech-api.com/CareTeam?_lastUpdated=le2022-05-05
 </tbody></table>
 <h4 id='example-get-a-condition-problem-with-an-id-of-39-12-39'>Example: Get a condition problem with an ID of &#39;12&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Condition/prb-12
+GET https://api.intellechart.net/icp-fhir-api/Condition/prb-12
 </pre>
 
 <p>&nbsp;</p>
@@ -2898,62 +2898,62 @@ This value must be <code>Provenance:target</code>, otherwise the request will re
 These will be in additional bundle entry components, which have a <code>Provenance.Target</code> entry that identifies the relative link to the condition.</p>
 <h4 id='example-get-a-condition-problem-with-an-identifier-39-12-39-with-provenance'>Example: Get a condition problem with an identifier &#39;12&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Condition?identifier=prb-12&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Condition?identifier=prb-12&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Condition/_search
+POST https://api.intellechart.net/icp-fhir-api/Condition/_search
 <i><small>body:</small></i> identifier=prb-12&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Condition?_id=prb-12&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Condition?_id=prb-12&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Condition/_search
+POST https://api.intellechart.net/icp-fhir-api/Condition/_search
 <i><small>body:</small></i> _id=prb-12&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-conditions-for-a-single-patient'>Example: Get all conditions for a single patient</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Condition?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
+GET https://api.intellechart.net/icp-fhir-api/Condition?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Condition/_search
+POST https://api.intellechart.net/icp-fhir-api/Condition/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-the-condition-problem-with-id-of-39-prb-12-39'>Example: Get the condition problem with id of &#39;prb-12&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Condition?_id=prb-12
+GET https://api.intellechart.net/icp-fhir-api/Condition?_id=prb-12
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Condition?identifier=prb-12
+GET https://api.intellechart.net/icp-fhir-api/Condition?identifier=prb-12
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Condition/_search
+POST https://api.intellechart.net/icp-fhir-api/Condition/_search
 <i><small>body:</small></i> _id=prb-12
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Condition/_search
+POST https://api.intellechart.net/icp-fhir-api/Condition/_search
 <i><small>body:</small></i> identifier=prb-12
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-conditions-for-a-single-patient-that-were-modified-as-of-5-5-2022'>Example: Get all conditions for a single patient that were modified as of 5/5/2022</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Condition?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
+GET https://api.intellechart.net/icp-fhir-api/Condition?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Condition/_search
+POST https://api.intellechart.net/icp-fhir-api/Condition/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
 </pre>
 
@@ -3082,7 +3082,7 @@ POST https://icp.nextech-api.com/Condition/_search
 </tbody></table>
 <h4 id='example-get-the-device-with-an-id-of-39-123-39'>Example: Get the device with an ID of &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Device/123
+GET https://api.intellechart.net/icp-fhir-api/Device/123
 </pre>
 
 <p>&nbsp;</p>
@@ -3146,66 +3146,66 @@ This value must be <code>Provenance:target</code>, otherwise the request will re
 These will be in additional bundle entry components, which have a <code>Provenance.Target</code> entry that identifies the relative link to the device.</p>
 <h4 id='example-get-a-device-with-an-identifier-39-123-39-with-provenance'>Example: Get a device with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Device?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Device?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Device/_search
+POST https://api.intellechart.net/icp-fhir-api/Device/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Device?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Device?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Device/_search
+POST https://api.intellechart.net/icp-fhir-api/Device/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-devices-for-a-single-patient-with-id-39-ad2085b5-b974-401d-bfcb-3b865109fd35-39'>Example: Get all devices for a single patient with id &#39;ad2085b5-b974-401d-bfcb-3b865109fd35&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Device?patient=ad2085b5-b974-401d-bfcb-3b865109fd35
+GET https://api.intellechart.net/icp-fhir-api/Device?patient=ad2085b5-b974-401d-bfcb-3b865109fd35
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Device?patient=Patient/ad2085b5-b974-401d-bfcb-3b865109fd35
+GET https://api.intellechart.net/icp-fhir-api/Device?patient=Patient/ad2085b5-b974-401d-bfcb-3b865109fd35
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Device/_search
+POST https://api.intellechart.net/icp-fhir-api/Device/_search
 <i><small>body:</small></i> patient=ad2085b5-b974-401d-bfcb-3b865109fd35
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-devices-for-a-single-patient-with-id-39-ad2085b5-b974-401d-bfcb-3b865109fd35-39-that-were-recorded-as-of-1-1-2017'>Example: Get all devices for a single patient with id &#39;ad2085b5-b974-401d-bfcb-3b865109fd35&#39; that were recorded as of 1/1/2017</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Device?patient=ad2085b5-b974-401d-bfcb-3b865109fd35&_lastUpdated=ge2017-01-01
+GET https://api.intellechart.net/icp-fhir-api/Device?patient=ad2085b5-b974-401d-bfcb-3b865109fd35&_lastUpdated=ge2017-01-01
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Device/_search
+POST https://api.intellechart.net/icp-fhir-api/Device/_search
 <i><small>body:</small></i> patient=ad2085b5-b974-401d-bfcb-3b865109fd35&_lastUpdated=ge2017-01-01
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='search-for-a-device-with-the-id-39-123-39'>Search for a device with the id &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Device?identifier=123
+GET https://api.intellechart.net/icp-fhir-api/Device?identifier=123
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Device/_search
+POST https://api.intellechart.net/icp-fhir-api/Device/_search
 <i><small>body:</small></i> identifier=123
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Device?_id=123
+GET https://api.intellechart.net/icp-fhir-api/Device?_id=123
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Device/_search
+POST https://api.intellechart.net/icp-fhir-api/Device/_search
 <i><small>body:</small></i> _id=123
 </pre>
 
@@ -3388,7 +3388,7 @@ POST https://icp.nextech-api.com/Device/_search
 </tbody></table>
 <h4 id='example-get-a-diagnostic-report-with-an-id-of-39-123-39'>Example: Get a diagnostic report with an ID of &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/DiagnosticReport/123
+GET https://api.intellechart.net/icp-fhir-api/DiagnosticReport/123
 </pre>
 
 <p>&nbsp;</p>
@@ -3473,31 +3473,31 @@ This value must be <code>Provenance:target</code>, otherwise the request will re
 These will be in additional bundle entry components, which have a <code>Provenance.Target</code> entry that identifies the relative link to the diagnostic report.</p>
 <h4 id='example-get-a-diagnostic-report-with-an-identifier-39-123-39-with-provenance'>Example: Get a diagnostic report with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/DiagnosticReport?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/DiagnosticReport?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/DiagnosticReport/_search
+POST https://api.intellechart.net/icp-fhir-api/DiagnosticReport/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/DiagnosticReport?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/DiagnosticReport?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/DiagnosticReport/_search
+POST https://api.intellechart.net/icp-fhir-api/DiagnosticReport/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-lab-type-diagnostic-reports-on-or-after-5-1-2017'>Example: Get all lab-type diagnostic reports on or after 5/1/2017</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/DiagnosticReport?category=LAB&date=ge2017-05-01
+GET https://api.intellechart.net/icp-fhir-api/DiagnosticReport?category=LAB&date=ge2017-05-01
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/DiagnosticReport/_search
+POST https://api.intellechart.net/icp-fhir-api/DiagnosticReport/_search
 <i><small>body:</small></i> category=LAB&date=ge2017-05-01
 </pre>
 
@@ -3654,7 +3654,7 @@ POST https://icp.nextech-api.com/DiagnosticReport/_search
         {
             "coding": [
                 {
-                    "system": "https://icp.nextech-api.com/api/structuredefinition/note-category",
+                    "system": "https://api.intellechart.net/icp-fhir-api/api/structuredefinition/note-category",
                     "code": "Prescriptions",
                     "display": "Prescriptions"
                 }
@@ -3729,7 +3729,7 @@ POST https://icp.nextech-api.com/DiagnosticReport/_search
 </tbody></table>
 <h4 id='example-get-the-history-document-with-id-2262-which-is-a-text-file-with-a-content-of-quot-hello-quot'>Example: Get the history document with ID 2262 which is a text file with a content of &quot;Hello!&quot;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/DocumentReference/2262
+GET https://api.intellechart.net/icp-fhir-api/DocumentReference/2262
 </pre>
 
 <p>&nbsp;</p>
@@ -3814,51 +3814,51 @@ This value must be <code>Provenance:target</code>, otherwise the request will re
 These will be in additional bundle entry components, which have a <code>Provenance.Target</code> entry that identifies the relative link to the document reference</p>
 <h4 id='example-get-a-history-document-reference-with-an-identifier-39-123-39-with-provenance'>Example: Get a history document reference with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/DocumentReference?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/DocumentReference?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/DocumentReference/_search
+POST https://api.intellechart.net/icp-fhir-api/DocumentReference/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/DocumentReference?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/DocumentReference?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/DocumentReference/_search
+POST https://api.intellechart.net/icp-fhir-api/DocumentReference/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-the-history-document-with-id-7741'>Example: Get the history document with ID 7741</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/DocumentReference?_id=history-7741
+GET https://api.intellechart.net/icp-fhir-api/DocumentReference?_id=history-7741
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-searching-for-all-documents-that-have-a-type-of-11488-4-category-of-unknown-created-on-2022-06-03-for-the-specific-patient'>Example: Searching for all documents that have a type of 11488-4, category of Unknown, created on 2022-06-03 for the specific patient</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/DocumentReference?type=11488-4&category=Unknown&date=2022-06-03&patient=c21ab936-3a2a-4c5a-81b8-76b120194053
+GET https://api.intellechart.net/icp-fhir-api/DocumentReference?type=11488-4&category=Unknown&date=2022-06-03&patient=c21ab936-3a2a-4c5a-81b8-76b120194053
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-search-for-all-documents-that-were-created-between-2020-06-03-and-2022-06-01'>Example: Search for all documents that were created between 2020-06-03 and 2022-06-01</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/DocumentReference?date=gt2020-06-03&date=lt2022-06-01
+GET https://api.intellechart.net/icp-fhir-api/DocumentReference?date=gt2020-06-03&date=lt2022-06-01
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-search-by-_id-in-post-body'>Example Search by _id in POST Body</h4>
 <pre class="center-column">
-POST https://icp.nextech-api.com/DocumentReference/_search
+POST https://api.intellechart.net/icp-fhir-api/DocumentReference/_search
 <i><small>body:</small></i>
 _id:history-2262
 </pre>
 <h4 id='example-searching-for-all-documents-that-have-a-type-of-11488-4-category-of-clinical-created-before-2022-06-03-for-the-specific-patient'>Example Searching for all documents that have a type of 11488-4, category of Clinical, created before 2022-06-03 for the specific patient</h4>
 <pre class="center-column">
-POST https://icp.nextech-api.com/DocumentReference/_search
+POST https://api.intellechart.net/icp-fhir-api/DocumentReference/_search
 <i><small>body:</small></i>
 type:11488-4
 category:Clinical
@@ -3960,7 +3960,7 @@ patient:c21ab936-3a2a-4c5a-81b8-76b120194053
     "identifier": [
         {
             "use": "official",
-            "system": "https://icp.nextech-api.com/api/structuredefinition/encounter-id",
+            "system": "https://api.intellechart.net/icp-fhir-api/api/structuredefinition/encounter-id",
             "value": "19632"
         }
     ],
@@ -4140,7 +4140,7 @@ patient:c21ab936-3a2a-4c5a-81b8-76b120194053
 </tbody></table>
 <h4 id='example-get-an-encounter-with-an-id-of-39-123-39'>Example: Get an encounter with an ID of &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Encounter/123
+GET https://api.intellechart.net/icp-fhir-api/Encounter/123
 </pre>
 
 <p>&nbsp;</p>
@@ -4221,62 +4221,62 @@ These will be in additional bundle entry components, which have a <code>Provenan
 &nbsp;</p>
 <h4 id='example-get-an-encounter-with-an-identifier-39-123-39-with-provenance'>Example: Get an encounter with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Encounter?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Encounter?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Encounter/_search
+POST https://api.intellechart.net/icp-fhir-api/Encounter/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Encounter?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Encounter?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Encounter/_search
+POST https://api.intellechart.net/icp-fhir-api/Encounter/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='examples-2'>Examples:</h4><h4 id='get-all-encounters'>Get all encounters</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Encounter
+GET https://api.intellechart.net/icp-fhir-api/Encounter
 </pre>
 <h4 id='search-for-encounters-for-the-patient-with-the-id-39-9d0b7ade-4b5b-41dd-8ac4-88db4c93b192-39'>Search for encounters for the patient with the id &#39;9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Encounter?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+GET https://api.intellechart.net/icp-fhir-api/Encounter?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Encounter/_search
+POST https://api.intellechart.net/icp-fhir-api/Encounter/_search
 <i><small>body:</small></i> patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 <h4 id='search-for-encounters-for-the-patient-with-the-id-39-9d0b7ade-4b5b-41dd-8ac4-88db4c93b192-39-that-took-place-between-and-including-1-1-2022-through-11-14-2022'>Search for encounters for the patient with the id &#39;9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&#39; that took place between and including 1/1/2022 through 11/14/2022</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Encounter?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
+GET https://api.intellechart.net/icp-fhir-api/Encounter?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Encounter/_search
+POST https://api.intellechart.net/icp-fhir-api/Encounter/_search
 <i><small>body:</small></i> patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 <h4 id='search-for-an-encounter-with-the-id-39-123-39'>Search for an Encounter with the id &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Encounter?identifier=123
+GET https://api.intellechart.net/icp-fhir-api/Encounter?identifier=123
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Encounter/_search
+POST https://api.intellechart.net/icp-fhir-api/Encounter/_search
 <i><small>body:</small></i> identifier=123
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Encounter?_id=123
+GET https://api.intellechart.net/icp-fhir-api/Encounter?_id=123
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Encounter/_search
+POST https://api.intellechart.net/icp-fhir-api/Encounter/_search
 <i><small>body:</small></i> _id=123
 </pre>
 <h2 id='goal'>Goal</h2><h3 id='overview-9'>Overview</h3>
@@ -4407,7 +4407,7 @@ POST https://icp.nextech-api.com/Encounter/_search
 </tbody></table>
 <h4 id='example-get-a-goal-with-id-39-goalemn-2284code-559215-39'>Example: Get a goal with ID &#39;goalemn-2284code-559215&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Goal/goalemn-2284code-559215
+GET https://api.intellechart.net/icp-fhir-api/Goal/goalemn-2284code-559215
 </pre>
 
 <p>&nbsp;</p>
@@ -4478,45 +4478,45 @@ This value must be <code>Provenance:target</code>, otherwise the request will re
 These will be in additional bundle entry components, which have a <code>Provenance.Target</code> entry that identifies the relative link to the goal.</p>
 <h4 id='example-get-a-goal-with-an-identifier-39-goalemn-2284code-559215-39-with-provenance'>Example: Get a goal with an identifier &#39;goalemn-2284code-559215&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Goal?identifier=goalemn-2284code-559215&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Goal?identifier=goalemn-2284code-559215&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Goal/_search
+POST https://api.intellechart.net/icp-fhir-api/Goal/_search
 <i><small>body:</small></i> identifier=goalemn-2284code-559215&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Goal?_id=goalemn-2284code-559215&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Goal?_id=goalemn-2284code-559215&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Goal/_search
+POST https://api.intellechart.net/icp-fhir-api/Goal/_search
 <i><small>body:</small></i> _id=goalemn-2284code-559215&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-goals-for-a-single-patient'>Example: Get all goals for a single patient</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Goal?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC
+GET https://api.intellechart.net/icp-fhir-api/Goal?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-goals-for-a-single-patient-using-a-patient-reference-prefix'>Example: Get all goals for a single patient, using a <code>Patient/</code> reference prefix</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Goal?patient=Patient/29D5AA40-6E3E-4683-B17F-2FBFECACF9BC
+GET https://api.intellechart.net/icp-fhir-api/Goal?patient=Patient/29D5AA40-6E3E-4683-B17F-2FBFECACF9BC
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-goals-for-a-patient-on-a-date'>Example: Get all goals for a patient on a date</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Goal?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC&date=2017-01-01
+GET https://api.intellechart.net/icp-fhir-api/Goal?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC&date=2017-01-01
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-goals-for-a-patient-on-a-date-2'>Example: Get all goals for a patient on a date</h4>
 <pre class="center-column">
-POST https://icp.nextech-api.com/Goal/_search?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC&date=2017-01-01
+POST https://api.intellechart.net/icp-fhir-api/Goal/_search?patient=29D5AA40-6E3E-4683-B17F-2FBFECACF9BC&date=2017-01-01
 </pre>
 
 <p>&nbsp;</p>
@@ -4646,7 +4646,7 @@ POST https://icp.nextech-api.com/Goal/_search?patient=29D5AA40-6E3E-4683-B17F-2F
 </tbody></table>
 <h4 id='example-get-an-immunization-with-an-id-of-39-123-39'>Example: Get an immunization with an ID of &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization/123
+GET https://api.intellechart.net/icp-fhir-api/Immunization/123
 </pre>
 
 <p>&nbsp;</p>
@@ -4719,53 +4719,53 @@ These will be in additional bundle entry components, which have a <code>Provenan
 <p>&nbsp;</p>
 <h4 id='example-get-an-immunization-with-an-identifier-39-123-39-with-provenance'>Example: Get an immunization with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Immunization?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Immunization/_search
+POST https://api.intellechart.net/icp-fhir-api/Immunization/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Immunization?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Immunization/_search
+POST https://api.intellechart.net/icp-fhir-api/Immunization/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='examples-3'>Examples:</h4><h4 id='get-all-immunizations'>Get all immunizations</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization
+GET https://api.intellechart.net/icp-fhir-api/Immunization
 </pre>
 <h4 id='search-for-immunizations-for-the-patient-with-the-id-39-9d0b7ade-4b5b-41dd-8ac4-88db4c93b192-39'>Search for immunizations for the patient with the id &#39;9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+GET https://api.intellechart.net/icp-fhir-api/Immunization?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Immunization/_search
+POST https://api.intellechart.net/icp-fhir-api/Immunization/_search
 <i><small>body:</small></i> patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 <h4 id='search-for-an-immunization-with-the-id-39-123-39'>Search for an immunization with the id &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization?identifier=123
+GET https://api.intellechart.net/icp-fhir-api/Immunization?identifier=123
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Immunization/_search
+POST https://api.intellechart.net/icp-fhir-api/Immunization/_search
 <i><small>body:</small></i> identifier=123
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization?_id=123
+GET https://api.intellechart.net/icp-fhir-api/Immunization?_id=123
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Immunization/_search
+POST https://api.intellechart.net/icp-fhir-api/Immunization/_search
 <i><small>body:</small></i> _id=123
 </pre>
 
@@ -4844,7 +4844,7 @@ POST https://icp.nextech-api.com/Immunization/_search
 </tbody></table>
 <h4 id='example-get-the-medication-with-an-id-of-39-12-39'>Example: Get the medication with an ID of &#39;12&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Medication/12
+GET https://api.intellechart.net/icp-fhir-api/Medication/12
 </pre>
 
 <p>&nbsp;</p>
@@ -4916,40 +4916,40 @@ These will be in additional bundle entry components, which have a <code>Provenan
 &nbsp;</p>
 <h4 id='example-get-a-medication-with-an-identifier-39-123-39-with-provenance'>Example: Get a medication with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Medication?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Medication?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Medication/_search
+POST https://api.intellechart.net/icp-fhir-api/Medication/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Medication?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Medication?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Medication/_search
+POST https://api.intellechart.net/icp-fhir-api/Medication/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-the-medication-with-an-id-of-39-12-39-2'>Example: Get the medication with an ID of &#39;12&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Medication?identifier=12
+GET https://api.intellechart.net/icp-fhir-api/Medication?identifier=12
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Medication/_search
+POST https://api.intellechart.net/icp-fhir-api/Medication/_search
 <i><small>body:</small></i> identifier=12
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Medication?_id=12
+GET https://api.intellechart.net/icp-fhir-api/Medication?_id=12
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Medication/_search
+POST https://api.intellechart.net/icp-fhir-api/Medication/_search
 <i><small>body:</small></i> _id=12
 </pre>
 
@@ -5089,7 +5089,7 @@ POST https://icp.nextech-api.com/Medication/_search
 </tbody></table>
 <h4 id='example-get-the-medication-request-with-an-id-of-39-12-39'>Example: Get the medication request with an ID of &#39;12&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest/12
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest/12
 </pre>
 
 <p>&nbsp;</p>
@@ -5182,108 +5182,108 @@ These will be in additional bundle entry components, which have a <code>Provenan
 &nbsp;</p>
 <h4 id='example-get-a-medication-request-with-an-identifier-39-123-39-with-provenance'>Example: Get a medication request with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/MedicationRequest/_search
+POST https://api.intellechart.net/icp-fhir-api/MedicationRequest/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/MedicationRequest/_search
+POST https://api.intellechart.net/icp-fhir-api/MedicationRequest/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-the-medication-request-with-an-id-of-39-12-39-2'>Example: Get the medication request with an ID of &#39;12&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?identifier=12
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?identifier=12
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/MedicationRequest/_search
+POST https://api.intellechart.net/icp-fhir-api/MedicationRequest/_search
 <i><small>body:</small></i> identifier=12
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?_id=12
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?_id=12
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/MedicationRequest/_search
+POST https://api.intellechart.net/icp-fhir-api/MedicationRequest/_search
 <i><small>body:</small></i> _id=12
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-medication-requests-for-a-single-patient-with-id-39-c27e5be0-4b44-4ec5-a284-4308d6ac2b1a-39'>Example: Get all medication requests for a single patient with id &#39;c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/MedicationRequest/_search
+POST https://api.intellechart.net/icp-fhir-api/MedicationRequest/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-medication-requests-for-a-single-patient-with-id-39-c27e5be0-4b44-4ec5-a284-4308d6ac2b1a-39-and-intent-39-original-order-39'>Example: Get all medication requests for a single patient with id &#39;c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&#39; and intent &#39;original-order&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-intent|original-order
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-intent|original-order
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/MedicationRequest/_search
+POST https://api.intellechart.net/icp-fhir-api/MedicationRequest/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/MedicationRequest/_search
+POST https://api.intellechart.net/icp-fhir-api/MedicationRequest/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-intent|original-order
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-medication-requests-for-a-single-patient-with-id-39-c27e5be0-4b44-4ec5-a284-4308d6ac2b1a-39-intent-39-original-order-39-and-status-39-active-39'>Example: Get all medication requests for a single patient with id &#39;c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&#39;, intent &#39;original-order&#39; and status &#39;active&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=active
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=active
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-status|active
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?patient=Patient/c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-status|active
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/MedicationRequest/_search
+POST https://api.intellechart.net/icp-fhir-api/MedicationRequest/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=active
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/MedicationRequest/_search
+POST https://api.intellechart.net/icp-fhir-api/MedicationRequest/_search
 <i><small>body:</small></i> patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&intent=original-order&status=http://hl7.org/fhir/r4/CodeSystem/medicationrequest-status|active
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-medication-requests-for-a-single-patient-that-were-modified-as-of-5-5-2022'>Example: Get all medication requests for a single patient that were modified as of 5/5/2022</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?patient=c27e5be0-4b44-4ec5-a284-4308d6ac2b1a&_lastUpdated=ge2022-05-05
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-medication-requests-that-were-modified-by-5-5-2022'>Example: Get all medication requests that were modified by 5/5/2022</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/MedicationRequest?_lastUpdated=le2022-05-05
+GET https://api.intellechart.net/icp-fhir-api/MedicationRequest?_lastUpdated=le2022-05-05
 </pre>
 
 <p>&nbsp;</p>
@@ -5468,7 +5468,7 @@ GET https://icp.nextech-api.com/MedicationRequest?_lastUpdated=le2022-05-05
 </tbody></table>
 <h4 id='example-get-a-lab-observation-with-an-id-of-39-12-39'>Example: Get a lab observation with an ID of &#39;12&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Observation/lab-12
+GET https://api.intellechart.net/icp-fhir-api/Observation/lab-12
 </pre>
 
 <p>&nbsp;</p>
@@ -5561,53 +5561,53 @@ These will be in additional bundle entry components, which have a <code>Provenan
 &nbsp;</p>
 <h4 id='example-get-a-lab-observation-with-an-identifier-39-123-39-with-provenance'>Example: Get a lab observation with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Observation?identifier=lab-123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Observation?identifier=lab-123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Observation/_search
+POST https://api.intellechart.net/icp-fhir-api/Observation/_search
 <i><small>body:</small></i> identifier=lab-123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Observation?_id=lab-123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Observation?_id=lab-123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Observation/_search
+POST https://api.intellechart.net/icp-fhir-api/Observation/_search
 <i><small>body:</small></i> _id=lab-123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-laboratory-requisitions-and-lab-results-5-1-2017'>Example: Get all laboratory requisitions and lab results 5/1/2017</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Observation?category=laboratory&date=ge2017-05-01
+GET https://api.intellechart.net/icp-fhir-api/Observation?category=laboratory&date=ge2017-05-01
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Observation/_search
+POST https://api.intellechart.net/icp-fhir-api/Observation/_search
 <i><small>body:</small></i> category=laboratory&date=ge2017-05-01
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-the-social-histories-charted-in-encounters-as-of-5-1-2017'>Example: Get the social histories charted in encounters as of 5/1/2017</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Observation?category=social-history&date=ge2017-05-01
+GET https://api.intellechart.net/icp-fhir-api/Observation?category=social-history&date=ge2017-05-01
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Observation/_search
+POST https://api.intellechart.net/icp-fhir-api/Observation/_search
 <i><small>body:</small></i> category=social-history&date=ge2017-05-01
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-the-vital-signs-charted-in-encounters-as-of-5-1-2017'>Example: Get the vital signs charted in encounters as of 5/1/2017</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Observation?category=vital-signs&date=ge2017-05-01
+GET https://api.intellechart.net/icp-fhir-api/Observation?category=vital-signs&date=ge2017-05-01
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Observation/_search
+POST https://api.intellechart.net/icp-fhir-api/Observation/_search
 <i><small>body:</small></i> category=vital-signs&date=ge2017-05-01
 </pre>
 
@@ -5709,7 +5709,7 @@ POST https://icp.nextech-api.com/Observation/_search
 </tbody></table>
 <h4 id='example-get-an-procedure-with-an-id-of-39-123-39'>Example: Get an procedure with an ID of &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Procedure/123
+GET https://api.intellechart.net/icp-fhir-api/Procedure/123
 </pre>
 
 <p>&nbsp;</p>
@@ -5789,53 +5789,53 @@ These will be in additional bundle entry components, which have a <code>Provenan
 <p>&nbsp;</p>
 <h4 id='example-get-a-procedure-with-an-identifier-39-123-39-with-provenance'>Example: Get a procedure with an identifier &#39;123&#39; with provenance</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Procedure?identifier=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Procedure?identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Procedure/_search
+POST https://api.intellechart.net/icp-fhir-api/Procedure/_search
 <i><small>body:</small></i> identifier=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Procedure?_id=123&_revinclude=Provenance:target
+GET https://api.intellechart.net/icp-fhir-api/Procedure?_id=123&_revinclude=Provenance:target
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Procedure/_search
+POST https://api.intellechart.net/icp-fhir-api/Procedure/_search
 <i><small>body:</small></i> _id=123&_revinclude=Provenance:target
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='examples-4'>Examples:</h4><h4 id='get-all-procedures'>Get all procedures</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Procedure
+GET https://api.intellechart.net/icp-fhir-api/Procedure
 </pre>
 <h4 id='search-for-procedures-for-the-patient-with-the-id-39-9d0b7ade-4b5b-41dd-8ac4-88db4c93b192-39'>Search for procedures for the patient with the id &#39;9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Procedure?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
+GET https://api.intellechart.net/icp-fhir-api/Procedure?patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Procedure/_search
+POST https://api.intellechart.net/icp-fhir-api/Procedure/_search
 <i><small>body:</small></i> patient=9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192
 </pre>
 <h4 id='search-for-procedures-for-the-patient-with-the-id-39-9d0b7ade-4b5b-41dd-8ac4-88db4c93b192-39-performed-between-and-including-1-1-2022-through-11-14-2022'>Search for procedures for the patient with the id &#39;9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&#39; performed between and including 1/1/2022 through 11/14/2022</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Procedure?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
+GET https://api.intellechart.net/icp-fhir-api/Procedure?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Procedure/_search
+POST https://api.intellechart.net/icp-fhir-api/Procedure/_search
 <i><small>body:</small></i> patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 <h4 id='search-for-an-procedure-with-the-id-39-123-39'>Search for an procedure with the id &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Procedure?_id=123
+GET https://api.intellechart.net/icp-fhir-api/Procedure?_id=123
 </pre>
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Procedure/_search
+POST https://api.intellechart.net/icp-fhir-api/Procedure/_search
 <i><small>body:</small></i> _id=123
 </pre>
 <h1 id='location'>Location</h1><h3 id='overview'>Overview</h3>
@@ -5915,7 +5915,7 @@ POST https://icp.nextech-api.com/Procedure/_search
     },
     "extension": [
         {
-            "url": "https://icp.nextech-api.com/api/structuredefinition/managed",
+            "url": "https://api.intellechart.net/icp-fhir-api/api/structuredefinition/managed",
             "valueBoolean": true
         }
     ],
@@ -5986,7 +5986,7 @@ POST https://icp.nextech-api.com/Procedure/_search
 </tbody></table>
 <h4 id='example-get-an-location-with-an-id-of-39-123-39'>Example: Get an location with an ID of &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Location/123
+GET https://api.intellechart.net/icp-fhir-api/Location/123
 </pre>
 
 <p>&nbsp;</p>
@@ -6053,31 +6053,31 @@ GET https://icp.nextech-api.com/Location/123
 <p><strong><em>Note:</em></strong> The possible filter values for the <code>_lastUpdated</code> parameter are: <code>eq</code>, <code>ne</code>, <code>le</code>, <code>lt</code>, <code>ge</code> and <code>gt</code>.</p>
 <h4 id='example-get-all-active-locations'>Example: Get all active locations</h4><h4 id='example-get-all-locations-including-managed-and-non-managed-locations'>Example: Get all locations, including managed and non-managed locations</h4>
 <pre class="center-column">
-POST https://icp.nextech-api.com/Location/_search?includeAll=true
+POST https://api.intellechart.net/icp-fhir-api/Location/_search?includeAll=true
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-locations-whose-name-contains-39-dermatology-39'>Example: Get all locations whose name contains &#39;dermatology&#39;</h4>
 <pre class="center-column">
-POST https://icp.nextech-api.com/Location/_search?name:contains=dermatology
+POST https://api.intellechart.net/icp-fhir-api/Location/_search?name:contains=dermatology
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-a-specific-location-based-on-identifier'>Example: Get a specific location based on identifier</h4>
 <pre class="center-column">
-POST https://icp.nextech-api.com/Location/_search?identifier=123
+POST https://api.intellechart.net/icp-fhir-api/Location/_search?identifier=123
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-locations-whose-name-contains-39-dermatology-39-2'>Example: Get all locations whose name contains &#39;dermatology&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Location?name:contains=dermatology
+GET https://api.intellechart.net/icp-fhir-api/Location?name:contains=dermatology
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-a-specific-location-based-on-identifier-2'>Example: Get a specific location based on identifier</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Location?identifier=123
+GET https://api.intellechart.net/icp-fhir-api/Location?identifier=123
 </pre>
 
 <p>&nbsp;</p>
@@ -6142,7 +6142,7 @@ GET https://icp.nextech-api.com/Location?identifier=123
     "identifier": [
         {
             "use": "official",
-            "system": "https://icp.nextech-api.com/api/structuredefinition/practitioner-id"
+            "system": "https://api.intellechart.net/icp-fhir-api/api/structuredefinition/practitioner-id"
             "value": "9219"
         },
         {
@@ -6214,7 +6214,7 @@ GET https://icp.nextech-api.com/Location?identifier=123
 </tbody></table>
 <h4 id='example-get-a-specific-practitioner-based-on-identifier'>Example: Get a specific Practitioner based on identifier</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Practitioner/12
+GET https://api.intellechart.net/icp-fhir-api/Practitioner/12
 </pre>
 
 <p>&nbsp;</p>
@@ -6256,25 +6256,25 @@ GET https://icp.nextech-api.com/Practitioner/12
 </tbody></table>
 <h4 id='example-get-all-practitioners'>Example: Get all Practitioners</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Practitioner
+GET https://api.intellechart.net/icp-fhir-api/Practitioner
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-a-specific-practitioner-based-on-identifier-2'>Example: Get a specific Practitioner based on identifier</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Practitioner?identifier=12
+GET https://api.intellechart.net/icp-fhir-api/Practitioner?identifier=12
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-a-specific-practitioner-based-on-national-provider-identifier-npi'>Example: Get a specific Practitioner based on National Provider Identifier (NPI)</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Practitioner?identifier=http://hl7.org/fhir/r4/sid/us-npi|1245319599
+GET https://api.intellechart.net/icp-fhir-api/Practitioner?identifier=http://hl7.org/fhir/r4/sid/us-npi|1245319599
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-practitioners-whose-name-contains-39-smith-39'>Example: Get all Practitioners whose name contains &#39;smith&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Practitioner?name:contains=smith
+GET https://api.intellechart.net/icp-fhir-api/Practitioner?name:contains=smith
 </pre>
 
 <p>&nbsp;</p>
@@ -6430,7 +6430,7 @@ GET https://icp.nextech-api.com/Practitioner?name:contains=smith
 </tbody></table>
 <h4 id='example-get-an-organization-with-an-id-of-39-123-39'>Example: Get an organization with an ID of &#39;123&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Organization/123
+GET https://api.intellechart.net/icp-fhir-api/Organization/123
 </pre>
 
 <p>&nbsp;</p>
@@ -6497,25 +6497,25 @@ GET https://icp.nextech-api.com/Organization/123
 <p><strong><em>Note:</em></strong> The possible filter values for the <code>_lastUpdated</code> parameter are: <code>eq</code>, <code>ne</code>, <code>le</code>, <code>lt</code>, <code>ge</code> and <code>gt</code>.</p>
 <h4 id='example-get-all-organizations-whose-name-contains-39-dermatology-39'>Example: Get all organizations whose name contains &#39;dermatology&#39;</h4>
 <pre class="center-column">
-POST https://icp.nextech-api.com/Organization/_search?name:contains=dermatology
+POST https://api.intellechart.net/icp-fhir-api/Organization/_search?name:contains=dermatology
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-a-specific-organization-based-on-identifier'>Example: Get a specific organization based on identifier</h4>
 <pre class="center-column">
-POST https://icp.nextech-api.com/Organization/_search?identifier=123
+POST https://api.intellechart.net/icp-fhir-api/Organization/_search?identifier=123
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-all-organizations-whose-name-contains-39-dermatology-39-2'>Example: Get all organizations whose name contains &#39;dermatology&#39;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Organization?name:contains=dermatology
+GET https://api.intellechart.net/icp-fhir-api/Organization?name:contains=dermatology
 </pre>
 
 <p>&nbsp;</p>
 <h4 id='example-get-a-specific-organization-based-on-identifier-2'>Example: Get a specific organization based on identifier</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Organization?identifier=123
+GET https://api.intellechart.net/icp-fhir-api/Organization?identifier=123
 </pre>
 
 <p>&nbsp;</p>
@@ -6666,7 +6666,7 @@ GET https://icp.nextech-api.com/Organization?identifier=123
 </tbody></table>
 <h4 id='example-get-a-specific-provenance-based-on-identifier'>Example: Get a specific provenance based on identifier</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Provenance/123
+GET https://api.intellechart.net/icp-fhir-api/Provenance/123
 </pre>
 
 <p>&nbsp;</p>
@@ -6731,11 +6731,11 @@ GET https://icp.nextech-api.com/Provenance/123
 </tr>
 </tbody></table>
 <h4 id='http-response'>HTTP Response</h4>
-<p>A successful kick-off request will return a response with a <code>202 Accepted</code> HTTP status code, along with a <code>Content-Location</code> reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at <code>https://icp.nextech-api.com/Export/{ExportJobID}</code>. See below for the usage of this polling endpoint.
+<p>A successful kick-off request will return a response with a <code>202 Accepted</code> HTTP status code, along with a <code>Content-Location</code> reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at <code>https://api.intellechart.net/icp-fhir-api/Export/{ExportJobID}</code>. See below for the usage of this polling endpoint.
 A failed kick-off request will return a response with either a <code>4XX</code> or <code>5XX</code> range status code, along with a JSON response body containing a FHIR <code>OperationOutCome</code> resource describing the error that occurred.</p>
 <h4 id='example-start-an-export-of-all-patients'>Example: Start an export of all patients</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient/$export
+GET https://api.intellechart.net/icp-fhir-api/Patient/$export
 </pre>
 
 <p>&nbsp;</p>
@@ -6803,11 +6803,11 @@ GET https://icp.nextech-api.com/Patient/$export
 </tr>
 </tbody></table>
 <h4 id='http-response-2'>HTTP Response</h4>
-<p>A successful kick-off request will return a response with a <code>202 Accepted</code> HTTP status code, along with a <code>Content-Location</code> reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at <code>https://icp.nextech-api.com/Export/{ExportJobID}</code>. See below for the usage of this polling endpoint.
+<p>A successful kick-off request will return a response with a <code>202 Accepted</code> HTTP status code, along with a <code>Content-Location</code> reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at <code>https://api.intellechart.net/icp-fhir-api/Export/{ExportJobID}</code>. See below for the usage of this polling endpoint.
 A failed kick-off request will return a response with either a <code>4XX</code> or <code>5XX</code> range status code, along with a JSON response body containing a FHIR <code>OperationOutCome</code> resource describing the error that occurred.</p>
 <h4 id='example-start-an-export-of-all-patients-within-the-group-with-an-id-of-quot-1-quot'>Example: Start an export of all patients within the group with an ID of &quot;1&quot;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Group/1/$export
+GET https://api.intellechart.net/icp-fhir-api/Group/1/$export
 </pre>
 
 <p>&nbsp;</p>
@@ -6868,11 +6868,11 @@ GET https://icp.nextech-api.com/Group/1/$export
 </tr>
 </tbody></table>
 <h4 id='http-response-3'>HTTP Response</h4>
-<p>A successful kick-off request will return a response with a <code>202 Accepted</code> HTTP status code, along with a <code>Content-Location</code> reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at <code>https://icp.nextech-api.com/Export/{ExportJobID}</code>. See below for the usage of this polling endpoint.
+<p>A successful kick-off request will return a response with a <code>202 Accepted</code> HTTP status code, along with a <code>Content-Location</code> reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at <code>https://api.intellechart.net/icp-fhir-api/Export/{ExportJobID}</code>. See below for the usage of this polling endpoint.
 A failed kick-off request will return a response with either a <code>4XX</code> or <code>5XX</code> range status code, along with a JSON response body containing a FHIR <code>OperationOutCome</code> resource describing the error that occurred.</p>
 <h4 id='example-start-an-export-of-all-allowed-fhir-resources'>Example: Start an export of all allowed FHIR resources</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/$export
+GET https://api.intellechart.net/icp-fhir-api/$export
 </pre>
 
 <p>&nbsp;</p>
@@ -6953,7 +6953,7 @@ Content-Type: application/json
 
 {
  "transactionTime": "2021-01-01T00:00:00Z",
- "request" : "https://icp.nextech-api.com/Patient/$export?_type=Patient,Observation",
+ "request" : "https://api.intellechart.net/icp-fhir-api/Patient/$export?_type=Patient,Observation",
  "requiresAccessToken" : false,
  "output" : [{
   "type" : "Patient",
@@ -6975,7 +6975,7 @@ Content-Type: application/json
 <p>&nbsp;</p>
 <h4 id='example-poll-the-status-of-an-export-job-with-an-id-of-quot-61b05fbe-6b5f-4b68-aec4-c03d09f51e82-quot'>Example: Poll the status of an export job with an ID of &quot;61b05fbe-6b5f-4b68-aec4-c03d09f51e82&quot;</h4>
 <pre class="center-column">
-GET https://icp.nextech-api.com/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
+GET https://api.intellechart.net/icp-fhir-api/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
 </pre>
 
 <p>&nbsp;</p>
@@ -7001,7 +7001,7 @@ GET https://icp.nextech-api.com/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
 </tbody></table>
 <h4 id='example-cancel-an-export-job-with-an-id-of-quot-61b05fbe-6b5f-4b68-aec4-c03d09f51e82-quot'>Example: Cancel an export job with an ID of &quot;61b05fbe-6b5f-4b68-aec4-c03d09f51e82&quot;</h4>
 <pre class="center-column">
-DELETE https://icp.nextech-api.com/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
+DELETE https://api.intellechart.net/icp-fhir-api/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
 </pre>
 
 <p>&nbsp;</p>
