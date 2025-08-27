@@ -99,7 +99,7 @@ Returns a single Provenance result based on the Provenance ID.
 #### Example: Get a specific provenance based on identifier
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Provenance/123
+GET https://api.intellechart.net/icp-fhir-api/Provenance/123
 </pre>
 
 &nbsp;

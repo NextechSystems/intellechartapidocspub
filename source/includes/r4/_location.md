@@ -30,7 +30,7 @@ A [Location](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-l
     },
     "extension": [
         {
-            "url": "https://icp.nextech-api.com/api/structuredefinition/managed",
+            "url": "https://api.intellechart.net/icp-fhir-api/api/structuredefinition/managed",
             "valueBoolean": true
         }
     ],
@@ -95,7 +95,7 @@ Returns a single Location result based on the Location ID.
 #### Example: Get an location with an ID of '123'
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Location/123
+GET https://api.intellechart.net/icp-fhir-api/Location/123
 </pre>
 
 &nbsp;
@@ -129,7 +129,7 @@ Searches for all locations based on the given search criteria.
 #### Example: Get all locations, including managed and non-managed locations
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Location/_search?includeAll=true
+POST https://api.intellechart.net/icp-fhir-api/Location/_search?includeAll=true
 </pre>
 
 &nbsp;
@@ -137,7 +137,7 @@ POST https://icp.nextech-api.com/Location/_search?includeAll=true
 #### Example: Get all locations whose name contains 'dermatology'
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Location/_search?name:contains=dermatology
+POST https://api.intellechart.net/icp-fhir-api/Location/_search?name:contains=dermatology
 </pre>
 
 &nbsp;
@@ -145,7 +145,7 @@ POST https://icp.nextech-api.com/Location/_search?name:contains=dermatology
 #### Example: Get a specific location based on identifier
 
 <pre class="center-column">
-POST https://icp.nextech-api.com/Location/_search?identifier=123
+POST https://api.intellechart.net/icp-fhir-api/Location/_search?identifier=123
 </pre>
 
 &nbsp;
@@ -153,7 +153,7 @@ POST https://icp.nextech-api.com/Location/_search?identifier=123
 #### Example: Get all locations whose name contains 'dermatology'
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Location?name:contains=dermatology
+GET https://api.intellechart.net/icp-fhir-api/Location?name:contains=dermatology
 </pre>
 
 &nbsp;
@@ -161,7 +161,7 @@ GET https://icp.nextech-api.com/Location?name:contains=dermatology
 #### Example: Get a specific location based on identifier
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Location?identifier=123
+GET https://api.intellechart.net/icp-fhir-api/Location?identifier=123
 </pre>
 
 &nbsp;

@@ -70,7 +70,7 @@ Patient-facing apps must request, at a minimum, the below scopes in their authen
 ## Practitioner-facing apps ##
 SMART apps of this type are for use by a practitioner within a practice, and can be allowed to access all patient information in the practice, or can instead be focused on a single patient at a time. The practice that the practitioner is associated with must be setup with [myPatientVisit](https://www.mypatientvisit.com). Once setup, practitioner apps may follow either the [standlone launch sequence (1.0.0)](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html#standalone-launch-sequence) or the [EHR launch sequence (1.0.0)](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html#ehr-launch-sequence) as defined by the SMART app framework specification, both of which use the authorization code flow (described further below).
 
-For practitioner apps following the EHR launch sequence, the app that resides at the launch URL provided to Nextech upon client registration must use the provided `iss` URL parameter, which should always point to the Nextech API URL ( `https://icp.nextech-api.com`) to query either the Nextech API 's metadata endpoint (`https://icp.nextech-api.com/metadata`) or SMART configuration endpoint (`https://icp.nextech-api.com/.well-known/smart-configuration`), both of which contain in their responses OAuth `authorize` and `token` endpoint URLs for use in requesting authorization to access the Nextech API via the Nextech authorization server.
+For practitioner apps following the EHR launch sequence, the app that resides at the launch URL provided to Nextech upon client registration must use the provided `iss` URL parameter, which should always point to the Nextech API URL ( `https://api.intellechart.net/icp-fhir-api`) to query either the Nextech API 's metadata endpoint (`https://api.intellechart.net/icp-fhir-api/metadata`) or SMART configuration endpoint (`https://api.intellechart.net/icp-fhir-api/.well-known/smart-configuration`), both of which contain in their responses OAuth `authorize` and `token` endpoint URLs for use in requesting authorization to access the Nextech API via the Nextech authorization server.
 
 Practitioner-facing apps must request, at a minimum, the below scopes in their authorization request to the Nextech authorization server, in addition to whatever other access scopes are required by the application:
 
@@ -83,14 +83,14 @@ The authorization code workflow, which must be used by both patient- and practit
 
 **Step 1.** The SMART app redirects the user to the Authorization Server (or in the case of a native application, opens a web browser) at a URL similar to the following:
 <pre class="center-column">
-https://mypatientvisit-sts-experimental.azurewebsites.net/connect/authorize?aud=https://icp.nextech-api.com&response_type=code&client_id={appClientID}&scope=openid%20offline_access%20fhirUser%20launch%2Fpatient%20patient%2FAllergyIntolerance.read&redirect_uri=https%3A%2F%2FmySmartApp.com%2Fcallback&code_challenge={sha256HashOfRandomString}0&code_challenge_method=S256&state={someUnpredictableValue}
+https://sts.mypatientvisit.com/connect/authorize?aud=https://api.intellechart.net/icp-fhir-api&response_type=code&client_id={appClientID}&scope=openid%20offline_access%20fhirUser%20launch%2Fpatient%20patient%2FAllergyIntolerance.read&redirect_uri=https%3A%2F%2FmySmartApp.com%2Fcallback&code_challenge={sha256HashOfRandomString}0&code_challenge_method=S256&state={someUnpredictableValue}
 </pre>
 
 *URL parameter notes:*
 
 | Name | Description |
 | ---- | ----------- |
-| aud |  This is the base URL to the Nextech API that the app is requesting access to pull FHIR resources from, and will always be `https://icp.nextech-api.com` |
+| aud |  This is the base URL to the Nextech API that the app is requesting access to pull FHIR resources from, and will always be `https://api.intellechart.net/icp-fhir-api` |
 | response_type |  This is always set to `code` for the authorization flow |
 | client_id |  This is the unique identifier for the SMART application, issued by Nextech |
 | scope |  indicates the space-delimited set of scopes that the SMART app is requesting |
@@ -113,7 +113,7 @@ POST /connect/token
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic [client ID and secret]
 
-client_id={appClientID}&grant_type=authorization_code&code=aded553gr3g7dggakG&redirect_uri=https://mySmartApp.com/callback&scope=openid%20offline_access%20fhirUser%20launch%2Fpatient%20patient%2FAllergyIntolerance.read&aud=https://icp.nextech-api.com&code_verifier={someRandomString}
+client_id={appClientID}&grant_type=authorization_code&code=aded553gr3g7dggakG&redirect_uri=https://mySmartApp.com/callback&scope=openid%20offline_access%20fhirUser%20launch%2Fpatient%20patient%2FAllergyIntolerance.read&aud=https://api.intellechart.net/icp-fhir-api&code_verifier={someRandomString}
 </pre>
 
 *Header notes:*
@@ -144,7 +144,7 @@ The Nextech authorization server will then respond to with a response similar to
    "scope":"openid fhirUser launch/patient patient/AllergyIntolerance.read",
    "patient":"123",
    "encounter":null,
-   "smart_style_url":"https://mypatientvisit-sts-dev.azurewebsites.net/css/smart-style.json?v=133092895520000000",
+   "smart_style_url":"https://sts.mypatientvisit.com/css/smart-style.json?v=133092895520000000",
    "need_patient_banner": false
 }
 </pre>
@@ -292,7 +292,7 @@ Nextech currently only supports scopes that adhere to the format defined in vers
 * `system/Provenance.read`
 
 
-All scope names map to the FHIR resource endpoint that they can be used against. For example, a SMART app using an access token that has been granted the `patient/Encounter.read`, `user/Encounter.read`, or `system/Encounter.read` scopes can use that token against the `GET https://icp.nextech-api.com/Encounter/{someEncounterID}` endpoint to grab information about a particular encounter.
+All scope names map to the FHIR resource endpoint that they can be used against. For example, a SMART app using an access token that has been granted the `patient/Encounter.read`, `user/Encounter.read`, or `system/Encounter.read` scopes can use that token against the `GET https://api.intellechart.net/icp-fhir-api/Encounter/{someEncounterID}` endpoint to grab information about a particular encounter.
 
 **Important note:** Writing-related scopes are currently **not supported**. Additionally, SMART apps must only request the bare minimum scopes that are required for their app to function.
 
@@ -302,8 +302,8 @@ All scope names map to the FHIR resource endpoint that they can be used against.
 1. Set `Authorization` to `Oauth 2.0`. This should give you additional fields to fill out
 1. `Header Prefix` should be set to `Bearer`
 1. Grant type ahould be set to `Authorization Code (With PKCE)`
-1. `Auth URL` should be set to `https://mypatientvisit-sts-dev.azurewebsites.net/connect/authorize?aud=https://icp.nextech-api.com`
-1. `Access Token URL` should be set to `https://mypatientvisit-sts-dev.azurewebsites.net/connect/token`
+1. `Auth URL` should be set to `https://sts.mypatientvisit.com/connect/authorize?aud=https://api.intellechart.net/icp-fhir-api`
+1. `Access Token URL` should be set to `https://sts.mypatientvisit.com/connect/token`
 1. `Client ID` should be set to the value given to you by Nextech
 1. `Secret` should be set to the value given to you by Nextech, if any
 1. `Code Challenge Method` should be `SHA-256`
