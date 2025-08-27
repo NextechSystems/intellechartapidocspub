@@ -193,7 +193,7 @@ GET https://icp.nextech-api.com/Patient?address=1500
 
 ## Writing
 
-Currently, only creating a document via a `POST https://icp.nextech-api.com/DocumentReference` call is supported.
+Currently, no write calls are supported.
 
 &nbsp;
 
