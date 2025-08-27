@@ -33,13 +33,13 @@ Allows for the generation of bulk data in one of three different formats: all pa
 
 #### HTTP Response
 
-A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://icp.nextech-api.com/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
+A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://api.intellechart.net/icp-fhir-api/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
 A failed kick-off request will return a response with either a `4XX` or `5XX` range status code, along with a JSON response body containing a FHIR `OperationOutCome` resource describing the error that occurred.
 
 #### Example: Start an export of all patients
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient/$export
+GET https://api.intellechart.net/icp-fhir-api/Patient/$export
 </pre>
 
 &nbsp;
@@ -68,13 +68,13 @@ GET https://icp.nextech-api.com/Patient/$export
 
 #### HTTP Response
 
-A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://icp.nextech-api.com/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
+A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://api.intellechart.net/icp-fhir-api/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
 A failed kick-off request will return a response with either a `4XX` or `5XX` range status code, along with a JSON response body containing a FHIR `OperationOutCome` resource describing the error that occurred.
 
 #### Example: Start an export of all patients within the group with an ID of "1"
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Group/1/$export
+GET https://api.intellechart.net/icp-fhir-api/Group/1/$export
 </pre>
 
 &nbsp;
@@ -102,13 +102,13 @@ GET https://icp.nextech-api.com/Group/1/$export
 
 #### HTTP Response
 
-A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://icp.nextech-api.com/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
+A successful kick-off request will return a response with a `202 Accepted` HTTP status code, along with a `Content-Location` reponse header containing the absolute URL of the endpoint that must be used for subsequent status requests (polling location), which will be located at `https://api.intellechart.net/icp-fhir-api/Export/{ExportJobID}`. See below for the usage of this polling endpoint.
 A failed kick-off request will return a response with either a `4XX` or `5XX` range status code, along with a JSON response body containing a FHIR `OperationOutCome` resource describing the error that occurred.
 
 #### Example: Start an export of all allowed FHIR resources
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/$export
+GET https://api.intellechart.net/icp-fhir-api/$export
 </pre>
 
 &nbsp;
@@ -189,7 +189,7 @@ Content-Type: application/json
 
 {
  "transactionTime": "2021-01-01T00:00:00Z",
- "request" : "https://icp.nextech-api.com/Patient/$export?_type=Patient,Observation",
+ "request" : "https://api.intellechart.net/icp-fhir-api/Patient/$export?_type=Patient,Observation",
  "requiresAccessToken" : false,
  "output" : [{
   "type" : "Patient",
@@ -213,7 +213,7 @@ Content-Type: application/json
 #### Example: Poll the status of an export job with an ID of "61b05fbe-6b5f-4b68-aec4-c03d09f51e82"
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
+GET https://api.intellechart.net/icp-fhir-api/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
 </pre>
 
 &nbsp;
@@ -233,7 +233,7 @@ GET https://icp.nextech-api.com/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
 #### Example: Cancel an export job with an ID of "61b05fbe-6b5f-4b68-aec4-c03d09f51e82"
 
 <pre class="center-column">
-DELETE https://icp.nextech-api.com/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
+DELETE https://api.intellechart.net/icp-fhir-api/Export/61b05fbe-6b5f-4b68-aec4-c03d09f51e82
 </pre>
 
 &nbsp;

@@ -5,7 +5,7 @@ All API requests are performed over HTTPS, and **must** use TLS 1.2. Although th
 Before you can access the Nextech API you must have the proper credentials for authorization. These credentials will be provided to you by your Nextech representative, and vary depending on how you wish to integrate with the Nextech API. There are two different authorization models available for accessing the Nextech API: [SMART App authorization](#smart-app-authorization), and [partner authorization](#partner-authorization). See each linked authorization section for more information on each, including how to register your application with the Nextech API and acquire the necessary credentials.
 
 **Base API Endpoint**
-`https://icp.nextech-api.com/`
+`https://api.intellechart.net/icp-fhir-api/`
 
 **API Limitations**
 
@@ -34,7 +34,7 @@ You can use Postman to make a simple request to the [metadata](#metadata) endpoi
 &nbsp;
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/metadata
+GET https://api.intellechart.net/icp-fhir-api/metadata
 </pre>
 
 &nbsp;
@@ -45,7 +45,7 @@ Each `rest.resource` member in the metadata response contains information about 
 Searches may be performed via HTTPS calls to the API where supported.
 
 A search is executed by performing a `GET` operation in the RESTful framework
-`GET https://icp.nextech-api.com/[type]?[field1][:modifier1]=[value1]&[field2][:modifier2]=[value2]...`
+`GET https://api.intellechart.net/icp-fhir-api/[type]?[field1][:modifier1]=[value1]&[field2][:modifier2]=[value2]...`
 where \[type\] refers to a resource such as Patient or Immunization followed by one or more query filters and optional modifiers.
 
 - Matching is always case-insensitive and always ignores whitespace before and after the data.
@@ -58,7 +58,7 @@ To search for a field that meets at least one of several values, each value shou
 **Example: Get patients who live in several nearby cities**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?address-postalcode=33609,33625,33647
+GET https://api.intellechart.net/icp-fhir-api/Patient?address-postalcode=33609,33625,33647
 </pre>
 
 &nbsp;
@@ -70,7 +70,7 @@ To search for multiple fields that all must meet certain criteria, each field sh
 **Example: Search for encounters for the patient with the id '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192' that took place between and including 1/1/2022 through 11/14/2022**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Encounter?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
+GET https://api.intellechart.net/icp-fhir-api/Encounter?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 
 &nbsp;
@@ -87,7 +87,7 @@ A modifier defines how a search match should be performed for a field. A modifie
 **Example: Get all patients whose last name is Smith**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?family:exact=Smith
+GET https://api.intellechart.net/icp-fhir-api/Patient?family:exact=Smith
 </pre>
 
 &nbsp;
@@ -95,7 +95,7 @@ GET https://icp.nextech-api.com/Patient?family:exact=Smith
 **Example: Get all patients whose last name contains the text "mit"**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?family:contains=mit
+GET https://api.intellechart.net/icp-fhir-api/Patient?family:contains=mit
 </pre>
 
 &nbsp;
@@ -116,7 +116,7 @@ Numeric and date values can be combined with operators to search on ranges of va
 **Example: Get the patients with chart numbers between and including 100 and 200**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/api/Patient/r4?identifier=ge100&identifier=le200
+GET https://api.intellechart.net/icp-fhir-api/api/Patient/r4?identifier=ge100&identifier=le200
 </pre>
 
 &nbsp;
@@ -124,7 +124,7 @@ GET https://icp.nextech-api.com/api/Patient/r4?identifier=ge100&identifier=le200
 **Example: Search for immunizations for the patient with the id '9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192' administered between and including 1/1/2022 through 11/14/2022**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
+GET https://api.intellechart.net/icp-fhir-api/Immunization?patient=patient/9D0B7ADE-4B5B-41DD-8AC4-88DB4C93B192&date=ge2022-01-01&date=lt2022-11-14
 </pre>
 
 &nbsp;
@@ -138,7 +138,7 @@ When matching a simple text string with data, the match is always case-insensiti
 **Example: Get all patients whose last name begins with Smith**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?family=Smith
+GET https://api.intellechart.net/icp-fhir-api/Patient?family=Smith
 </pre>
 
 &nbsp;
@@ -150,7 +150,7 @@ By default, exact matches are performed in numeric searches. You may use operato
 **Example: Get the patient with chart number 3442**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?identifier=3442
+GET https://api.intellechart.net/icp-fhir-api/Patient?identifier=3442
 </pre>
 
 &nbsp;
@@ -162,7 +162,7 @@ By default, exact matches are performed in date searches. You may use operators 
 **Example: Get immunizations for the month of October 2022**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Immunization?date=ge2022-10-01&date=lt2022-11-01
+GET https://api.intellechart.net/icp-fhir-api/Immunization?date=ge2022-10-01&date=lt2022-11-01
 </pre>
 
 &nbsp;
@@ -174,7 +174,7 @@ Some resources have abstract fields which contain a first name, last name, prefi
 **Example: Get the patients whose first name, last name, prefix or suffix begins with Doe**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?name=doe
+GET https://api.intellechart.net/icp-fhir-api/Patient?name=doe
 </pre>
 
 &nbsp;
@@ -186,7 +186,7 @@ Some resources have abstract fields which contain an Address 1, Address 2, City,
 **Example: Get the patients whose Address 1, Address 2, City, State or Zip code begins with 1500**
 
 <pre class="center-column">
-GET https://icp.nextech-api.com/Patient?address=1500
+GET https://api.intellechart.net/icp-fhir-api/Patient?address=1500
 </pre>
 
 &nbsp;
@@ -203,7 +203,7 @@ When a search results in multiple matches, the first ten matches ordered by ente
 
 You may overide the number of matches returned, up to fifty, by including `_count={number}` in your search.
 
-`GET http://icp.nextech-api.com/Patient?_count=25`
+`GET https://api.intellechart.net/icp-fhir-api/Patient?_count=25`
 
 <aside class="notice">
 Search results are limited to 50 matches per page.
