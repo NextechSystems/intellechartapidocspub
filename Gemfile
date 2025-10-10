@@ -2,8 +2,8 @@ ruby '~> 3.3.7'
 source 'https://rubygems.org'
 
 # Middleman
-gem 'middleman', '~> 4.5'
-gem 'middleman-syntax', '~> 3.2'
+gem 'middleman', '~> 4.6', '>= 4.6.0'
+gem 'middleman-syntax', '~> 3.5', '>= 3.5.0'
 gem 'middleman-autoprefixer', '~> 3.0'
 gem 'middleman-sprockets', '~> 4.1'
 gem 'rouge', '~> 3.28'
@@ -11,7 +11,7 @@ gem 'redcarpet', '~> 3.6'
 gem 'nokogiri', '~> 1.18.3'
 gem 'sass', '~> 3.7.4'
 gem 'terser', '~> 1.1'
-gem 'sprockets', '~> 3.7'
+gem 'sprockets', '~> 4.0', '>= 4.0.0'
 gem 'activesupport', '~> 6.1.0'
 
 # Pin to an older version
