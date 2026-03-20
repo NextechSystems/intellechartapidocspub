@@ -1,0 +1,47 @@
+
+# Azure Pipelines (YAML) — Build & Deploy inside ruby:2.7 (no apt), Node via tarball
+jobs:
+- job: build
+  displayName: Build & Deploy (Ruby 3.3 container)
+  pool:
+    vmImage: 'ubuntu-latest'            # Hosted agent
+
+  container:
+    image: ruby:3.3                     # Debian-based Ruby 3.3 image — matches Gemfile ruby '~> 3.3.7'
+
+  steps:
+  - checkout: self
+
+  - bash: |
+      set -euxo pipefail
+      ruby --version                    # should show Ruby 3.3.x
+      gem update --system
+      gem install bundler
+      bundler -v
+      bundle install
+    displayName: 'Install Bundler & bundle install'
+
+  # Install Node.js WITHOUT apt: download tarball to $HOME/node and add to PATH
+  - bash: |
+      set -euxo pipefail
+
+      NODE_VERSION="18.19.0"                          # pick a stable version; any modern Node works for ExecJS
+      curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" -o /tmp/node.tar.xz
+      mkdir -p "$HOME/node"
+      tar -xJf /tmp/node.tar.xz -C "$HOME/node" --strip-components=1
+
+      # Make Node available for subsequent steps in this job
+      # Use shell $PATH (not ADO macro $(PATH)) to preserve existing system paths
+      echo "##vso[task.setvariable variable=PATH]$HOME/node/bin:$PATH"
+
+      export PATH="$HOME/node/bin:$PATH"
+      node -v
+      npm -v
+    displayName: 'Install Node.js runtime for ExecJS (no apt)'
+
+  # Your deploy script (ExecJS/coffee-script will now find node)
+  - bash: ./deploy.sh
+    displayName: 'Bash Script to deploy'
+    env:
+      GIT_REPO: "$(GitHubOrigin)"
+      EXECJS_RUNTIME: Node
