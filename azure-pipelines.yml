@@ -9,6 +9,11 @@ jobs:
   steps:
   - checkout: self
 
+  - task: UseRubyVersion@0
+    inputs:
+      versionSpec: '~> 3.3'
+    displayName: 'Use Ruby 3.3'
+
   - bash: |
       set -euxo pipefail
       ruby --version
