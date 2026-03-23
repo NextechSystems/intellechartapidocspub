@@ -422,6 +422,23 @@
               </ul>
           </li>
           <li>
+            <a href="#coverage" class="toc-h1 toc-link" data-title="Coverage">Coverage</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Coverage">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#fields" class="toc-h2 toc-link" data-title="Coverage">Fields</a>
+                  </li>
+                  <li>
+                    <a href="#example" class="toc-h2 toc-link" data-title="Coverage">Example</a>
+                  </li>
+                  <li>
+                    <a href="#search" class="toc-h2 toc-link" data-title="Coverage"><em>Search</em></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#organization" class="toc-h1 toc-link" data-title="Organization">Organization</a>
               <ul class="toc-list-h2">
                   <li>
@@ -6287,6 +6304,273 @@ GET https://api.intellechart.net/icp-fhir-api/Practitioner?name:contains=smith
 <li>Prior to version 14.1, Practitioners could be returned more than once if multiple users are assigned to use the same provider in their Contacts module User properties.</li>
 </ul></li>
 </ul>
+<h1 id='coverage'>Coverage</h1><h3 id='overview'>Overview</h3>
+<p>The Coverage resource provides patient insurance information which may be used to pay for the provision of health care products and services.</p>
+<h3 id='fields'>Fields</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Initial Version</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifier</td>
+<td>The unique identifier for the coverage</td>
+<td><a href="https://www.hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>status</td>
+<td>The status of the coverage</td>
+<td><a href="https://www.hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>type</td>
+<td>The type of coverage (ie. Medical, Vision, Dental, Auto, Workers&#39; Comp). See <a href="http://hl7.org/fhir/R4/valueset-coverage-type.html">Coverage Type Codes</a></td>
+<td><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>subscriber</td>
+<td>The subscriber to the policy</td>
+<td><a href="https://www.hl7.org/fhir/R4/references.html">Reference(Patient or RelatedPerson)</a></td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>subscriberId</td>
+<td>The identifier assigned to the subscriber</td>
+<td><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>beneficiary</td>
+<td>The patient who benefits from the coverage</td>
+<td><a href="https://www.hl7.org/fhir/R4/references.html">Reference(Patient)</a></td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>relationship</td>
+<td>The beneficiary (or patient) relationship to the subscriber. See <a href="https://hl7.org/fhir/R4/valueset-relationship.html">Policyholder Relationship Codes</a></td>
+<td><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>period</td>
+<td>The coverage effective and expiry dates (if available)</td>
+<td><a href="http://hl7.org/fhir/R4/datatypes.html#Period">Period</a></td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>payor</td>
+<td>The reference to the insurance company providing the insurance coverage</td>
+<td><a href="https://www.hl7.org/fhir/R4/references.html">Reference(Organization)</a></td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>order</td>
+<td>The relative order of the coverage</td>
+<td><a href="http://hl7.org/fhir/R4/datatypes.html#positiveInt">positiveInt</a></td>
+<td><em>1.0</em></td>
+</tr>
+</tbody></table>
+<h3 id='example'>Example</h3>
+<pre class="center-column">
+{
+    "resourceType": "Coverage",
+    "id": "12345",
+    "identifier": [
+        {
+            "use": "official",
+            "value": "12345"
+        }
+    ],
+    "status": "active",
+    "type": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/v3/ActCode",
+                "code": "EHCPOL",
+                "display": "extended healthcare"
+            }
+        ]
+    },
+    "subscriber": {
+        "reference": "Patient/67890",
+        "display": "Smith, John"
+    },
+    "subscriberId": "ABC123456",
+    "beneficiary": {
+        "reference": "Patient/12345",
+        "display": "Doe, Jane"
+    },
+    "relationship": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/policyholder-relationship",
+                "code": "self",
+                "display": "Self"
+            }
+        ]
+    },
+    "period": {
+        "start": "2025-01-01",
+        "end": "2025-12-31"
+    },
+    "payor": [
+        {
+            "reference": "Organization/100",
+            "display": "Sample Insurance Company"
+        }
+    ],
+    "order": 1
+}
+</pre>
+
+<p>&nbsp;</p>
+<h3 id='search'><em>Search</em></h3>
+<p>Searches for active coverages based on the given search criteria.</p>
+<h4 id='http-request'>HTTP Request</h4>
+<p><code>GET /Coverage?{parameters}</code></p>
+
+<p><code>POST /Coverage/_search</code></p>
+<h4 id='parameters'>Parameters</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Initial Version</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>_id</td>
+<td>query/form</td>
+<td>The coverage identifier</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>patient</td>
+<td>query/form</td>
+<td>Search coverages by patient identifier</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>beneficiary</td>
+<td>query/form</td>
+<td>Search coverages by beneficiary (patient) identifier</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>status</td>
+<td>query/form</td>
+<td>The status of the coverage (e.g., active, cancelled)</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>type</td>
+<td>query/form</td>
+<td>The type of coverage</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>payor</td>
+<td>query/form</td>
+<td>The payor (insurance company) reference</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>period</td>
+<td>query/form</td>
+<td>The coverage period. Supports prefixes: gt, lt, ge, le, eq</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>_lastUpdate</td>
+<td>query/form</td>
+<td>Filter by last update timestamp. Supports prefixes: gt, lt, ge, le, eq</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>_since</td>
+<td>query/form</td>
+<td>Filter by resources updated since the given timestamp</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>_count</td>
+<td>query/form</td>
+<td>The maximum number of results to return</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>_getPagesOffset</td>
+<td>query/form</td>
+<td>The page offset for pagination</td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+<tr>
+<td>_revInclude</td>
+<td>query/form</td>
+<td>Reverse include related resources. Supported value: <code>Provenance:target</code></td>
+<td>N</td>
+<td><em>1.0</em></td>
+</tr>
+</tbody></table>
+<h4 id='response'>Response</h4>
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+<th>Resource</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+<td><a href="https://www.hl7.org/fhir/bundle.html">Bundle</a></td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td><a href="https://www.hl7.org/fhir/operationoutcome.html">OperationOutcome</a></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td><a href="https://www.hl7.org/fhir/operationoutcome.html">OperationOutcome</a></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td><a href="https://www.hl7.org/fhir/operationoutcome.html">OperationOutcome</a></td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td><a href="https://www.hl7.org/fhir/operationoutcome.html">OperationOutcome</a></td>
+</tr>
+</tbody></table>
+<h4 id='example-get-coverages-for-a-single-patient-get'>Example: Get coverages for a single patient (GET)</h4>
+<pre class="center-column">
+GET https://api.intellechart.net/icp-fhir-api/Coverage?patient=ce2a5ae0-3514-4f63-8609-911da841e72e
+</pre>
+
+<p>&nbsp;</p>
 <h1 id='organization'>Organization</h1><h3 id='overview'>Overview</h3>
 <p>An <a href="http://hl7.org/fhir/r4/us/core/STU3.1.1/StructureDefinition-us-core-organization.html">Organization</a> resource represents a physical location where services are provided. This may or may not be under the practice&#39;s management.</p>
 <h3 id='fields'>Fields</h3>
