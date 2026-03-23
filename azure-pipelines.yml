@@ -1,5 +1,5 @@
 
-# Azure Pipelines (YAML) — Build & Deploy inside ruby:2.7 (no apt), Node via tarball
+# Azure Pipelines (YAML) — Build & Deploy inside ruby:3.3 (no apt), Node via tarball  
 jobs:
 - job: build
   displayName: Build & Deploy (Ruby 3.3 container)
@@ -15,26 +15,24 @@ jobs:
   - bash: |
       set -euxo pipefail
       ruby --version                    # should show Ruby 3.3.x
-      gem update --system
-      gem install bundler
-      bundler -v
-      bundle install
+      # Install the Bundler version pinned in Gemfile.lock to keep builds reproducible
+      gem install bundler -v 2.6.6
+      bundle _2.6.6_ -v
+      bundle _2.6.6_ install
     displayName: 'Install Bundler & bundle install'
 
   # Install Node.js WITHOUT apt: download tarball to $HOME/node and add to PATH
   - bash: |
       set -euxo pipefail
 
-      NODE_VERSION="18.19.0"                          # pick a stable version; any modern Node works for ExecJS
+      NODE_VERSION="20.17.0"                          # use a supported Node 20 LTS version; suitable for ExecJS                          # pick a stable version; any modern Node works for ExecJS
       curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" -o /tmp/node.tar.xz
       mkdir -p "$HOME/node"
       tar -xJf /tmp/node.tar.xz -C "$HOME/node" --strip-components=1
 
       # Make Node available for subsequent steps in this job
-      # Use shell $PATH (not ADO macro $(PATH)) to preserve existing system paths
-      echo "##vso[task.setvariable variable=PATH]$HOME/node/bin:$PATH"
-
-      export PATH="$HOME/node/bin:$PATH"
+      # Prefer Azure Pipelines prependpath to avoid clobbering PATH
+      echo "##vso[task.prependpath]$HOME/node/bin"
       node -v
       npm -v
     displayName: 'Install Node.js runtime for ExecJS (no apt)'
