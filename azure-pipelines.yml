@@ -21,7 +21,7 @@ jobs:
       bundle _2.6.6_ install
     displayName: 'Install Bundler & bundle install'
 
-  - bash: ./deploy.sh
+  - bash: bash deploy.sh
     displayName: 'Bash Script to deploy'
     env:
       GIT_REPO: "$(GitHubOrigin)"
