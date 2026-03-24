@@ -1,0 +1,28 @@
+
+# Azure Pipelines (YAML) — Build & Deploy on Microsoft-hosted ubuntu-latest
+jobs:
+- job: build
+  displayName: Build & Deploy
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  steps:
+  - checkout: self
+
+  - task: UseRubyVersion@0
+    inputs:
+      versionSpec: '~> 3.3'
+    displayName: 'Use Ruby 3.3'
+
+  - bash: |
+      set -euxo pipefail
+      ruby --version
+      gem install bundler -v 2.6.6
+      bundle _2.6.6_ install
+    displayName: 'Install Bundler & bundle install'
+
+  - bash: bash deploy.sh
+    displayName: 'Bash Script to deploy'
+    env:
+      GIT_REPO: "$(GitHubOrigin)"
+      EXECJS_RUNTIME: Node
