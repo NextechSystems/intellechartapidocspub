@@ -1,5 +1,8 @@
 ## Synopsis
 
+[![Build and Deploy Documentation](https://github.com/NextechSystems/intellechartapidocspub/actions/workflows/deploy.yml/badge.svg)](https://github.com/NextechSystems/intellechartapidocspub/actions/workflows/deploy.yml)
+[![pages-build-deployment](https://github.com/NextechSystems/intellechartapidocspub/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/NextechSystems/intellechartapidocspub/actions/workflows/pages/pages-build-deployment)
+
 This repository contains all content used to generate the official Nextech API documentation at https://nextechsystems.github.io/intellechartapidocspub
 
 ## Modifying the Documentation
@@ -34,11 +37,31 @@ For assistance or additional instructions please visit the official Slate readme
 
 ### Publishing
 
-You can publish the contents of this repository to https://nextechsystems.github.io/intellechartapidocspub by doing the following:
+> **📖 For detailed deployment information, see [DEPLOYMENT.md](DEPLOYMENT.md)**
+
+#### Automated Deployment (Recommended)
+
+The documentation is automatically built and deployed when changes are pushed to the `master` branch. The deployment pipeline:
+
+1. **Build Pipeline**: Located at `.github/workflows/deploy.yml`
+2. **Status**: Check the badge at the top of this README or visit the [Actions tab](https://github.com/NextechSystems/intellechartapidocspub/actions)
+3. **Deployment History**: View all deployments on the [gh-pages branch](https://github.com/NextechSystems/intellechartapidocspub/commits/gh-pages)
+4. **Latest Deployed Commit**: Each deployment commit message shows which source commit was deployed
+
+After merging to `master`, the pipeline will:
+- Build the documentation using Middleman
+- Deploy to GitHub Pages (gh-pages branch)
+- Update the live site at https://nextechsystems.github.io/intellechartapidocspub
+
+It takes a few minutes for the changes to go live after deployment.
+
+#### Manual Deployment (Legacy)
+
+You can also manually publish using the `deploy.sh` script:
 
 1. Cloning https://github.com/NextechSystems/intellechartapidocspub to a Mac OS machine
 2. Open a new Terminal or Command Shell window
 3. Browse into the path of your cloned repository on your local machine
 4. Type in `./deploy.sh`
 
-It takes a few minutes for the changes to go live.
+Note: The automated deployment is recommended as it provides better tracking and consistency.
